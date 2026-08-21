@@ -1,0 +1,901 @@
+id,barcode,name,brand,generic_name,quantity,category,macro_category,food_type,kcal,protein,carbs,fat,fiber_100g,sugars_100g,saturated_fat_100g,salt_100g,sodium_100g,cholesterol_mg_100g,serving_size,serving_quantity,ingredients,allergens,labels,source,source_url,countries_tags,image_url,verified,usable_for_meal_generator,data_quality_score,nutrients,created_at,updated_at
+crea_000020,,"Farro perlato, crudo",,,,cereali,carb_source,generic_food,353,14.6,69.3,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000025,,"Farro perlato, cotto, bollito",,,,cereali,carb_source,generic_food,178,6.2,37.3,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000030,,Frumento duro,,,,cereali,carb_source,generic_food,332,13,62.5,2.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000040,,Frumento tenero,,,,cereali,carb_source,generic_food,336,12.3,65.2,2.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000045,,"Couscous, crudo",,,,cereali,carb_source,generic_food,361,13.7,76.5,1.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000046,,"Couscous, cotto",,,,cereali,carb_source,generic_food,179,3.6,39.7,1.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000050,,Grano saraceno,,,,cereali,carb_source,generic_food,329,12.4,61.2,3.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000060,,Mais,,,,cereali,carb_source,generic_food,357,9.2,75.1,3.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000070,,"Mais, dolce, in scatola, sgocciolato",,,,cereali,carb_source,generic_food,105,3.4,20.5,1.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000075,,"Polenta, cruda",,,,cereali,carb_source,generic_food,323,8,72.7,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000076,,"Polenta, cotta",,,,cereali,carb_source,generic_food,73,0.9,17.8,0.04,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000080,,Miglio,,,,cereali,carb_source,generic_food,343,11.8,64.9,3.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000081,,"Miglio, decorticato",,,,cereali,carb_source,generic_food,342,11,67.8,4.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000090,,Orzo perlato,,,,cereali,carb_source,generic_food,346,9.4,73.7,1.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000095,,"Orzo perlato, cotto, bollito",,,,cereali,carb_source,generic_food,118,2.6,26.4,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000096,,"Quinoa, cruda",,,,cereali,carb_source,generic_food,376,15.4,57.8,8.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000097,,"Quinoa, cotta, bollita",,,,cereali,carb_source,generic_food,140,4.8,24.3,2.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000100,,"Riso, brillato",,,,cereali,carb_source,generic_food,334,6.7,80.4,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000105,,"Riso, brillato, cotto, bollito",,,,cereali,carb_source,generic_food,100,2,24.2,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000110,,"Riso, integrale",,,,cereali,carb_source,generic_food,341,7.5,77.4,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000115,,"Riso, integrale, cotto, bollito",,,,cereali,carb_source,generic_food,113,2.5,25.5,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000120,,"Riso, parboiled",,,,cereali,carb_source,generic_food,338,7.4,81.3,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000125,,"Riso, parboiled, cotto, bollito",,,,cereali,carb_source,generic_food,97,2.1,23.3,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000130,,"Riso Basmati, crudo",,,,cereali,carb_source,generic_food,367,9,82.9,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000135,,"Riso Basmati, cotto, bollito",,,,cereali,carb_source,generic_food,113,3,25.2,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000140,,"Riso Venere, crudo",,,,cereali,carb_source,generic_food,355,7.8,80.4,1.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000145,,"Riso Venere, cotto, bollito",,,,cereali,carb_source,generic_food,160,3.5,36.9,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000150,,Crusca di frumento,,,,cereali,carb_source,generic_food,290,14.1,26.6,5.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000200,,Farina d'avena,,,,cereali,carb_source,generic_food,378,12.6,66.3,7.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000210,,Farina d'orzo,,,,cereali,carb_source,generic_food,333,10.6,68.4,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000220,,"Farina di frumento, tipo 00",,,,cereali,carb_source,generic_food,323,11,71.6,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000230,,"Farina di frumento, tipo 0",,,,cereali,carb_source,generic_food,321,11.5,69.5,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000240,,"Farina di frumento, integrale",,,,cereali,carb_source,generic_food,313,11.9,61.8,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000250,,"Farina di frumento, duro",,,,cereali,carb_source,generic_food,330,12.9,63.2,2.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000260,,Farina di mais,,,,cereali,carb_source,generic_food,341,8.7,73.5,2.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000270,,Farina di riso,,,,cereali,carb_source,generic_food,332,7.3,79.1,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000280,,Farina di segale,,,,cereali,carb_source,generic_food,342,11.7,67.8,2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000290,,Farina di soia,,,,legumi,mixed_source,generic_food,469,36.8,23.4,23.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000300,,"Mais, amido",,,,cereali,carb_source,generic_food,328,0.3,87,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000310,,Semola,,,,cereali,carb_source,generic_food,346,11.5,76.9,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000320,,Farina di manioca,,,,cereali,carb_source,generic_food,332,0.6,87.2,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000330,,Germe di frumento,,,,cereali,mixed_source,generic_food,378,26,43.5,10,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000500,,Pane al malto,,,,cereali,carb_source,generic_food,278,8.3,56.6,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000510,,Pane di segale,,,,cereali,carb_source,generic_food,228,8.3,45.4,1.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000530,,Pane bianco,,,,cereali,carb_source,generic_food,268,8.1,59.5,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000540,,Pane di tipo semintegrale,,,,cereali,carb_source,generic_food,239,8.3,52,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000550,,Pane di tipo integrale,,,,cereali,carb_source,generic_food,224,8.5,44.1,1.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000560,,Pane formato rosetta,,,,cereali,carb_source,generic_food,275,9,57.6,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000570,,Pangrattato,,,,cereali,carb_source,generic_food,357,10.1,77.8,2.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000580,,Panini al latte,,,,cereali,carb_source,generic_food,298,9,48.1,8.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000590,,Panini all'olio,,,,cereali,carb_source,generic_food,288,7.7,52.6,5.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000600,,Pane azzimo,,,,cereali,carb_source,generic_food,365,10.7,81.7,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000700,,Pizza bianca,,,,cereali,carb_source,generic_food,306,7.9,57.9,5.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000710,,Pizza con pomodoro,,,,cereali,carb_source,generic_food,248,7.6,40.7,6.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000720,,Pizza con pomodoro e mozzarella,,,,cereali,carb_source,generic_food,255,12.1,35.5,7.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000800,,Pasta di semola,,,,cereali,carb_source,generic_food,341,13.5,72.7,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000805,,"Pasta di semola, cotta, bollita",,,,cereali,carb_source,generic_food,175,6.9,37.3,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000850,,"Pasta di semola, integrale",,,,cereali,carb_source,generic_food,330,13.3,64.8,2.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000855,,"Pasta di semola, integrale, cotta, bollita",,,,cereali,carb_source,generic_food,182,7.4,36,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000870,,"Pasta all'uovo, secca",,,,cereali,carb_source,generic_food,346,13,71,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000871,,"Pasta all'uovo, secca, cotta, bollita",,,,cereali,carb_source,generic_food,123,4.6,25.5,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000875,,"Ravioli, crudi, freschi",,,,cereali,carb_source,generic_food,265,10.6,40.7,7.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000876,,"Ravioli, cotti",,,,cereali,carb_source,generic_food,177,7.2,27.5,4.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000880,,"Tortellini, freschi",,,,cereali,carb_source,generic_food,302,12.2,49.9,7.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000885,,"Tortellini, freschi, cotti",,,,cereali,carb_source,generic_food,158,6.4,26,3.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000890,,"Tortellini, secchi",,,,cereali,carb_source,generic_food,379,15.7,57.6,10.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000900,,"Biscotti, frollini",,,,cereali,carb_source,generic_food,426,7.2,71.7,13.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000910,,"Biscotti, integrali",,,,cereali,carb_source,generic_food,419,7.8,70.8,12.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000950,,"Biscotti, secchi",,,,cereali,carb_source,generic_food,404,6.6,80.4,7.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000960,,"Biscotti, alla soia",,,,cereali,carb_source,generic_food,375,11.5,70.8,6.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000970,,"Biscotti, integrali, con soia",,,,cereali,carb_source,generic_food,464,11.5,60.4,20.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_000990,,"Biscotti, wafers",,,,cereali,carb_source,generic_food,452,7.1,76.2,15,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_001000,,"Crackers, al formaggio",,,,cereali,mixed_source,generic_food,498,10.1,59.2,25.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_001010,,"Crackers, alla soia",,,,cereali,carb_source,generic_food,421,13.1,67.7,11.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_001020,,"Crackers, salati",,,,cereali,carb_source,generic_food,386,9.4,67.5,10,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_001030,,"Crackers, integrali",,,,cereali,carb_source,generic_food,402,12,61.7,11.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_001500,,Fette biscottate,,,,cereali,carb_source,generic_food,387,11.3,75,6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_001510,,"Fette biscottate, integrali",,,,cereali,carb_source,generic_food,394,14.2,63,10,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_002000,,Grissini,,,,cereali,carb_source,generic_food,421,11.3,65.1,13.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_002500,,Cornetti,,,,cereali,carb_source,generic_food,403,7.2,54.7,18.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_002510,,Croissants,,,,cereali,mixed_source,generic_food,362,8.3,38,20.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_003000,,Bastoncini di crusca di frumento,,,,cereali,carb_source,generic_food,301,14,38.4,3.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_003020,,Corn flakes,,,,cereali,carb_source,generic_food,367,6.6,87.4,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_003030,,Fiocchi d'avena,,,,cereali,carb_source,generic_food,367,8,66.8,7.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_003040,,Muesli,,,,cereali,carb_source,generic_food,374,9.7,71.7,6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_003050,,"Riso, soffiato, da prima colazione",,,,cereali,carb_source,generic_food,354,6,85.1,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004000,,"Ceci, secchi",,,,legumi,carb_source,generic_food,343,20.9,46.9,6.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004005,,"Ceci, secchi, cotti, bolliti",,,,legumi,carb_source,generic_food,132,7,18.9,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004010,,"Ceci, in scatola, scolati",,,,legumi,carb_source,generic_food,111,6.7,13.9,2.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004100,,Fagioli,,,,legumi,carb_source,generic_food,326,23.6,47.5,2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004105,,"Fagioli, cotti, bolliti",,,,legumi,carb_source,generic_food,117,7.9,17,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004110,,"Fagioli, Borlotti, freschi",,,,legumi,carb_source,generic_food,143,10.2,22.7,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004115,,"Fagioli, Borlotti, freschi, cotti, bolliti",,,,legumi,carb_source,generic_food,78,5.7,11.2,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004120,,"Fagioli, Borlotti, secchi",,,,legumi,carb_source,generic_food,312,20.2,47.7,2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004125,,"Fagioli, Borlotti, secchi, cotti, bolliti",,,,legumi,carb_source,generic_food,106,6.9,16.4,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004130,,"Fagioli, Borlotti, in scatola, scolati",,,,legumi,carb_source,generic_food,102,6.7,15.9,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004200,,"Fagioli, Cannellini, secchi",,,,legumi,carb_source,generic_food,314,23.4,45.5,1.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004205,,"Fagioli, Cannellini, secchi, cotti, bolliti",,,,legumi,carb_source,generic_food,107,8,14.9,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004210,,"Fagioli, Cannellini in scatola, scolati",,,,legumi,carb_source,generic_food,86,6,12.5,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004220,,"Fagioli dall'occhio, secchi",,,,legumi,carb_source,generic_food,318,22.4,50.9,1.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004305,,"Fagiolini a corallo, cotti, bolliti",,,,legumi,carb_source,generic_food,31,1.7,4.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004310,,"Fagiolini, freschi",,,,legumi,carb_source,generic_food,24,2.1,2.4,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004325,,"Fagiolini, surgelati, cotti, bolliti",,,,legumi,carb_source,generic_food,31,1.7,4.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004400,,"Fave, fresche",,,,legumi,mixed_source,generic_food,51,5.2,4.5,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004406,,"Fave, fresche, cotte, in padella",,,,legumi,mixed_source,generic_food,61,6.1,5.3,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004410,,"Fave, secche",,,,legumi,carb_source,generic_food,331,21.3,52.8,2.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004420,,"Fave, secche, sgusciate, crude",,,,legumi,carb_source,generic_food,343,25.2,53.6,3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004425,,"Fave, secche, sgusciate, cotte, bollite",,,,legumi,carb_source,generic_food,146,11,22.4,1.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004500,,"Lenticchie, secche",,,,legumi,carb_source,generic_food,319,22.7,51.1,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004505,,"Lenticchie, secche, cotte, bollite",,,,legumi,carb_source,generic_food,109,6.9,16.3,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004510,,"Lenticchie, in scatola, scolate",,,,legumi,carb_source,generic_food,91,5,15.4,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004600,,"Lupini, ammollati",,,,legumi,protein_source,generic_food,119,16.4,7.1,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004700,,"Piselli, freschi",,,,legumi,mixed_source,generic_food,64,5.5,6.5,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004706,,"Piselli, freschi, cotti, in padella",,,,legumi,mixed_source,generic_food,104,9.7,11.5,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004710,,"Piselli, secchi",,,,legumi,carb_source,generic_food,317,21.7,48.2,2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004720,,"Piselli, in scatola, scolati",,,,legumi,carb_source,generic_food,78,5.3,11.1,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004730,,"Piselli, surgelati",,,,legumi,carb_source,generic_food,61,5.4,6.5,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004900,,"Soia, secca",,,,legumi,mixed_source,generic_food,430,36.9,23.2,19.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_004910,,"Soia, isolato proteico",,,,legumi,protein_source,generic_food,369,86.5,4.5,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005000,,Aglio,,,,verdura,protein_source,generic_food,53,8.4,1,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005001,,Aglio Rosso di Castelliri,,,,verdura,protein_source,generic_food,52,8.9,1.02,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005002,,Aglio Rosso di Procerno,,,,verdura,protein_source,generic_food,57,8.9,1,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005003,,Aglio Rosso di Sulmona,,,,verdura,protein_source,generic_food,58,8.7,1,1.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005004,,Aglio Bianco Piacentino,,,,verdura,protein_source,generic_food,47,7.2,0.9,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005010,,"Agretti, crudi",,,,verdura,mixed_source,generic_food,22,1.8,2.2,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005025,,"Agretti, cotti, bolliti",,,,verdura,carb_source,generic_food,25,2.1,2.6,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005030,,"Asparagi di bosco, crudi",,,,verdura,protein_source,generic_food,40,4.6,4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005040,,"Asparagi di campo, crudi",,,,verdura,mixed_source,generic_food,33,3.6,3.3,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005045,,"Asparagi di campo, cotti, bolliti",,,,verdura,mixed_source,generic_food,34,3.8,3.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005050,,"Asparagi di serra, crudi",,,,verdura,mixed_source,generic_food,28,3,3,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005060,,"Barbabietole rosse, crude",,,,verdura,carb_source,generic_food,25,1.1,4,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005065,,"Barbabietole rosse, cotte, bollite",,,,verdura,carb_source,generic_food,43,2.1,7.8,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005080,,"Bieta, cruda",,,,verdura,carb_source,generic_food,15,1.3,1.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005084,,"Bieta, cotta, al microonde",,,,verdura,carb_source,generic_food,15,1.3,1.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005085,,"Bieta, cotta, bollita",,,,verdura,carb_source,generic_food,18,1.5,2.1,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005090,,"Broccoletti di rapa, crudi",,,,verdura,protein_source,generic_food,28,2.9,2,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005095,,"Broccoletti di rapa, cotti, bolliti",,,,verdura,protein_source,generic_food,29,3.1,2.1,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005105,,"Broccolo a testa, cotto, bollito",,,,verdura,mixed_source,generic_food,34,3.1,3.2,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005110,,"Broccolo a testa, crudo",,,,verdura,mixed_source,generic_food,33,3,3.1,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005120,,"Carciofi, crudi",,,,verdura,mixed_source,generic_food,33,2.7,2.5,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005124,,"Carciofi, cotti, al microonde",,,,verdura,mixed_source,generic_food,34,2.8,2.5,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005125,,"Carciofi, cotti, bolliti",,,,verdura,mixed_source,generic_food,44,3.6,3.3,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005130,,"Carciofi, surgelati",,,,verdura,mixed_source,generic_food,32,2.7,2.5,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005131,,Carciofo Romanesco IGP,,,,verdura,carb_source,generic_food,48,3,6.1,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005132,,"Carciofo, verde, precoce",,,,verdura,carb_source,generic_food,45,2.9,5.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005134,,"Carciofo, violetto, precoce",,,,verdura,carb_source,generic_food,43,2.8,5.2,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005136,,"Carciofo, Spinoso sardo",,,,verdura,carb_source,generic_food,45,1.9,8.9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005140,,"Cardi, crudi",,,,verdura,carb_source,generic_food,13,0.6,1.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005150,,"Carote, crude",,,,verdura,carb_source,generic_food,41,1.1,7.6,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005154,,"Carote, cotte, al microonde",,,,verdura,carb_source,generic_food,41,1.1,7.7,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:17:12.079487+00:00,2026-06-04T21:17:12.079487+00:00
+crea_005155,,"Carote, cotte, bollite",,,,verdura,carb_source,generic_food,47,1.3,8.7,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005160,,"Cavolfiore, crudo",,,,verdura,protein_source,generic_food,30,3.2,2.7,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005164,,"Cavolfiore, cotto, al microonde",,,,verdura,mixed_source,generic_food,30,3.2,2.8,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005165,,"Cavolfiore, cotto, bollito",,,,verdura,protein_source,generic_food,31,3.4,2.9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005170,,"Cavoli di Bruxelles, crudi",,,,verdura,mixed_source,generic_food,47,4.2,4.2,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005175,,"Cavoli di Bruxelles, cotti, bolliti",,,,verdura,mixed_source,generic_food,53,4.7,4.6,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005180,,"Cavolo broccolo verde ramoso, crudo",,,,verdura,protein_source,generic_food,30,3.4,2,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005185,,"Cavolo broccolo verde ramoso, cotto, bollito",,,,verdura,protein_source,generic_food,52,6,3.5,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005190,,"Cavolo cappuccio, rosso, crudo",,,,verdura,carb_source,generic_food,22,1.9,2.7,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005195,,"Cardi, cotti, bolliti",,,,verdura,carb_source,generic_food,22,1,2.9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005200,,"Cavolo cappuccio, verde, crudo",,,,verdura,carb_source,generic_food,24,2.1,2.5,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005205,,"Cavolo cappuccio, verde, cotto, bollito",,,,verdura,carb_source,generic_food,24,2.1,2.5,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005210,,"Cavolo verza, cruda",,,,verdura,carb_source,generic_food,29,2,3.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005215,,"Cavolo verza, cotto, bollito",,,,verdura,carb_source,generic_food,29,2,3.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005220,,"Cetrioli, freschi",,,,verdura,mixed_source,generic_food,16,0.7,1.8,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005230,,"Cicoria, da taglio, coltivata, cruda",,,,verdura,carb_source,generic_food,14,1.2,1.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005240,,"Cicoria, di campo, cruda",,,,verdura,protein_source,generic_food,17,1.4,0.7,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005245,,"Cicoria, di campo, cotta, bollita",,,,verdura,protein_source,generic_food,17,1.4,0.7,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005250,,"Cicoria, witloof o indivia belga, cruda",,,,verdura,carb_source,generic_food,20,0.7,3.2,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005300,,"Cipolle, crude",,,,verdura,carb_source,generic_food,28,1,5.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005305,,"Cipolle, cotte, bollite",,,,verdura,carb_source,generic_food,39,1.4,7.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005310,,"Cipolline, crude",,,,verdura,carb_source,generic_food,42,1.3,8.5,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005315,,"Cipolline, cotte, bollite",,,,verdura,carb_source,generic_food,53,1.7,10.9,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005320,,"Finocchi, crudi",,,,verdura,carb_source,generic_food,15,1.2,1.5,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005324,,"Finocchi, cotti, al microonde",,,,verdura,carb_source,generic_food,15,1.2,1.5,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005325,,"Finocchi, cotti, bolliti",,,,verdura,carb_source,generic_food,17,1.4,1.7,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005330,,"Fiori di zucca, freschi",,,,verdura,protein_source,generic_food,18,1.7,0.5,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005340,,"Foglie di rapa, crude",,,,verdura,mixed_source,generic_food,27,2.6,2.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005350,,Germogli di soia,,,,verdura,protein_source,generic_food,54,6.2,3,1.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005400,,"Indivia, fresca",,,,verdura,carb_source,generic_food,20,0.9,2.7,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005410,,"Lattuga, fresca",,,,verdura,mixed_source,generic_food,22,1.8,2.2,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005420,,"Lattuga, a cappuccio, fresca",,,,verdura,carb_source,generic_food,22,1.5,3,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005430,,"Lattuga, da taglio, fresca",,,,verdura,carb_source,generic_food,17,1.1,2.2,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005435,,"Lattughino, fresco",,,,verdura,mixed_source,generic_food,16,1.5,1.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005436,,"Lattughino IV gamma, fresco",,,,verdura,mixed_source,generic_food,16,1.4,1.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005440,,"Radicchio, rosso, fresco",,,,verdura,mixed_source,generic_food,19,1.4,1.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005441,,"Radicchio rosso di Treviso IGP, precoce",,,,verdura,protein_source,generic_food,16,1.6,1,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005442,,"Radicchio rosso di Treviso IGP, tardivo",,,,verdura,mixed_source,generic_food,16,1.5,1.4,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005443,,Radicchio variegato di Castelfranco IGP,,,,verdura,mixed_source,generic_food,16,1.3,1.4,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005450,,"Radicchio, verde, fresco",,,,verdura,protein_source,generic_food,14,1.9,0.5,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005460,,"Rughetta o rucola, fresca",,,,verdura,carb_source,generic_food,30,2.6,3.9,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005465,,Scarola,,,,verdura,carb_source,generic_food,19,1.1,2.3,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005466,,"Scarola IV gamma, fresca",,,,verdura,carb_source,generic_food,17,0.9,2.2,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005470,,"Tarassaco o dente di leone, fresco",,,,verdura,mixed_source,generic_food,37,3.1,3.7,1.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005500,,"Melanzane, crude",,,,verdura,carb_source,generic_food,23,1,2.6,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005506,,"Melanzane, cotte, in padella",,,,verdura,carb_source,generic_food,39,1.3,5.4,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005507,,"Melanzane, cotte, al microonde",,,,verdura,carb_source,generic_food,23,0.8,3,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005600,,"Peperoni, crudi",,,,verdura,carb_source,generic_food,26,0.9,4.2,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005606,,"Peperoni, cotti, in padella",,,,verdura,carb_source,generic_food,143,5.2,24.3,1.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005610,,"Peperoni, rossi e gialli, crudi",,,,verdura,carb_source,generic_food,35,0.9,6.7,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005620,,"Peperoni, gialli, crudi",,,,verdura,carb_source,generic_food,35,0.9,6.8,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005624,,"Peperoni, gialli, cotti, al microonde",,,,verdura,carb_source,generic_food,41,1.1,8.1,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005630,,"Peperoni, rossi, crudi",,,,verdura,carb_source,generic_food,34,0.9,6.5,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005634,,"Peperoni, rossi, cotti, al microonde",,,,verdura,carb_source,generic_food,42,1.1,7.9,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005640,,"Peperoni, verdi, crudi",,,,verdura,carb_source,generic_food,31,0.7,6,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005650,,"Porri, crudi",,,,verdura,carb_source,generic_food,35,2.1,5.2,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005655,,"Porri, cotti, bolliti",,,,verdura,carb_source,generic_food,35,2.1,5.3,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005660,,"Rape, crude",,,,verdura,carb_source,generic_food,24,1,4,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005665,,"Rape, cotte, bollite",,,,verdura,carb_source,generic_food,26,1.1,4.3,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005670,,"Ravanelli, freschi",,,,verdura,carb_source,generic_food,13,0.8,1.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005680,,"Sedano, crudo",,,,verdura,mixed_source,generic_food,23,2.3,2.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005684,,"Sedano, cotto, al microonde",,,,verdura,mixed_source,generic_food,24,2.4,2.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005690,,"Sedano rapa, crudo",,,,verdura,carb_source,generic_food,29,1.9,3.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005700,,"Spinaci, crudi",,,,verdura,mixed_source,generic_food,35,3.4,2.9,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005704,,"Spinaci, cotti, al microonde",,,,verdura,mixed_source,generic_food,35,3.4,3,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005705,,"Spinaci, cotti, bolliti",,,,verdura,mixed_source,generic_food,41,4,3.5,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005710,,"Spinaci, surgelati",,,,verdura,protein_source,generic_food,15,2.8,0,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005720,,"Zucca gialla, fresca",,,,verdura,carb_source,generic_food,29,1.1,3.5,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005730,,"Zucchine, crude",,,,verdura,mixed_source,generic_food,16,1.5,1.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005735,,"Zucchine, cotte, bollite",,,,verdura,mixed_source,generic_food,30,3.2,3.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005740,,"Zucchine, chiare",,,,verdura,mixed_source,generic_food,17,1.9,1.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005741,,"Zucchine chiare, cotte, al vapore",,,,verdura,carb_source,generic_food,20,2,2.5,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005742,,"Zucchine chiare, cotte, in padella grigliate",,,,verdura,carb_source,generic_food,29,0,5.7,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005744,,"Zucchine, chiare, cotte, al microonde",,,,verdura,carb_source,generic_food,23,2,3,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005750,,"Zucchine, scure, crude",,,,verdura,carb_source,generic_food,17,1.4,2.1,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005751,,"Zucchine, scure, cotte, al vapore",,,,verdura,carb_source,generic_food,20,1.6,2.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005752,,"Zucchine, scure, cotte, in padella grigliate",,,,verdura,carb_source,generic_food,37,2.7,5.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_005754,,"Zucchine, scure, cotte, al microonde",,,,verdura,carb_source,generic_food,23,1.8,3.5,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006000,,"Funghi coltivati, prataioli, crudi",,,,verdura,protein_source,generic_food,24,3.7,0.8,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006006,,"Funghi coltivati, prataioli, cotti, in padella",,,,verdura,protein_source,generic_food,46,7,1.5,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006010,,"Funghi coltivati, pleurotes, crudi",,,,verdura,carb_source,generic_food,37,2.2,5.6,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006016,,"Funghi coltivati, pleurotes, cotti, in padella",,,,verdura,carb_source,generic_food,35,2.6,5.3,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006020,,"Funghi ovuli, crudi",,,,verdura,mixed_source,generic_food,23,2,1.6,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006030,,"Funghi porcini, crudi",,,,verdura,protein_source,generic_food,31,3.9,1,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006200,,"Tartufo, nero",,,,verdura,protein_source,generic_food,48,6,0.7,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006500,,"Patate, crude",,,,verdura,carb_source,generic_food,72,2,16,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006505,,"Patate, con buccia, cotte, bollite",,,,verdura,carb_source,generic_food,88,2.1,17.9,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006511,,"Patate, cotte, arrosto",,,,verdura,carb_source,generic_food,152,2.9,25.7,4.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006514,,"Patate, cotte, al microonde",,,,verdura,carb_source,generic_food,88,2.1,17.9,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006515,,"Patate, senza buccia, cotte, bollite",,,,verdura,carb_source,generic_food,74,1.8,16.9,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006517,,"Patate, fritte",,,,verdura,carb_source,generic_food,192,3.9,29.9,6.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006570,,"Patatine, fritte, confezionate in busta",,,,verdura,fat_source,generic_food,512,5.4,58,29.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006580,,"Patate novelle, crude",,,,verdura,carb_source,generic_food,72,2,15.7,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006584,,"Patate novelle, cotte, al microonde",,,,verdura,carb_source,generic_food,72,2,15.7,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006585,,"Patate novelle, cotte, bollte",,,,verdura,carb_source,generic_food,68,1.9,14.9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006590,,"Gnocchi di patate, crudi",,,,cereali,carb_source,generic_food,164,3.9,37.9,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006591,,"Gnocchi di patate, cotti",,,,cereali,carb_source,generic_food,147,3.5,34,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006596,,"Topinambur, cotto, bollito",,,,verdura,carb_source,generic_food,52,1.6,10.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006600,,"Pomodori, da insalata, freschi",,,,verdura,carb_source,generic_food,19,1.2,2.8,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006610,,"Pomodori, maturi, freschi",,,,verdura,carb_source,generic_food,23,1,3.5,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006620,,"Pomodori, San Marzano, freschi",,,,verdura,carb_source,generic_food,21,1.1,3,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006630,,"Pomodori, Nerina, verdi, freschi",,,,verdura,carb_source,generic_food,21,0.9,2.8,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006640,,"Pomodori, Nerina, rossi, freschi",,,,verdura,carb_source,generic_food,21,1.1,2.8,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006650,,"Pomodorini ciliegino, freschi",,,,verdura,carb_source,generic_food,37,1.1,7.2,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006660,,"Pomodori, conserva",,,,verdura,carb_source,generic_food,100,3.9,20.4,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006670,,"Pomodori, passata",,,,verdura,carb_source,generic_food,21,1.3,3,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006680,,"Pomodori, pelati in scatola",,,,verdura,carb_source,generic_food,22,1.2,3,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006690,,"Pomodori, succo",,,,verdura,carb_source,generic_food,16,0.8,3,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006800,,"Basilico, fresco",,,,verdura,carb_source,generic_food,42,3.1,5.2,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006810,,"Menta, fresca",,,,verdura,mixed_source,generic_food,49,3.8,5.3,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006820,,Pepe nero,,,,verdura,carb_source,generic_food,311,11.4,49,3.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006830,,"Peperoncini piccanti, freschi",,,,verdura,carb_source,generic_food,30,1.8,3.8,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006840,,"Prezzemolo, fresco",,,,verdura,protein_source,generic_food,30,3.7,,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006850,,"Rosmarino, fresco",,,,verdura,carb_source,generic_food,110,1.4,13.5,4.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006860,,"Salvia, fresco",,,,verdura,carb_source,generic_food,132,3.9,15.6,4.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_006990,,"Vegetali misti, surgelati",,,,verdura,carb_source,generic_food,67,3.3,13.7,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007000,,"Albicocche, fresche",,,,frutta,fruit,generic_food,42,0.4,9.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007010,,"Albicocche, disidratate",,,,frutta,fruit,generic_food,356,5.6,80.6,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007020,,"Albicocche, sciroppate",,,,frutta,fruit,generic_food,65,0.4,16.1,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007030,,"Albicocche, secche",,,,frutta,fruit,generic_food,286,5,66.5,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007040,,"Cocomero, fresco",,,,frutta,fruit,generic_food,16,0.4,3.7,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007050,,"Fichi, freschi",,,,frutta,fruit,generic_food,63,0.9,14.2,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007053,,"Fichi, seccati al forno e mandorlati",,,,frutta,fruit,generic_food,305,5.2,58.2,4.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007060,,"Fichi, canditi",,,,frutta,fruit,generic_food,294,3.5,73.7,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007070,,"Fichi, secchi",,,,frutta,fruit,generic_food,282,3.5,58,2.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007080,,"Fichi d'india, freschi",,,,frutta,fruit,generic_food,63,0.8,13,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007090,,"Loti o kaki, freschi",,,,frutta,fruit,generic_food,70,0.6,16,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007100,,"Melagrane, fresche",,,,frutta,fruit,generic_food,68,0.5,15.9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007110,,"Mele, fresche, senza buccia",,,,frutta,fruit,generic_food,57,0.3,13.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007120,,"Mele, fresche, con buccia",,,,frutta,fruit,generic_food,44,0.2,10,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007130,,"Mele, fresche, annurche",,,,frutta,fruit,generic_food,45,0.3,10.2,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007140,,"Mele, fresche, deliziose",,,,frutta,fruit,generic_food,46,0.2,11.1,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007150,,"Mele, fresche, golden",,,,frutta,fruit,generic_food,46,0.4,10.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007160,,"Mele, fresche, granny smith",,,,frutta,fruit,generic_food,42,0.5,9.4,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007170,,"Mele, fresche, imperatore",,,,frutta,fruit,generic_food,48,0.2,11.3,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007180,,"Mele, fresche, renette",,,,frutta,fruit,generic_food,43,0.3,10,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007190,,"Mele, disidratate",,,,frutta,fruit,generic_food,356,1.3,82.2,2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007220,,"Mele cotogne, fresche",,,,frutta,fruit,generic_food,38,0.3,6.3,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007230,,"Melone, d'estate, fresco",,,,frutta,fruit,generic_food,34,0.8,7.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007240,,"Melone, d'inverno, fresco",,,,frutta,fruit,generic_food,24,0.5,4.9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007250,,"Nespole, fresche",,,,frutta,fruit,generic_food,32,0.4,6.1,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007260,,"Pere, fresche, senza buccia",,,,frutta,fruit,generic_food,43,0.3,8.8,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007261,,"Pere, fresche, Abate Fetel",,,,frutta,fruit,generic_food,59,0.2,12.7,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007262,,"Pere, fresche, Coscia",,,,frutta,fruit,generic_food,42,0.3,8.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007263,,"Pere, fresche, Kaiser",,,,frutta,fruit,generic_food,48,0.3,9.2,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007264,,"Pere, fresche, Max-Red Barlett",,,,frutta,fruit,generic_food,50,0.3,10,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007265,,"Pere, fresche, William",,,,frutta,fruit,generic_food,52,0.3,10.2,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007270,,"Pere, candite",,,,frutta,fruit,generic_food,294,1,73.9,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007280,,"Pesche, fresche, senza buccia",,,,frutta,fruit,generic_food,30,0.8,6.1,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007290,,"Pesche, fresche, con buccia",,,,frutta,fruit,generic_food,28,0.7,5.8,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:19:12.72763+00:00,2026-06-04T21:19:12.72763+00:00
+crea_007300,,"Pesche, disidratate",,,,frutta,fruit,generic_food,364,4.8,88,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007310,,"Pesche, sciroppate",,,,frutta,fruit,generic_food,56,0.5,14,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007320,,"Pesche, secche",,,,frutta,fruit,generic_food,280,3.1,68.3,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007330,,"Peschenoci, fresche",,,,frutta,fruit,generic_food,36,1.4,7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007340,,"Prugne, fresche",,,,frutta,fruit,generic_food,45,0.5,10.5,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007350,,"Prugne, gialle",,,,frutta,fruit,generic_food,30,0.5,6.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007360,,"Prugne, rosse",,,,frutta,fruit,generic_food,45,0.5,10.5,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007370,,"Prugne, secche",,,,frutta,fruit,generic_food,236,2.2,55,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007380,,"Uva, fresca",,,,frutta,fruit,generic_food,64,0.5,15.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007390,,"Uva, bianca, fresca",,,,frutta,fruit,generic_food,86,0.4,21.5,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007400,,"Uva, nera, fresca",,,,frutta,fruit,generic_food,53,0.5,12.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007410,,"Uva, secca",,,,frutta,fruit,generic_food,293,1.9,72,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007420,,"Uva, succo, in cartone",,,,frutta,fruit,generic_food,66,0.3,17.3,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007460,,"Ananas, fresco",,,,frutta,fruit,generic_food,42,0.5,10,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007470,,"Ananas, sciroppato",,,,frutta,fruit,generic_food,66,0.5,16.6,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007480,,"Anona, fresca",,,,frutta,fruit,generic_food,73,1.8,15.8,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007490,,"Avocado, fresco",,,,frutta,fruit,generic_food,238,4.4,1.8,23,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007500,,"Babaco, fresco",,,,frutta,fruit,generic_food,24,0.7,4.5,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007510,,"Banane, fresche",,,,frutta,fruit,generic_food,76,1.2,17.4,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007520,,"Cocco, fresco",,,,frutta,fruit,generic_food,358,3.5,4.4,35,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007530,,"Cocco, essiccato",,,,frutta,fruit,generic_food,669,5.6,16.4,62,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007550,,"Feijoa, fresca",,,,frutta,fruit,generic_food,59,0.7,9.6,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007560,,"Guava, fresca",,,,frutta,fruit,generic_food,31,0.7,3.5,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007570,,"Kiwi, freschi",,,,frutta,fruit,generic_food,48,1.2,9,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007580,,"Litchi, freschi",,,,frutta,fruit,generic_food,72,1.1,17.2,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007590,,"Mango, fresco",,,,frutta,fruit,generic_food,56,1,12.6,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007600,,"Papaia, fresca",,,,frutta,fruit,generic_food,33,0.4,6.9,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007610,,"Passiflora, fresca",,,,frutta,fruit,generic_food,64,3,5.7,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007630,,"Datteri, secchi",,,,frutta,fruit,generic_food,270,2.7,63.1,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007700,,"Amarene, fresche",,,,frutta,fruit,generic_food,44,0.8,10.2,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007710,,"Ciliege, fresche",,,,frutta,fruit,generic_food,48,0.8,11,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007720,,"Ciliege, candite",,,,frutta,fruit,generic_food,252,0.4,66.4,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007730,,"Fragole, fresche",,,,frutta,fruit,generic_food,30,0.9,5.3,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007740,,"Lamponi, freschi",,,,frutta,fruit,generic_food,49,1,6.5,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007750,,Mora di rovo,,,,frutta,fruit,generic_food,42,1.3,8.1,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007760,,"Mirtilli, freschi",,,,frutta,fruit,generic_food,49,0.9,10.1,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_007770,,"Ribes, freschi",,,,frutta,fruit,generic_food,52,0.9,9.7,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008000,,"Arance, fresche",,,,frutta,fruit,generic_food,37,0.7,7.8,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008001,,"Arance bionde, fresche",,,,frutta,fruit,generic_food,45,0.7,9.9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008002,,"Arance Valencia, fresche",,,,frutta,fruit,generic_food,39,0.7,8,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008003,,"Arance Washington Navel, fresche",,,,frutta,fruit,generic_food,44,1,9.4,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008004,,"Arance rosse, fresche",,,,frutta,fruit,generic_food,45,0.7,9.9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008005,,"Arance Moro, fresche",,,,frutta,fruit,generic_food,42,0.7,9,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008006,,"Arance Sanguinello, fresche",,,,frutta,fruit,generic_food,47,0.7,10.6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008007,,"Arance Tarocco, fresche",,,,frutta,fruit,generic_food,45,0.7,10,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008010,,"Arance succo, fresco",,,,frutta,fruit,generic_food,33,0.5,8.2,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008011,,"Arance bionde succo, fresco",,,,frutta,fruit,generic_food,38,0.5,9.6,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008012,,"Arance rosse succo, fresco",,,,frutta,fruit,generic_food,39,0.5,9.8,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008020,,"Clementine, fresche",,,,frutta,fruit,generic_food,40,0.9,8.7,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008030,,"Limoni, freschi",,,,frutta,fruit,generic_food,16,0.6,2.5,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008040,,"Limoni, succo",,,,frutta,fruit,generic_food,10,0.2,2.5,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008050,,"Mandaranci, freschi",,,,frutta,fruit,generic_food,57,0.8,12.8,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008060,,"Mandarini, freschi",,,,frutta,fruit,generic_food,76,0.9,17.6,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008070,,"Pompelmo, fresco",,,,frutta,fruit,generic_food,29,0.6,6.2,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008500,,"Arachidi, tostate",,,,frutta,fruit,generic_food,620,29,8.5,50,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008510,,Carrube,,,,frutta,fruit,generic_food,253,3.3,49.9,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008520,,Castagne,,,,frutta,fruit,generic_food,174,2.9,36.7,1.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008521,,"Castagne, arrostite",,,,frutta,fruit,generic_food,210,3.7,41.8,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008525,,"Castagne, bollite",,,,frutta,fruit,generic_food,130,2.5,26.1,1.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008530,,"Castagne, secche",,,,frutta,fruit,generic_food,315,6,62,3.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008540,,"Mandorle dolci, secche",,,,frutta,fruit,generic_food,628,22,4.6,55.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008550,,"Nocciole, secche",,,,frutta,fruit,generic_food,671,13.8,6.1,64.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008560,,Noci,,,,frutta,fruit,generic_food,589,10.5,5.5,57.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008570,,"Noci, secche",,,,frutta,fruit,generic_food,702,14.3,5.1,68.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008580,,Noci pecan,,,,frutta,fruit,generic_food,723,7.2,7.9,71.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008590,,Pinoli,,,,frutta,fruit,generic_food,604,31.9,4,50.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008600,,Pistacchi,,,,frutta,fruit,generic_food,629,18.1,8.1,56.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008605,,Pistacchio di Bronte DOP,,,,frutta,fruit,generic_food,595,24.3,7.3,48.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008610,,Anacardi,,,,frutta,fruit,generic_food,604,15,33,46,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008620,,Macadamia,,,,frutta,fruit,generic_food,751,8,5.1,76,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008800,,Olive da tavola conservate,,,,frutta,fruit,generic_food,277,1.5,5,27,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008810,,"Olive, nere",,,,frutta,fruit,generic_food,243,1.6,0.8,25.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008820,,"Olive, verdi",,,,frutta,fruit,generic_food,148,0.8,1,15,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008830,,"Olive, verdi, in salamoia",,,,frutta,fruit,generic_food,113,1.2,1,11,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008840,,Oliva Nocellara del Belice,,,,frutta,fruit,generic_food,211,1.4,0.06,22.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008850,,Oliva Giarraffa,,,,frutta,fruit,generic_food,192,1.4,0.19,20,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008930,,Succo di frutta,,,,frutta,fruit,generic_food,56,0.3,14.5,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_008940,,Cocktail di frutta sciroppata,,,,frutta,fruit,generic_food,59,0.4,14.8,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009010,,Burro d'arachidi,,,,grassi_condimenti,fat_source,generic_food,625,24.9,8,53.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009100,,"Margarina, 100% vegetale",,,,grassi_condimenti,fat_source,generic_food,760,0.6,0.4,84,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009110,,"Margarina, 2/3 di grassi animali, 1/3 di grassi vegetali",,,,grassi_condimenti,fat_source,generic_food,760,0.7,0.4,84,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009200,,Olio di oliva,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009210,,Olio di oliva extra vergine,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009610,,Olio di arachide,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009620,,Olio di cocco,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009630,,Olio di colza,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009640,,Olio di germe di grano,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009650,,Olio di girasole,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009660,,Olio di mais,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009670,,Olio di mandorle dolci,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009680,,Olio di palma,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009690,,Olio di sesamo,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009700,,Olio di soia,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009710,,Olio di vinacciolo,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_009799,,Olii vegetali,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101120,,"Bovino adulto o vitellone, tagli anteriori, crudo",,,,carne,protein_source,generic_food,145,20.5,0,7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101130,,"Bovino adulto o vitellone, tagli posteriori, crudo",,,,carne,protein_source,generic_food,117,21.5,0,3.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101150,,"Bovino adulto o vitellone, costata, crudo",,,,carne,protein_source,generic_food,140,21.3,0,6.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101160,,"Bovino adulto o vitellone, fesa, crudo",,,,carne,protein_source,generic_food,103,21.8,0,1.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101170,,"Bovino adulto o vitellone, filetto, crudo",,,,carne,protein_source,generic_food,127,20.5,0,5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101180,,"Bovino adulto o vitellone, girello, crudo",,,,carne,protein_source,generic_food,110,21.3,0,2.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101190,,"Bovino adulto o vitellone, lombata, crudo",,,,carne,protein_source,generic_food,134,21.8,0,5.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101200,,"Bovino adulto o vitellone, noce, crudo",,,,carne,protein_source,generic_food,106,21.3,0,2.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101210,,"Bovino adulto o vitellone, scamone, crudo",,,,carne,protein_source,generic_food,119,21.4,0,3.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101220,,"Bovino adulto o vitellone, sottofesa, crudo",,,,carne,protein_source,generic_food,111,22,0,2.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101230,,"Bovino adulto o vitellone, copertina di sotto, copertina di spalla, sottospalla e collo, crudo",,,,carne,protein_source,generic_food,132,20.3,0,5.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101240,,"Bovino adulto o vitellone, geretto anteriore e posteriore, crudo",,,,carne,protein_source,generic_food,112,20.9,0,3.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101250,,"Bovino adulto o vitellone, pancia, biancostato e punta di petto, crudo",,,,carne,fat_source,generic_food,171,19.7,0,10.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101260,,"Bovino adulto o vitellone, spalla, muscolo, girello e fesone, crudo",,,,carne,protein_source,generic_food,108,21.5,0,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101520,,"Vitello, filetto, crudo",,,,carne,protein_source,generic_food,107,20.7,0,2.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_101521,,"Vitello, filetto, cotto in padella",,,,carne,protein_source,generic_food,126,24.4,0,3.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_102000,,"Bufalo, solo tessuto muscolare, crudo",,,,carne,protein_source,generic_food,98,22,0,1.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_103010,,"Cavallo, tessuto muscolare e grasso, crudo",,,,carne,protein_source,generic_food,143,19.8,0.6,6.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_103020,,"Cavallo, solo tessuto muscolare, crudo",,,,carne,protein_source,generic_food,106,23.5,0.7,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104020,,"Agnello, crudo",,,,carne,protein_source,generic_food,159,20,0,8.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104029,,"Agnello, cotto, al forno",,,,carne,protein_source,generic_food,199,25,0,11,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104030,,"Agnello, coscio, crudo",,,,carne,protein_source,generic_food,102,20,0,2.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104033,,"Agnello, coscio, cotto, al forno",,,,carne,protein_source,generic_food,118,23,0,2.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104040,,"Agnello, costoletta, crudo",,,,carne,protein_source,generic_food,106,20.4,0,2.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104043,,"Agnello, costoletta, cotto, al forno",,,,carne,protein_source,generic_food,118,22.7,0,3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104250,,"Capra, solo tessuto muscolare, crudo",,,,carne,protein_source,generic_food,106,21.2,0,2.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104300,,"Capretto, crudo",,,,carne,protein_source,generic_food,113,19.2,0,4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_104610,,"Pecora, solo tessuto muscolare, crudo",,,,carne,protein_source,generic_food,121,21,0,4.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_105200,,"Maiale, coscio, crudo",,,,carne,protein_source,generic_food,110,20.2,0,3.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_105210,,"Maiale, lombo, crudo",,,,carne,protein_source,generic_food,146,20.7,0,7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_105220,,"Maiale, spalla, crudo",,,,carne,protein_source,generic_food,133,19,0,6.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_105230,,"Maiale, bistecca, crudo",,,,carne,protein_source,generic_food,157,21.3,0,8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_105236,,"Maiale, bistecca, cotto, in padella",,,,carne,protein_source,generic_food,187,25.4,0,9.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_105600,,"Maiale, pesante, coscio, crudo",,,,carne,protein_source,generic_food,127,20.4,0,5.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_105700,,"Maiale, pesante, lombo, crudo",,,,carne,fat_source,generic_food,172,20.8,0,9.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_105800,,"Maiale, pesante, spalla, crudo",,,,carne,fat_source,generic_food,156,19,0,8.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106010,,"Anatra domestica, crudo",,,,carne,protein_source,generic_food,159,21.4,0,8.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106020,,"Faraona, coscio, con pelle, crudo",,,,carne,protein_source,generic_food,133,24.3,0.3,3.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106030,,"Faraona, coscio, senza pelle, crudo",,,,carne,protein_source,generic_food,127,24,0.3,3.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106032,,"Faraona, coscio, senza pelle, cotto, allo spiedo",,,,carne,protein_source,generic_food,194,34.4,0.3,6.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106050,,"Faraona, petto, senza pelle, crudo",,,,carne,protein_source,generic_food,121,25.8,0.2,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106052,,"Faraona, petto, senza pelle, cotto, allo spiedo",,,,carne,protein_source,generic_food,146,30.7,0.2,2.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106100,,"Gallina, crudo",,,,carne,fat_source,generic_food,194,20.9,0,12.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106150,,"Oca, crudo",,,,carne,fat_source,generic_food,373,15.8,0,34.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106200,,"Pollo, intero, con pelle, crudo",,,,carne,fat_source,generic_food,171,19,0,10.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106203,,"Pollo, intero, con pelle, cotto, al forno",,,,carne,protein_source,generic_food,200,27.1,0,10.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106210,,"Pollo, intero, senza pelle, crudo",,,,carne,protein_source,generic_food,110,19.4,0,3.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106213,,"Pollo, intero, senza pelle, cotto, al forno",,,,carne,protein_source,generic_food,160,27.9,0,5.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106251,,"Pollo, intero, con pelle, cotto, arrosto",,,,carne,fat_source,generic_food,245,28.3,0,14.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106261,,"Pollo, intero, senza pelle, cotto, arrosto",,,,carne,protein_source,generic_food,206,28.9,0,10,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106270,,"Pollo, ala, con pelle, crudo",,,,carne,fat_source,generic_food,196,16.7,0,14.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106273,,"Pollo, ala, con pelle, cotta, al forno",,,,carne,fat_source,generic_food,283,31.7,0,17.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106400,,"Pollo, fuso, con pelle, crudo",,,,carne,protein_source,generic_food,125,18.4,0,5.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106403,,"Pollo, fuso, con pelle, cotto, al forno",,,,carne,protein_source,generic_food,201,31.2,0,8.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106410,,"Pollo, fuso, senza pelle, crudo",,,,carne,protein_source,generic_food,107,18.5,0,3.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:21:13.747707+00:00,2026-06-04T21:21:13.747707+00:00
+crea_106413,,"Pollo, fuso, senza pelle, cotto, al forno",,,,carne,protein_source,generic_food,175,29.9,0,6.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106500,,"Pollo, petto, crudo",,,,carne,protein_source,generic_food,100,23.3,0,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106506,,"Pollo, petto, cotto, in padella",,,,carne,protein_source,generic_food,129,30.2,0,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106600,,"Pollo, sovracoscio, con pelle, crudo",,,,carne,fat_source,generic_food,196,17.4,0,14,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106603,,"Pollo, sovracoscio, con pelle, cotto, al forno",,,,carne,fat_source,generic_food,219,26.7,0,12.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106610,,"Pollo, sovracoscio, senza pelle, crudo",,,,carne,protein_source,generic_food,132,18.7,0,6.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106613,,"Pollo, sovracoscio, senza pelle, cotto, al forno",,,,carne,protein_source,generic_food,188,28.3,0,8.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106700,,"Tacchino intero, con pelle, crudo",,,,carne,protein_source,generic_food,135,18.2,0,6.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106710,,"Tacchino intero, senza pelle, crudo",,,,carne,protein_source,generic_food,109,21.9,0,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106719,,"Tacchino intero, senza pelle, cotto, al forno",,,,carne,protein_source,generic_food,117,23.3,0,2.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106800,,"Tacchino, coscio, con pelle, crudo",,,,carne,protein_source,generic_food,131,18.1,0,6.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106850,,"Tacchino, fesa, crudo",,,,carne,protein_source,generic_food,107,24,0,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106856,,"Tacchino, fesa, cotta, al forno",,,,carne,protein_source,generic_food,131,29.6,0,1.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106900,,"Tacchino, fuso, con pelle, crudo",,,,carne,protein_source,generic_food,126,17.9,0,6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106903,,"Tacchino, fuso, con pelle, cotto, al forno",,,,carne,protein_source,generic_food,191,26.7,0,9.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106910,,"Tacchino, fuso, senza pelle, crudo",,,,carne,protein_source,generic_food,113,18,0,4.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106913,,"Tacchino, fuso, senza pelle, cotto, al forno",,,,carne,protein_source,generic_food,190,28,0,8.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106960,,"Tacchino, sovracoscio, senza pelle, crudo",,,,carne,protein_source,generic_food,120,18.5,0,5.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_106963,,"Tacchino, sovracoscio, senza pelle, cotto, al forno",,,,carne,protein_source,generic_food,182,30.2,0,6.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_107010,,"Coniglio intero, crudo",,,,carne,protein_source,generic_food,118,19.9,0,4.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_107019,,"Coniglio, intero, cotto",,,,carne,protein_source,generic_food,166,27.9,0,6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_107020,,"Coniglio, intero surgelato, crudo",,,,carne,protein_source,generic_food,116,20.3,0,3.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_107030,,"Coniglio, coscio, crudo",,,,carne,protein_source,generic_food,137,21,0,5.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_108010,,"Cervo, solo tessuto muscolare, crudo",,,,carne,protein_source,generic_food,91,21,0,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_108100,,"Daino, solo tessuto muscolare, crudo",,,,carne,protein_source,generic_food,95,21,0,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_108510,,"Fagiano, crudo",,,,carne,protein_source,generic_food,144,24.3,0,5.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_108520,,"Piccione giovane, crudo",,,,carne,protein_source,generic_food,138,22.1,0,5.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_108530,,"Quaglia, crudo",,,,carne,protein_source,generic_food,161,25,0,6.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_108900,,"Struzzo, solo tessuto muscolare, crudo",,,,carne,protein_source,generic_food,92,20.9,0,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_108901,,"Struzzo, solo tessuto muscolare, cotto, al forno",,,,carne,protein_source,generic_food,101,22.2,0,1.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_109010,,"Lumaca, cruda",,,,carne,protein_source,generic_food,67,12.9,0,1.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_109510,,"Rana, crudo",,,,carne,protein_source,generic_food,64,15.5,0,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110020,,Bresaola della Valtellina IGP,,,,carne,protein_source,generic_food,152,33.1,0.4,2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110100,,Capocollo,,,,carne,fat_source,generic_food,450,20.8,1.4,40.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110110,,Capocollo di Calabria,,,,carne,fat_source,generic_food,344,29.1,0.9,24.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110130,,Ciccioli,,,,carne,fat_source,generic_food,636,45.2,0,50.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110150,,Coppa,,,,carne,fat_source,generic_food,400,28.9,,31.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110190,,"Cotechino, confezionato precotto",,,,carne,fat_source,generic_food,449,17.2,0,42.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110195,,"Cotechino Modena IGP, cotto",,,,carne,fat_source,generic_food,253,23.6,3.2,16.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110200,,Mortadella Bologna IGP,,,,carne,fat_source,generic_food,288,15.7,,25,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110210,,Mortadella di bovini e suini,,,,carne,fat_source,generic_food,388,13.3,0.5,37,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110300,,Pancetta magretta,,,,carne,fat_source,generic_food,314,21.7,0,25.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110310,,Pancetta tesa,,,,carne,fat_source,generic_food,337,20.9,0,28.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110320,,Pancetta arrotolata,,,,carne,fat_source,generic_food,530,15.1,,52.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110400,,Prosciutto cotto,,,,carne,mixed_source,generic_food,138,15.7,1.7,7.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110401,,"Prosciutto cotto, sgrassato",,,,carne,protein_source,generic_food,107,17,1.9,3.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110410,,"Prosciutto cotto, alta qualità",,,,carne,fat_source,generic_food,182,18,0.8,11.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110411,,"Prosciutto cotto, alta qualità, sgrassato",,,,carne,protein_source,generic_food,126,19.5,0.9,5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110420,,"Prosciutto cotto, scelto",,,,carne,fat_source,generic_food,155,17.5,0.6,9.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110421,,"Prosciutto cotto, scelto, sgrassato",,,,carne,protein_source,generic_food,115,19.4,0.5,4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110500,,"Prosciutto crudo, di Modena DOP",,,,carne,fat_source,generic_food,309,25.6,0.1,22.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110501,,"Prosciutto crudo, di Modena DOP, sgrassato",,,,carne,protein_source,generic_food,201,30.2,0.1,8.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110505,,Prosciutto crudo di montagna,,,,carne,fat_source,generic_food,303,26.2,0,22,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110510,,"Prosciutto crudo DOP, di Parma",,,,carne,fat_source,generic_food,269,25.9,0.3,18.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110511,,"Prosciutto crudo, di Parma DOP, sgrassato",,,,carne,protein_source,generic_food,176,29.1,0.4,6.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110515,,"Prosciutto crudo, di Pietraroja",,,,carne,fat_source,generic_food,358,26.2,0,28.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110520,,"Prosciutto crudo, di San Daniele DOP",,,,carne,fat_source,generic_food,271,25.7,0.2,18.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110521,,"Prosciutto crudo, di San Daniele DOP, sgrassato",,,,carne,protein_source,generic_food,176,29,0.4,6.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110525,,"Prosciutto crudo, disossato",,,,carne,fat_source,generic_food,224,26.9,0,12.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110526,,"Prosciutto crudo, disossato, sgrassato",,,,carne,protein_source,generic_food,159,29.3,0,4.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110530,,"Prosciutto crudo, gambuccio",,,,carne,fat_source,generic_food,306,26.2,0,22.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110535,,"Prosciutto crudo, Nazionale",,,,carne,fat_source,generic_food,235,27.8,0.1,13.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110536,,"Prosciutto crudo, Nazionale, sgrassato",,,,carne,protein_source,generic_food,169,30.5,0.3,5.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110600,,Salame Brianza,,,,carne,fat_source,generic_food,384,26.5,1,30.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110610,,Salami italiani alla cacciatora DOP,,,,carne,fat_source,generic_food,411,28.4,0.7,32.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110620,,Salame Fabriano,,,,carne,fat_source,generic_food,420,26.5,1.5,34.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110630,,Salame Felino,,,,carne,fat_source,generic_food,375,30.5,0.5,27.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110640,,Salame Milano,,,,carne,fat_source,generic_food,385,25.4,1.1,31,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110650,,Salame Napoli,,,,carne,fat_source,generic_food,378,27.4,0.2,29.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110660,,Salame nostrano,,,,carne,fat_source,generic_food,370,27.3,1.1,28.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110670,,Salame ungherese,,,,carne,fat_source,generic_food,420,23.6,1.1,35.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110700,,Salsiccia di fegato,,,,carne,fat_source,generic_food,424,12.4,0.9,41.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110710,,"Salsiccia di suino, fresca",,,,carne,fat_source,generic_food,304,15.4,0.6,26.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110716,,"Salsiccia di suino, fresca, cotta, in padella",,,,carne,fat_source,generic_food,324,22.2,0,26.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110720,,"Salsiccia di suino, secca",,,,carne,fat_source,generic_food,514,22,0,47.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110730,,Salsiccia di Calabria,,,,carne,fat_source,generic_food,366,33.6,1.3,25.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110740,,Soppressata di Calabria,,,,carne,fat_source,generic_food,377,34.2,0.9,26.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110800,,Speck dell'Alto Adige IGP,,,,carne,fat_source,generic_food,299,30.7,1.2,19.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110900,,"Wurstel di puro suino, crudo",,,,carne,fat_source,generic_food,250,13.2,1.9,21.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110906,,"Wurstel di puro suino, cotto",,,,carne,fat_source,generic_food,259,14.6,0.3,22.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110950,,"Zampone confezionato, precotto",,,,carne,fat_source,generic_food,361,19.1,0,31.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_110955,,"Zampone Modena IGP, cotto",,,,carne,fat_source,generic_food,262,23.7,2.6,17.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_113010,,"Carne bovina in gelatina, in scatola",,,,carne,protein_source,generic_food,67,12.6,0,1.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_113020,,"Carne bovina pressata, in scatola",,,,carne,fat_source,generic_food,141,16.5,0,8.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_114010,,Patè di coniglio,,,,carne,fat_source,generic_food,346,13,1.1,32.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_114020,,Patè di fegato,,,,carne,fat_source,generic_food,341,12.7,1.3,31.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_114030,,Patè di pollo,,,,carne,fat_source,generic_food,289,11.1,2.3,26.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_114040,,Patè di prosciutto,,,,carne,fat_source,generic_food,358,11.3,1.1,34.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115010,,Animelle di bovini,,,,carne,fat_source,generic_food,304,11.5,0.1,28.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115019,,"Animelle di bovini, cotte",,,,carne,fat_source,generic_food,434,16.4,0.2,40.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115110,,Cervello di bovini,,,,carne,fat_source,generic_food,157,10,0.8,12.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115120,,Coratella di agnello,,,,carne,protein_source,generic_food,109,15.7,1,4.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115130,,Coratella di vitello,,,,carne,protein_source,generic_food,100,17.1,0.8,3.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115210,,Cuore di bovini,,,,carne,protein_source,generic_food,123,16.8,0.5,6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115219,,"Cuore di bovini, cotto",,,,carne,protein_source,generic_food,189,25.8,0.8,9.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115220,,Cuore di equini,,,,carne,protein_source,generic_food,146,18.7,0.6,7.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115230,,Cuore di ovini,,,,carne,protein_source,generic_food,134,16.9,0.4,7.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115240,,Cuore di pollo,,,,carne,protein_source,generic_food,103,14.1,0.2,5.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115249,,"Cuore di pollo, cotto",,,,carne,protein_source,generic_food,147,20.1,0.3,7.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115250,,Cuore di suino,,,,carne,fat_source,generic_food,159,18.3,0.4,9.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115260,,Cuore di tacchino,,,,carne,protein_source,generic_food,103,14.1,0.2,5.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115269,,"Cuore di tacchino, cotto",,,,carne,protein_source,generic_food,147,20.1,0.3,7.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115320,,Fegato di bovini,,,,carne,protein_source,generic_food,142,20,5.9,4.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115329,,"Fegato di bovini, cotto",,,,carne,protein_source,generic_food,190,26.7,7.9,5.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115340,,Fegato di equini,,,,carne,protein_source,generic_food,145,22.4,5.3,4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115350,,Fegato di ovini,,,,carne,protein_source,generic_food,135,19.5,2,5.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115360,,Fegato di pollo,,,,carne,protein_source,generic_food,154,22.8,1.5,6.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115369,,"Fegato di pollo, cotto",,,,carne,protein_source,generic_food,192,29.4,2,7.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115370,,Fegato di suini,,,,carne,protein_source,generic_food,140,22.8,1.5,4.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115379,,"Fegato di suini, cotto",,,,carne,protein_source,generic_food,183,29.4,2,6.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115380,,Fegato di tacchino,,,,carne,protein_source,generic_food,127,17.8,0.5,6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115389,,"Fegato di tacchino, cotto",,,,carne,protein_source,generic_food,195,27.4,0.8,9.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115400,,Lingua di bovini,,,,carne,fat_source,generic_food,232,17.1,0.4,18,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115409,,"Lingua di bovini, cotta, fritta",,,,carne,fat_source,generic_food,309,22.8,0.5,24,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115500,,Milza di bovini,,,,carne,protein_source,generic_food,107,18.5,0,3.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115600,,Polmone di bovini,,,,carne,protein_source,generic_food,75,14,0,2.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115710,,Rene di bovini,,,,carne,protein_source,generic_food,118,18.4,0.8,4.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_115800,,Trippa di bovini,,,,carne,protein_source,generic_food,108,15.8,0,5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_119020,,"Cheese burger, fast food",,,,piatti_pronti,mixed_source,generic_food,300,16.3,30.2,13.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_119030,,"Hamburger, fast food",,,,piatti_pronti,mixed_source,generic_food,251,13.1,30.1,9.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_119040,,"Chicken Nuggets, fast food",,,,piatti_pronti,mixed_source,generic_food,242,17.7,15.4,12.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_119050,,"Hamburger piccolo, solo carne, fast food",,,,piatti_pronti,fat_source,generic_food,264,24.5,0,18.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_119060,,"Panino, fast food",,,,piatti_pronti,carb_source,generic_food,248,10.1,47,3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_119070,,"Panino con hamburger piccolo, fast food",,,,piatti_pronti,mixed_source,generic_food,254,15.6,29,8.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_119080,,"Patatine, fritte, fast food",,,,piatti_pronti,carb_source,generic_food,283,3.3,37.6,13.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120010,,Acciuga o alice,,,,pesce,protein_source,generic_food,96,16.8,1.5,2.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120020,,"Acciuga o alice, sott'olio",,,,pesce,protein_source,generic_food,206,25.9,0.2,11.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120030,,"Acciuga o alice, sotto sale",,,,pesce,protein_source,generic_food,137,25,2.3,3.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120210,,"Anguilla, affumicata",,,,pesce,fat_source,generic_food,231,17.5,0.2,17.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120220,,"Anguilla, marinata",,,,pesce,fat_source,generic_food,259,14.8,0.6,21.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120230,,Anguilla di fiume,,,,pesce,fat_source,generic_food,261,11.8,0.1,23.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120240,,Anguilla di mare,,,,pesce,fat_source,generic_food,237,14.6,0.7,19.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120250,,"Anguilla d'allevamento, filetti",,,,pesce,fat_source,generic_food,237,16.2,0.5,18.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120290,,Capitone,,,,pesce,fat_source,generic_food,247,13,0.5,21.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120300,,Aringa,,,,pesce,fat_source,generic_food,216,16.5,0,16.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120310,,"Aringa, affumicata",,,,pesce,fat_source,generic_food,194,19.9,0,12.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120320,,"Aringa, marinata",,,,pesce,fat_source,generic_food,199,18.3,0,14,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120330,,"Aringa, sotto sale",,,,pesce,fat_source,generic_food,218,19.8,0,15.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120400,,Boga,,,,pesce,protein_source,generic_food,87,18.3,0.8,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120500,,Carpa,,,,pesce,protein_source,generic_food,139,18.9,0,7.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120510,,Cefalo muggine,,,,pesce,mixed_source,generic_food,127,15.8,0.7,6.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120590,,"Bottarga, cefalo muggine",,,,pesce,fat_source,generic_food,405,43.5,0,25.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120610,,Cernia surgelata,,,,pesce,protein_source,generic_food,88,17,0.5,2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120710,,Coregone,,,,pesce,protein_source,generic_food,135,19,0.1,6.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120810,,Corvina,,,,pesce,protein_source,generic_food,88,20,0.2,0.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120910,,Dentice,,,,pesce,protein_source,generic_food,101,16.7,0.7,3.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_120920,,"Dentice, surgelato",,,,pesce,protein_source,generic_food,103,17.2,0.7,3.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_121010,,Halibut,,,,pesce,protein_source,generic_food,114,20.6,0,3.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_121100,,Lattarini,,,,pesce,fat_source,generic_food,145,14.6,0,9.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_121200,,Luccio,,,,pesce,protein_source,generic_food,81,18.7,0.1,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:23:12.787663+00:00,2026-06-04T21:23:12.787663+00:00
+crea_121310,,Melù o pesce molo,,,,pesce,protein_source,generic_food,72,17.4,,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121320,,"Melù o pesce molo, stoccafisso, secco",,,,pesce,protein_source,generic_food,356,80.1,1.1,3.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121330,,"Melù o pesce molo, stoccafisso, ammollato",,,,pesce,protein_source,generic_food,92,20.7,0.3,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121410,,Merluzzo o nasello,,,,pesce,protein_source,generic_food,71,17,0,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121420,,"Merluzzo o nasello, surgelato",,,,pesce,protein_source,generic_food,75,17.3,0,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121423,,"Merluzzo o nasello, surgelato, cotto, in forno",,,,pesce,protein_source,generic_food,78,17.5,0,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121424,,"Merluzzo o nasello, surgelato, cotto, al microonde",,,,pesce,protein_source,generic_food,107,24.8,0,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121430,,"Merluzzo o nasello, surgelato, filetti",,,,pesce,protein_source,generic_food,68,15.6,0,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121440,,"Merluzzo o nasello, baccalà, secco",,,,pesce,protein_source,generic_food,131,29,0,1.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121450,,"Merluzzo o nasello, baccalà, ammollato",,,,pesce,protein_source,generic_food,95,21.6,0,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121490,,"Merluzzo o nasello, bastoncini di pesce, surgelati",,,,pesce,mixed_source,generic_food,191,11,15,10.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121500,,Mormora,,,,pesce,protein_source,generic_food,97,18,2,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121600,,Occhiata,,,,pesce,protein_source,generic_food,117,19,2,3.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121710,,"Orata, surgelata",,,,pesce,protein_source,generic_food,94,19.8,1,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121720,,"Orata fresca, filetti",,,,pesce,protein_source,generic_food,121,20.7,1,3.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121730,,"Orata fresca d'allevamento, filetti",,,,pesce,mixed_source,generic_food,159,19.7,1.2,8.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121800,,Pagello,,,,pesce,protein_source,generic_food,101,21,0,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_121900,,Pagello bocca d'oro,,,,pesce,protein_source,generic_food,118,20,3,3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122000,,Palombo,,,,pesce,protein_source,generic_food,80,16,1.3,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122100,,Pesce gatto,,,,pesce,protein_source,generic_food,92,15.5,0.2,3.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122200,,Razza,,,,pesce,protein_source,generic_food,68,14.2,0.7,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122300,,Rombo,,,,pesce,protein_source,generic_food,81,16.3,1.2,1.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122400,,"Salmone, fresco",,,,pesce,fat_source,generic_food,185,18.4,1,12,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122410,,"Salmone, affumicato",,,,pesce,protein_source,generic_food,147,25.4,1.2,4.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122430,,"Salmone, in salamoia",,,,pesce,fat_source,generic_food,192,21.1,1,11.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122500,,Salpa,,,,pesce,protein_source,generic_food,104,18,2,2.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122600,,Sarago,,,,pesce,protein_source,generic_food,97,20.7,1,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122700,,Sarda,,,,pesce,protein_source,generic_food,129,20.8,1.5,4.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122800,,Sardine,,,,pesce,fat_source,generic_food,225,20.3,1.5,15.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122806,,"Sardine, fritte",,,,pesce,fat_source,generic_food,324,32.3,1,21.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_122900,,Scorfano,,,,pesce,protein_source,generic_food,82,19,0.6,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123000,,Sgombro o maccarello,,,,pesce,fat_source,generic_food,170,17,0.5,11.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123010,,"Sgombro o maccarello, in salamoia",,,,pesce,fat_source,generic_food,177,19.3,0,11.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123100,,Sogliola,,,,pesce,protein_source,generic_food,83,16.9,0.8,1.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123110,,"Sogliola, surgelata",,,,pesce,protein_source,generic_food,81,17.3,0.1,1.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123200,,Spigola,,,,pesce,protein_source,generic_food,82,16.5,0.6,1.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123220,,"Spigola d'allevamento, filetti",,,,pesce,protein_source,generic_food,149,21.3,0.8,6.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123300,,Storione,,,,pesce,protein_source,generic_food,145,19.2,0,7.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123390,,"Caviale, storione",,,,pesce,fat_source,generic_food,255,26.9,3.3,15,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123400,,Tinca,,,,pesce,protein_source,generic_food,79,17.9,0.9,0.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123500,,Tonno,,,,pesce,protein_source,generic_food,159,21.5,0.1,8.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123550,,"Tonno in salamoia, sgocciolato",,,,pesce,protein_source,generic_food,103,25.1,0,0.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123610,,"Tonno sott'olio, sgocciolato",,,,pesce,protein_source,generic_food,192,25.2,0,10.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_123900,,Triglia,,,,pesce,protein_source,generic_food,123,15.8,1.1,6.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_124000,,Trota,,,,pesce,protein_source,generic_food,86,14.7,0,3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_124010,,Trota surgelata,,,,pesce,protein_source,generic_food,92,17.8,0,2.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_124013,,"Trota surgelata, cotta, al microonde",,,,pesce,protein_source,generic_food,105,20.4,0,2.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_124014,,"Trota surgelata, cotta, in forno",,,,pesce,protein_source,generic_food,136,26.7,0,3.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_124050,,"Trota iridea d'allevamento, filetti",,,,pesce,protein_source,generic_food,118,20.3,0,4.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_124100,,Suro o sugarello,,,,pesce,protein_source,generic_food,104,18.3,1,3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_127100,,Calamaro,,,,pesce,protein_source,generic_food,68,12.6,0.6,1.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_127110,,Calamaro surgelato,,,,pesce,protein_source,generic_food,68,13.1,0.6,1.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_127120,,Cozza o mitilo,,,,pesce,protein_source,generic_food,84,11.7,3.4,2.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_127130,,Ostrica,,,,pesce,protein_source,generic_food,69,10.2,5.4,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_127150,,Polpo,,,,pesce,protein_source,generic_food,57,10.6,1.4,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_127160,,Seppia,,,,pesce,protein_source,generic_food,72,14,0.7,1.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_127170,,Vongola,,,,pesce,protein_source,generic_food,65,9.8,3.9,1.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_128050,,Aragosta,,,,pesce,protein_source,generic_food,85,16,1,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_128055,,"Aragosta, bollita",,,,pesce,protein_source,generic_food,86,16.2,1,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_128100,,Gamberi,,,,pesce,protein_source,generic_food,71,13.6,2.9,0.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_128110,,"Gamberi sgusciati, surgelati",,,,pesce,protein_source,generic_food,85,16.5,2.9,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_128200,,"Granchio, in scatola",,,,pesce,protein_source,generic_food,81,18.1,0,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_130010,,Latte di capra,,,,latticini,fat_source,generic_food,76,3.9,4.7,4.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_131010,,Latte di pecora,,,,latticini,fat_source,generic_food,103,5.3,5.2,6.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_132010,,Latte di bufala,,,,latticini,fat_source,generic_food,114,4.5,5.1,8.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135010,,"Latte di vacca, pastorizzato, intero",,,,latticini,mixed_source,generic_food,64,3.3,4.9,3.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135020,,"Latte di vacca, pastorizzato, parzialmente scremato",,,,latticini,mixed_source,generic_food,46,3.5,5,1.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135030,,"Latte di vacca, pastorizzato, scremato",,,,latticini,carb_source,generic_food,36,3.6,5.3,0.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135510,,"Latte di vacca, condensato, zuccherato",,,,latticini,carb_source,generic_food,328,8.7,56.5,9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135520,,"Latte di vacca, evaporato, non zuccherato",,,,latticini,fat_source,generic_food,134,7,8.6,8.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135610,,"Latte di vacca, in polvere, intero",,,,latticini,mixed_source,generic_food,484,25.7,42,24.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135620,,"Latte di vacca, in polvere, parzialmente scremato",,,,latticini,mixed_source,generic_food,418,28.8,50.2,12.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135630,,"Latte di vacca, in polvere, scremato",,,,latticini,carb_source,generic_food,351,33.1,56.2,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135810,,"Latte di vacca, UHT, intero",,,,latticini,fat_source,generic_food,63,3.3,4.7,3.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_135820,,"Latte di vacca, UHT, parzialmente scremato",,,,latticini,mixed_source,generic_food,46,3.2,5.1,1.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_140100,,"Crema di latte, 12% di lipidi",,,,latticini,fat_source,generic_food,140,2.8,4.4,12.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_140300,,"Panna da montare, 35% di lipidi",,,,latticini,fat_source,generic_food,337,2.3,3.4,35,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_140400,,"Panna da cucina, sterilizzata, 23% di lipidi",,,,latticini,fat_source,generic_food,233,2.7,4,23,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_150010,,"Yogurt, da latte intero",,,,latticini,fat_source,generic_food,66,3.8,4.3,3.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_150015,,"Yogurt, 0% lipidi",,,,latticini,carb_source,generic_food,42,4.7,6,0.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_150020,,"Yogurt greco, da latte intero",,,,latticini,fat_source,generic_food,115,6.4,2,9.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_150025,,"Yogurt greco, da latte magro, alla frutta",,,,latticini,carb_source,generic_food,74,6,11,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_150030,,"Yogurt greco, 0% lipidi",,,,latticini,protein_source,generic_food,51,9,4,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_150035,,"Yogurt greco, 0% lipidi, aromatizzato",,,,latticini,carb_source,generic_food,86,7.5,15,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_150500,,"Yogurt da latte intero, alla frutta",,,,latticini,carb_source,generic_food,80,3.4,10.5,2.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_151000,,"Yogurt da latte, parzialmente scremato",,,,latticini,mixed_source,generic_food,43,3.4,3.8,1.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_152000,,"Yogurt da latte, scremato",,,,latticini,mixed_source,generic_food,36,3.3,4,0.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_158000,,Yogurt caprino,,,,latticini,mixed_source,generic_food,60,3.6,5.1,2.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160400,,Formaggio molle da tavola,,,,latticini,fat_source,generic_food,377,25.4,1,30.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160410,,Brie,,,,latticini,fat_source,generic_food,320,19.3,0.2,26.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160420,,Burrini,,,,latticini,fat_source,generic_food,527,22.1,4.1,47,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160430,,Butirro calabro,,,,latticini,fat_source,generic_food,449,24.7,0.3,38.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160800,,Caciocavallo,,,,latticini,fat_source,generic_food,431,35.7,2.3,31.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160810,,Cacioricotta di capra,,,,latticini,fat_source,generic_food,182,11.9,1.5,14.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160820,,Caciotta mista,,,,latticini,fat_source,generic_food,384,24.5,1.8,31,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160830,,Caciotta romana di pecora,,,,latticini,fat_source,generic_food,364,27.7,2.1,27.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160840,,Caciotta toscana,,,,latticini,fat_source,generic_food,368,24.6,0.8,29.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160850,,Caciottina vaccina,,,,latticini,fat_source,generic_food,324,21.1,3,25.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160860,,Caciottina fresca,,,,latticini,fat_source,generic_food,263,17.3,0.5,21.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160870,,Camembert,,,,latticini,fat_source,generic_food,307,20.9,0.2,24.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160880,,Cheddar,,,,latticini,fat_source,generic_food,388,26.7,0.5,31,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_160890,,Crescenza,,,,latticini,fat_source,generic_food,281,16.1,1.9,23.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_161200,,Dolce verde,,,,latticini,fat_source,generic_food,276,19.1,2.5,21.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_161600,,Edam,,,,latticini,fat_source,generic_food,326,25.5,1.4,24.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_161610,,Emmenthal,,,,latticini,fat_source,generic_food,403,28.5,3.6,30.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162000,,Feta,,,,latticini,fat_source,generic_food,250,15.6,1.5,20.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162010,,Fior di latte,,,,latticini,fat_source,generic_food,268,20.6,0.7,20.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162020,,Fontina,,,,latticini,fat_source,generic_food,361,24.5,0.8,28.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162030,,Formaggino,,,,latticini,fat_source,generic_food,309,11.2,6,26.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162040,,Formaggino con ridotto contenuto di grasso,,,,latticini,fat_source,generic_food,239,14.7,6.5,17.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162050,,Formaggio cremoso spalmabile,,,,latticini,fat_source,generic_food,313,8.6,,31,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162400,,Gorgonzola,,,,latticini,fat_source,generic_food,324,19.1,1,27.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162410,,"Grana Padano, DOP",,,,latticini,fat_source,generic_food,392,33.9,0,28.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_162420,,Groviera,,,,latticini,fat_source,generic_food,417,30.6,1.5,32.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_163200,,Italico,,,,latticini,fat_source,generic_food,316,21.2,1.2,25.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_164400,,Latteria,,,,latticini,fat_source,generic_food,456,30.7,1.4,36.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_164800,,Mascarpone,,,,latticini,fat_source,generic_food,455,7.6,0.3,47,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_164810,,Mozzarella di bufala,,,,latticini,fat_source,generic_food,288,16.7,0.4,24.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_164811,,Mozzarella di bufala campana DOP,,,,latticini,fat_source,generic_food,257,14.1,1.4,21.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_164820,,Mozzarella di vacca,,,,latticini,fat_source,generic_food,253,18.7,0.7,19.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166000,,Parmigiano Reggiano DOP,,,,latticini,fat_source,generic_food,397,32.4,,29.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166010,,Caciottina mista,,,,latticini,fat_source,generic_food,370,26.9,1.5,28.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166050,,Pecorino,,,,latticini,fat_source,generic_food,404,28.8,0.2,32,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166060,,Pecorino romano,,,,latticini,fat_source,generic_food,409,26,1.8,33.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166070,,Pecorino siciliano,,,,latticini,fat_source,generic_food,427,28.9,2.4,33.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166100,,Provolone,,,,latticini,fat_source,generic_food,374,28.1,2,28.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166800,,Ricotta di bufala,,,,latticini,fat_source,generic_food,212,10.5,3.7,17.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166810,,Ricotta di pecora,,,,latticini,fat_source,generic_food,157,9.5,4.2,11.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166820,,Ricotta di vacca,,,,latticini,fat_source,generic_food,146,8.8,3.5,10.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_166850,,Robiola,,,,latticini,fat_source,generic_food,338,20,2.3,27.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_167200,,Scamorza,,,,latticini,fat_source,generic_food,334,25,1,25.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_167250,,Stracchino,,,,latticini,fat_source,generic_food,300,18.5,,25.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_167600,,Taleggio,,,,latticini,fat_source,generic_food,315,19,0.9,26.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_170010,,Fiocchi di formaggio magro,,,,latticini,fat_source,generic_food,115,9.7,3.2,7.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_170510,,"Formaggio cremoso spalmabile, light",,,,latticini,fat_source,generic_food,179,9.2,3.1,14.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_180010,,"Uova di anatra, intero",,,,uova,fat_source,generic_food,190,12.2,0.7,15.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_181100,,"Uova di gallina, intero",,,,uova,fat_source,generic_food,128,12.4,,8.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_181105,,"Uova di gallina, intero , cotto, alla coque o sodo",,,,uova,fat_source,generic_food,128,12.4,,8.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_181117,,"Uova di gallina, intero , cotto, a frittata o strapazzato",,,,uova,fat_source,generic_food,150,14.6,,10.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_181500,,"Uova di gallina, intero, congelato",,,,uova,fat_source,generic_food,128,12.4,,8.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_181600,,"Uova di gallina, intero, in polvere",,,,uova,fat_source,generic_food,537,51.9,0.4,36.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_182010,,"Uova di gallina, albume",,,,uova,protein_source,generic_food,43,10.7,,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_183010,,"Uova di gallina, tuorlo",,,,uova,fat_source,generic_food,325,15.8,,29.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_183015,,"Uova di gallina, tuorlo , cotto, in camicia",,,,uova,fat_source,generic_food,325,15.8,,29.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_183800,,"Uova di gallina, tuorlo, congelato",,,,uova,fat_source,generic_food,325,15.8,,29.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_183900,,"Uova di gallina, tuorlo, in polvere",,,,uova,fat_source,generic_food,642,31.2,0.02,57.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_185010,,"Uova di oca, intero",,,,uova,fat_source,generic_food,189,13.8,1,14.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_189010,,"Uova di tacchina, intero",,,,uova,fat_source,generic_food,147,12.8,1,10.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_190010,,Burro,,,,grassi_condimenti,fat_source,generic_food,758,0.8,1.1,83.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_191010,,Lardo,,,,grassi_condimenti,fat_source,generic_food,891,0,0,99,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:25:11.688635+00:00,2026-06-04T21:25:11.688635+00:00
+crea_192010,,Sego di bue,,,,grassi_condimenti,fat_source,generic_food,872,0.8,0,96.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_193010,,Strutto o sugna,,,,grassi_condimenti,fat_source,generic_food,892,0.3,0,99,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_194000,,Olio di fegato di merluzzo,,,,grassi_condimenti,fat_source,generic_food,899,0,0,99.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_201500,,"Zucchero, saccarosio",,,,dolci_snack,carb_source,generic_food,392,0,104.5,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_202010,,Caramelle dure,,,,dolci_snack,carb_source,generic_food,344,,91.6,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_202020,,"Caramelle tipo ""mou""",,,,dolci_snack,carb_source,generic_food,430,2.1,71.1,17.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_202030,,Lenti colorate ripiene di cioccolato,,,,dolci_snack,carb_source,generic_food,456,5.4,73.9,17.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_202500,,"Gomme da masticare, lastrine e confetti",,,,dolci_snack,carb_source,generic_food,262,0,70,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_202800,,Torrone alla mandorla,,,,dolci_snack,mixed_source,generic_food,483,10.8,52,26.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_203010,,"Cioccolato, al latte",,,,dolci_snack,fat_source,generic_food,552,7.3,50.5,36.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_203020,,"Cioccolato, fondente",,,,dolci_snack,fat_source,generic_food,531,6.6,49.7,33.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_203030,,"Cioccolato, al latte con nocciole",,,,dolci_snack,fat_source,generic_food,553,7.2,48.6,36.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_203500,,Crema di nocciole e cacao,,,,dolci_snack,fat_source,generic_food,537,6.9,58.1,32.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_204010,,Canditi,,,,dolci_snack,carb_source,generic_food,292,0.5,75,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_204500,,Marmellata,,,,dolci_snack,carb_source,generic_food,227,0.5,58.7,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206010,,"Gelato confezionato, cacao, in vaschetta",,,,dolci_snack,carb_source,generic_food,173,3.6,25.3,7.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206020,,"Gelato confezionato, caffè, in vaschetta",,,,dolci_snack,fat_source,generic_food,245,5.1,23.9,15,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206040,,"Gelato confezionato, fior di latte, in vaschetta",,,,dolci_snack,fat_source,generic_food,218,4.2,20.7,13.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206050,,"Gelato confezionato, fior di latte, ricoperto di sorbetto alla fragola",,,,dolci_snack,carb_source,generic_food,101,1.4,21.3,1.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206060,,"Gelato confezionato, nocciola, in vaschetta",,,,dolci_snack,carb_source,generic_food,183,3.3,25.2,8.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206070,,"Gelato confezionato, panna, in vaschetta",,,,dolci_snack,carb_source,generic_food,189,3.2,27.2,8.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206080,,"Gelato confezionato, panna ricoperta di cioccolato fondente",,,,dolci_snack,fat_source,generic_food,316,4.5,28.2,21.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206090,,"Gelato confezionato, stracciatella, in vaschetta",,,,dolci_snack,carb_source,generic_food,193,2.9,31.5,7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206100,,"Gelato confezionato, vaniglia, in vaschetta",,,,dolci_snack,carb_source,generic_food,167,2.7,25.7,6.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206260,,"Gelato confezionato, biscotto con crema, zabaione e cioccolato",,,,dolci_snack,carb_source,generic_food,271,5.3,49.1,7.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206270,,"Gelato confezionato, cono con panna e cioccolato",,,,dolci_snack,mixed_source,generic_food,291,5.1,34.9,15.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206280,,"Gelato confezionato, cono con panna, scaglie di cioccolato e noccioline",,,,dolci_snack,fat_source,generic_food,326,4.2,33.3,20.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206710,,"Gelato confezionato, ghiacciolo all'arancio",,,,dolci_snack,carb_source,generic_food,137,0,36.5,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_206800,,"Gelato confezionato, sorbetto al limone, in vaschetta",,,,dolci_snack,carb_source,generic_food,132,0.9,34.2,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_207010,,Baba' al rhum,,,,dolci_snack,carb_source,generic_food,288,5.9,41.2,5.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_207020,,"Cannoli alla crema, industriale",,,,dolci_snack,mixed_source,generic_food,368,6.2,41.9,20.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_208500,,"Crostata, con crema al cacao, industriale",,,,dolci_snack,carb_source,generic_food,492,4.6,67,24.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_208510,,"Crostata, con marmellata, industriale",,,,dolci_snack,carb_source,generic_food,339,4.9,65.5,8.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_208520,,"Crostata, con marmellata di albicocche, industriale",,,,dolci_snack,carb_source,generic_food,421,0.9,71.7,16.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_209010,,Torta margherita,,,,dolci_snack,carb_source,generic_food,370,8.9,63.4,10.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_210010,,Miele,,,,dolci_snack,carb_source,generic_food,304,0.6,80.3,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_210030,,"Merendine, con marmellata, industriale",,,,dolci_snack,carb_source,generic_food,364,5.5,67.9,9.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_210040,,"Merendine, farcite con cacao, industriale",,,,dolci_snack,carb_source,generic_food,410,6.2,65.5,15.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_210050,,"Merendine, tipo pan di Spagna, industriale",,,,dolci_snack,carb_source,generic_food,386,7.4,62.7,13.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_210060,,"Merendine, tipo briosche, industriale",,,,dolci_snack,carb_source,generic_food,440,8.2,65.7,17.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_210070,,"Merendine, tipo pasta frolla, industriale",,,,dolci_snack,carb_source,generic_food,447,5.3,71.7,17.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_214000,,Barretta al cocco ricoperta di cioccolato,,,,dolci_snack,mixed_source,generic_food,472,4.8,58.2,26.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_214500,,Wafer ricoperto di cioccolato,,,,dolci_snack,mixed_source,generic_food,498,8.2,60.3,26.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_215000,,"Savoiardi, industriali",,,,dolci_snack,carb_source,generic_food,395,11.9,69.6,9.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_216000,,Panettone,,,,dolci_snack,carb_source,generic_food,337,6.4,56.2,10.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_217000,,Pasta di mandorle,,,,frutta,fruit,generic_food,455,9.9,54.6,23.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_401010,,Aranciata,,,,altro,carb_source,generic_food,38,0.1,10,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_401100,,Bevanda tipo cola,,,,altro,carb_source,generic_food,39,,10.5,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_403010,,"Bevanda alcolica, Aperitivo a base di vino",,,,bevande,drink,generic_food,186,,17,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_404010,,"Bevanda alcolica, Birra chiara",,,,bevande,drink,generic_food,34,0.2,3.5,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_405010,,"Bevanda alcolica, Vino da pasto bianco",,,,bevande,drink,generic_food,70,,,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_405020,,"Bevanda alcolica, Vino da pasto rosso",,,,bevande,drink,generic_food,75,,,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_406010,,"Bevanda alcolica, Marsala tipico",,,,bevande,drink,generic_food,203,,28,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_406500,,"Bevanda alcolica, Vermouth dolce",,,,bevande,drink,generic_food,139,,13.9,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_406510,,"Bevanda alcolica, Vermouth secco",,,,bevande,drink,generic_food,121,,4,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_407010,,"Bevanda alcolica, Liquori da dessert",,,,bevande,drink,generic_food,314,,31.1,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_407510,,"Bevanda alcolica, Marsala all'uovo",,,,bevande,drink,generic_food,150,,12.4,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_408010,,"Bevanda alcolica, Brandy",,,,bevande,drink,generic_food,230,,,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_408100,,"Bevanda alcolica, Grappa",,,,bevande,drink,generic_food,242,,,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_408900,,"Bevanda alcolica, Whisky",,,,bevande,drink,generic_food,245,,,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_409000,,"Bevanda alcolica, Spumante",,,,bevande,drink,generic_food,87,,0.6,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_501200,,Pop corn,,,,altro,carb_source,generic_food,408,12,77.9,4.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_502260,,"Ketchup, salsa",,,,altro,carb_source,generic_food,100,2.1,24,,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_502760,,"Maionese, industriale",,,,altro,fat_source,generic_food,655,4.3,2.1,70,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_503010,,Dadi da brodo,,,,altro,fat_source,generic_food,250,15.7,5,18.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_503100,,"Lievito di birra, compresso",,,,altro,protein_source,generic_food,70,12.1,1.1,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_504010,,Farina di castagne,,,,frutta,fruit,generic_food,318,6.1,62,3.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_504100,,Fecola di patate,,,,altro,carb_source,generic_food,346,1.4,90.7,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_507100,,Pappa reale,,,,altro,mixed_source,generic_food,146,10,14,6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_508010,,"Cacao amaro, in polvere",,,,altro,fat_source,generic_food,355,20.4,11.5,25.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_508100,,"Tè, foglie",,,,altro,protein_source,generic_food,108,19.6,3,2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_508200,,Caffe' tostato,,,,altro,mixed_source,generic_food,287,10.4,28.5,15.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_509010,,"Soia, bevanda",,,,altro,fat_source,generic_food,32,2.9,0.8,1.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_509020,,"Soia, salsa",,,,altro,protein_source,generic_food,66,8.7,8.3,0,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_509030,,"Soia, yogurt",,,,altro,fat_source,generic_food,72,5,3.9,4.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_900010,,"Minestre in scatola, crema di asparagi",,,,altro,carb_source,generic_food,26,1,4.2,0.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_900110,,"Minestre in scatola, crema di cipolle",,,,altro,mixed_source,generic_food,26,2.2,2.2,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_900210,,"Minestre in scatola, crema di funghi",,,,altro,fat_source,generic_food,56,1,4.2,4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_900310,,"Minestre in scatola, crema di pollo",,,,altro,fat_source,generic_food,58,1.7,4.5,3.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_900410,,"Minestre in scatola, crema di pomodori",,,,altro,carb_source,generic_food,36,0.8,6.4,1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_905010,,"Minestrone, cotto",,,,verdura,carb_source,generic_food,45,2,7.8,0.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_905100,,Minestrone liofilizzato,,,,altro,carb_source,generic_food,298,10.1,47.6,8.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0001,,Pizza Napoletana Margherita STG,,,,piatti_pronti,mixed_source,generic_food,235,10.7,27.4,9.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0002,,Cannoli siciliani,,,,piatti_pronti,carb_source,generic_food,325,7.2,42.7,14.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0003,,Brasato al Barolo,,,,piatti_pronti,protein_source,generic_food,108,13.8,0.3,5.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0004,,Baccalà alla vicentina,,,,piatti_pronti,fat_source,generic_food,520,21.5,0.3,47.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0005,,Castagnaccio,,,,piatti_pronti,carb_source,generic_food,234,3.4,39.3,6.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0006,,Sugo di pomodoro,,,,piatti_pronti,fat_source,generic_food,74,1.3,3.6,5.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0007,,Ragù alla bolognese,,,,piatti_pronti,fat_source,generic_food,196,12,1.9,15.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0008,,Pesto alla genovese,,,,piatti_pronti,fat_source,generic_food,250,11,1.8,21.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0009,,Risotto alla parmigiana,,,,piatti_pronti,carb_source,generic_food,181,4.1,25.4,7.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0010,,Pasta e fagioli,,,,piatti_pronti,mixed_source,generic_food,116,4.9,12.2,5.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0011,,Frittata,,,,piatti_pronti,fat_source,generic_food,185,16.1,0,13.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0012,,Spezzatino di vitellone al vino rosso,,,,piatti_pronti,mixed_source,generic_food,161,18.1,3,8.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0013,,Scaloppina di tacchino al limone,,,,piatti_pronti,mixed_source,generic_food,170,20.5,11.5,4.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0014,,Trota al forno,,,,piatti_pronti,mixed_source,generic_food,186,20.8,5.8,8.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0015,,Merluzzo in umido,,,,piatti_pronti,mixed_source,generic_food,86,9.7,1.7,4.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0016,,Pasta al sugo di pomodoro,,,,piatti_pronti,carb_source,generic_food,113,3.3,19.5,2.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0017,,Pasta al ragù alla bolognese,,,,piatti_pronti,mixed_source,generic_food,168,8.4,16,8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0018,,Pasta al pesto alla genovese,,,,piatti_pronti,mixed_source,generic_food,175,6.7,21.4,7.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0019,,Riso al sugo di pomodoro,,,,piatti_pronti,carb_source,generic_food,90,1.7,16.5,2.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0020,,Riso al ragù alla bolognese,,,,piatti_pronti,mixed_source,generic_food,145,6.7,13.6,7.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0021,,Riso burro e Parmigiano reggiano,,,,piatti_pronti,carb_source,generic_food,144,3.4,22.1,5.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0022,,Gnocchi al sugo di pomodoro,,,,piatti_pronti,carb_source,generic_food,112,2.5,19.4,2.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0023,,Gnocchi al ragù alla bolognese,,,,piatti_pronti,mixed_source,generic_food,175,8.4,15.4,9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0024,,Gnocchi al pesto alla genovese,,,,piatti_pronti,mixed_source,generic_food,186,6.4,21.7,8.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0025,,Ravioli al burro e salvia,,,,piatti_pronti,mixed_source,generic_food,238,6.5,24.7,12.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0026,,Ravioli al sugo di pomodoro,,,,piatti_pronti,carb_source,generic_food,135,4.8,17.6,5.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0027,,Polenta al sugo di pomodoro,,,,piatti_pronti,carb_source,generic_food,73,1,14.2,1.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0028,,Polenta al ragù alla bolognese,,,,piatti_pronti,mixed_source,generic_food,114,4.6,12.4,5.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0029,,Alici al forno,,,,piatti_pronti,mixed_source,generic_food,172,18.2,7.1,8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0030,,Spigola al cartoccio,,,,piatti_pronti,protein_source,generic_food,126,16.2,0.9,6.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0031,,Sogliola al vino bianco,,,,piatti_pronti,mixed_source,generic_food,188,19,5.6,10.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0032,,Frittata prosciutto e formaggio,,,,piatti_pronti,fat_source,generic_food,205,16.2,0.3,15.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0033,,Pasta cacio e pepe,,,,piatti_pronti,carb_source,generic_food,167,6.9,27.4,3.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0034,,Pasta burro e parmigiano,,,,piatti_pronti,carb_source,generic_food,184,6,27.3,6.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0035,,"Pasta aglio, olio e peperoncino",,,,piatti_pronti,carb_source,generic_food,190,4.2,26.5,7.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0036,,Alici marinate,,,,piatti_pronti,mixed_source,generic_food,120,14.2,1.4,6.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0037,,Pasta alla carbonara,,,,piatti_pronti,mixed_source,generic_food,245,10.8,28.4,10.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0038,,Pasta alle vongole,,,,piatti_pronti,carb_source,generic_food,157,6.7,28.3,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0039,,Pasta alla amatriciana,,,,piatti_pronti,mixed_source,generic_food,241,7.5,28.7,11,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0040,,Carciofi alla romana,,,,piatti_pronti,fat_source,generic_food,85,2.2,1.8,5.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0041,,Pomodori al riso,,,,piatti_pronti,carb_source,generic_food,93,2,14.5,2.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0042,,Parmigiana di melanzane,,,,piatti_pronti,fat_source,generic_food,242,7,4,21,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0043,,Gateau,,,,piatti_pronti,mixed_source,generic_food,156,9.1,11.6,7.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0044,,Besciamella,,,,piatti_pronti,fat_source,generic_food,139,3.9,9.5,9.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0045,,Pan di Spagna,,,,piatti_pronti,carb_source,generic_food,275,10.1,49.7,5.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0046,,Pastiera,,,,piatti_pronti,carb_source,generic_food,295,7.2,43.6,11,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0047,,Torta di mele,,,,piatti_pronti,carb_source,generic_food,300,5,46.3,11.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0048,,Lasagna,,,,piatti_pronti,mixed_source,generic_food,196,11.7,13.4,10.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0049,,"Maionese, artigianale",,,,piatti_pronti,fat_source,generic_food,660,3.2,0.1,71.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0050,,Pasta integrale al sugo di pomodoro,,,,piatti_pronti,carb_source,generic_food,132,4.6,21.3,3.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PC0051,,Zucchine grigliate,,,,piatti_pronti,mixed_source,generic_food,75,4.3,5.5,3.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0001,,Riso Cantonese,,,,altro,carb_source,generic_food,207,5.5,29.8,7.8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0002,,Nachos,,,,altro,mixed_source,generic_food,512,6.5,63.8,26.1,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0003,,Kebab solo carne,,,,altro,fat_source,generic_food,269,29.7,0,16.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0004,,Falafel,,,,altro,mixed_source,generic_food,198,7.1,19.8,9.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0005,,Sarmale,,,,altro,mixed_source,generic_food,103,5.7,7.9,5.2,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0006,,Involtini Primavera,,,,altro,fat_source,generic_food,238,3.5,21.6,15.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0007,,Nuvole di gamberi,,,,altro,fat_source,generic_food,559,0.8,57,38,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0008,,Ravioli al vapore,,,,altro,fat_source,generic_food,270,7.2,21.4,17.5,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0009,,Spaghetti fritti,,,,altro,fat_source,generic_food,165,4.6,13.6,10.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0010,,Pollo all'ananas,,,,altro,mixed_source,generic_food,126,11.5,5.5,6.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0011,,Pollo alle mandorle,,,,altro,fat_source,generic_food,182,16.5,2.4,11.9,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0012,,Maiale in agrodolce,,,,altro,fat_source,generic_food,233,8.7,17.7,14.6,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0013,,Gamberetti con funghi e bambù,,,,altro,fat_source,generic_food,110,8.6,1.9,7.3,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0014,,Frutta mista caramellata,,,,altro,carb_source,generic_food,217,1.9,36,8,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0015,,Gelato misto fritto,,,,altro,carb_source,generic_food,252,4.2,34.7,11.7,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0016,,Hummus,,,,altro,fat_source,generic_food,168,6.2,9.4,11,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
+crea_PE0017,,Tabulè,,,,altro,carb_source,generic_food,95,3,14,2.4,,,,,,,,,,,,crea,,,,true,true,100,{},2026-06-04T21:27:21.913992+00:00,2026-06-04T21:27:21.913992+00:00
