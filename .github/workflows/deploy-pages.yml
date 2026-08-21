@@ -1,0 +1,62 @@
+name: Deploy web to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - claude/vatia-portfolio-rebuild-caw3f1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Test engine
+        run: npm --workspace @vatia/diet-engine run test
+
+      - name: Build web
+        env:
+          # Supabase publishable keys are safe in a public bundle
+          # (they're what "anon" access uses; RLS is the actual guard).
+          VITE_SUPABASE_URL: https://lwkkmgjaeidjzfnmkiib.supabase.co
+          VITE_SUPABASE_ANON_KEY: sb_publishable_G9X_ORkaiyWlAPF_8wmAjQ_GvmighEY
+          VITE_BASE: /Vatia-dietengine/
+        run: npm --workspace @vatia/web run build
+
+      - name: Add SPA 404 fallback
+        # HashRouter already handles deep links via #/, but a copy of
+        # index.html as 404.html makes direct-URL misses land on the app.
+        run: cp apps/web/dist/index.html apps/web/dist/404.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

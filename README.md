@@ -4,7 +4,12 @@
 alimenti che ti piacciono per ciascun pasto, ottieni i grammi. Nessun
 account, nessun tracking, nessuna promessa magica.
 
-Live demo: _in fase di deploy_. In locale:
+Live demo: https://nicoloproietti.github.io/Vatia-dietengine/ (GitHub
+Pages, deploy automatico via `.github/workflows/deploy-pages.yml` a
+ogni push su `main`). Prima volta: **Settings → Pages → Source: GitHub
+Actions** e rilancia il workflow.
+
+In locale:
 
 ```bash
 npm install
