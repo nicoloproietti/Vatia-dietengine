@@ -110,7 +110,7 @@ export function ProfilePage() {
             </select>
           </label>
         </div>
-        <label style={{ marginTop: '0.9rem' }}>
+        <label style={{ marginTop: 12 }}>
           <span>{t('profile.exclude')}</span>
           <input
             type="text"
@@ -135,7 +135,7 @@ export function ProfilePage() {
         <p className="small" style={{ marginTop: '0.8rem' }}>{t('targets.formula_note')}</p>
       </div>
 
-      <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+      <div className="actions-row">
         <button type="submit">{t('profile.save')}</button>
         <button type="button" className="secondary" onClick={onExport}>{t('profile.export')}</button>
         <button type="button" className="secondary" onClick={() => fileRef.current?.click()}>

@@ -79,7 +79,6 @@ export function MealBuilderPage() {
       {(['protein', 'carb', 'veg', 'fat'] as FoodRole[]).map((role) => (
         <RolePicker
           key={role}
-          role={role}
           label={t(`meal.${role}`)}
           foods={foods[role]}
           value={sel[role]}
@@ -94,9 +93,8 @@ export function MealBuilderPage() {
 }
 
 function RolePicker({
-  role, label, foods, value, onChange, missingMsg,
+  label, foods, value, onChange, missingMsg,
 }: {
-  role: FoodRole;
   label: string;
   foods: Food[];
   value: Food | null;
@@ -126,9 +124,6 @@ function RolePicker({
           </select>
         )}
       </label>
-      {role === 'fat' && (
-        <p className="small" style={{ margin: 0 }}>{/* optional */}—</p>
-      )}
     </div>
   );
 }

@@ -125,7 +125,7 @@ export function PlanResultPage() {
         );
       })}
 
-      <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+      <div className="actions-row">
         <button
           type="button"
           onClick={() =>
