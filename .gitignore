@@ -6,3 +6,6 @@ coverage
 .env.local
 *.log
 .vite
+apps/web/.env
+apps/web/dist
+apps/web/node_modules
