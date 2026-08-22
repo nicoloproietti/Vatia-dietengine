@@ -46,6 +46,8 @@ export function toEngineFood(row: FoodRow): Food {
     protein_per_100g: row.protein ?? 0,
     carbs_per_100g: row.carbs ?? 0,
     fat_per_100g: row.fat ?? 0,
+    ...(row.category ? { category: row.category } : {}),
+    ...(row.macro_category ? { macro_category: row.macro_category } : {}),
   };
 }
 

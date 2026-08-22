@@ -49,6 +49,10 @@ export interface Food {
   protein_per_100g: number;
   carbs_per_100g: number;
   fat_per_100g: number;
+  /** Source CREA category — e.g. `cereali`, `carne`, `verdura` — used by the solver and UI grouping. */
+  category?: string;
+  /** Broad macro role from the source — `carb_source`, `protein_source`, `fat_source`. */
+  macro_category?: string;
 }
 
 export type FoodRole = 'protein' | 'carb' | 'veg' | 'fat';
