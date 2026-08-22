@@ -16,7 +16,7 @@ export function App() {
         <div className="topbar-actions">
           <button
             type="button"
-            className="theme-toggle"
+            className="icon-btn"
             onClick={toggle}
             aria-label="Toggle theme"
             title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
@@ -25,7 +25,7 @@ export function App() {
           </button>
           <button
             type="button"
-            className="lang-toggle"
+            className="icon-btn"
             onClick={() => setLocale(locale === 'it' ? 'en' : 'it')}
             aria-label="Switch language"
           >

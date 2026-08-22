@@ -83,75 +83,81 @@ export function PlanResultPage() {
   if (!pick || !selection || !target || !result) return <p className="small">…</p>;
 
   return (
-    <div className="stack">
-      <h1>{t('plan.title')} · {t(`meal.${pick.meal}`)}</h1>
+    <div>
+      <span className="eyebrow">{t('wizard.section.meal')} · {t(`meal.${pick.meal}`)}</span>
+      <h1>{t('plan.title')}</h1>
 
-      <div className="card">
-        <div className="macro-row">
-          <div><small>{t('plan.target')}</small><strong>{target.kcal.toFixed(0)} kcal</strong>
-            P {target.protein_g} · C {target.carbs_g} · F {target.fat_g}</div>
-          <div><small>{t('plan.actual')}</small><strong>{result.totals.kcal.toFixed(0)} kcal</strong>
-            P {result.totals.protein_g} · C {result.totals.carbs_g} · F {result.totals.fat_g}</div>
-          <div><small>{t('plan.deviation')}</small>
-            kcal {result.deviation_pct.kcal}% · P {result.deviation_pct.protein}%
-            · C {result.deviation_pct.carbs}% · F {result.deviation_pct.fat}%</div>
-          <div><small>Sc/Km0</small>
-            <strong>
-              {Object.values(seasonality).filter((s) => s?.is_in_season).length}·
-              {Object.values(seasonality).filter((s) => s?.is_local).length}
-            </strong>
-          </div>
+      <div className="macro-row" style={{ marginBottom: 32 }}>
+        <div>
+          <small>{t('plan.target')}</small>
+          <strong>{target.kcal.toFixed(0)}</strong>
+          <span className="sub">kcal · P {target.protein_g} / C {target.carbs_g} / F {target.fat_g}</span>
+        </div>
+        <div>
+          <small>{t('plan.actual')}</small>
+          <strong>{result.totals.kcal.toFixed(0)}</strong>
+          <span className="sub">kcal · P {result.totals.protein_g} / C {result.totals.carbs_g} / F {result.totals.fat_g}</span>
+        </div>
+        <div>
+          <small>{t('plan.deviation')}</small>
+          <strong>{Math.round(Math.abs(result.deviation_pct.kcal))}%</strong>
+          <span className="sub">P {result.deviation_pct.protein}% C {result.deviation_pct.carbs}% F {result.deviation_pct.fat}%</span>
+        </div>
+        <div>
+          <small>Sc / Km0</small>
+          <strong>
+            {Object.values(seasonality).filter((s) => s?.is_in_season).length}·{Object.values(seasonality).filter((s) => s?.is_local).length}
+          </strong>
+          <span className="sub">alimenti</span>
         </div>
       </div>
 
       {result.items.map((it) => {
         const s = seasonality[it.food.id] ?? null;
         return (
-          <div key={it.food.id} className="card">
+          <div key={it.food.id} className="plan-item">
             <h3>{it.food.name}</h3>
-            <p className="small" style={{ margin: '0 0 0.5rem' }}>
-              <strong>{it.grams} g</strong> · {it.role}
+            <span className="grams">{it.grams} g</span>
+            <div className="meta">
+              <span className="role-tag">{it.role}</span>
               {s?.is_in_season && <span className="badge in-season">{t('plan.badge.in_season')}</span>}
               {s?.is_local && <span className="badge km0">{t('plan.badge.km0')}</span>}
-            </p>
-            <p className="small" style={{ margin: 0 }}>
-              per 100g · {it.food.kcal_per_100g} kcal ·
-              P {it.food.protein_per_100g} / C {it.food.carbs_per_100g} / F {it.food.fat_per_100g}
-            </p>
-            <p style={{ marginTop: '0.4rem' }}>
+              <span className="mono" style={{ color: 'var(--ink-3)', fontSize: 12 }}>
+                per 100g · {it.food.kcal_per_100g} kcal · P{it.food.protein_per_100g} C{it.food.carbs_per_100g} F{it.food.fat_per_100g}
+              </span>
               <SubstituteButton foodId={it.food.id} />
-            </p>
+            </div>
           </div>
         );
       })}
 
-      <div className="actions-row">
-        <button
-          type="button"
-          onClick={() =>
-            openPlanPrintView(pick.meal, target, result, {
-              title: t('plan.title'),
-              target: t('plan.target'),
-              actual: t('plan.actual'),
-              deviation: t('plan.deviation'),
-              footer: t('footer.rebuild'),
-            })
-          }
-        >
-          {t('plan.export_pdf')}
+      <div className="btn-row">
+        <button type="button" className="link" onClick={() => navigate('/meal')}>
+          ← {t('plan.back')}
         </button>
-        <button
-          type="button"
-          className="secondary"
-          onClick={() =>
-            downloadText(`vatia-plan-${pick.meal}.csv`, planToCsv(target, result))
-          }
-        >
-          {t('plan.export_csv')}
-        </button>
-        <button type="button" className="secondary" onClick={() => navigate('/meal')}>
-          {t('plan.back')}
-        </button>
+        <div className="right">
+          <button
+            type="button"
+            className="secondary"
+            onClick={() => downloadText(`vatia-plan-${pick.meal}.csv`, planToCsv(target, result))}
+          >
+            {t('plan.export_csv')}
+          </button>
+          <button
+            type="button"
+            onClick={() =>
+              openPlanPrintView(pick.meal, target, result, {
+                title: t('plan.title'),
+                target: t('plan.target'),
+                actual: t('plan.actual'),
+                deviation: t('plan.deviation'),
+                footer: t('footer.rebuild'),
+              })
+            }
+          >
+            {t('plan.export_pdf')}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -185,11 +191,11 @@ function SubstituteButton({ foodId }: { foodId: string }) {
 
   return (
     <>
-      <button type="button" className="secondary" onClick={ask} disabled={loading}>
-        {t('plan.substitute')}
+      <button type="button" className="link" onClick={ask} disabled={loading}>
+        {t('plan.substitute')} →
       </button>
-      {suggestion && <span className="small" style={{ marginLeft: '0.6rem' }}>→ {suggestion}</span>}
-      {error && <span className="small" style={{ marginLeft: '0.6rem', color: 'var(--danger)' }}>{error}</span>}
+      {suggestion && <span className="small">→ {suggestion}</span>}
+      {error && <span className="small" style={{ color: 'var(--danger)' }}>{error}</span>}
     </>
   );
 }

@@ -1,129 +1,178 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { Food, FoodRole, MealKey } from '@vatia/diet-engine';
+import type { Food, MealKey } from '@vatia/diet-engine';
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { fetchFoodsForRole } from '../lib/foods.ts';
+import { WizardShell, ChoiceList } from '../components/Wizard.tsx';
 
 const MEALS: MealKey[] = ['breakfast', 'lunch', 'snack', 'dinner'];
+const TOTAL_STEPS = 5;
 
-type Selection = Record<Exclude<FoodRole, never>, Food | null>;
-const EMPTY: Selection = { protein: null, carb: null, veg: null, fat: null };
+type Role = 'protein' | 'carb' | 'veg' | 'fat';
 
 export function MealBuilderPage() {
   const { t } = useLocale();
   const { profile } = useProfile();
   const navigate = useNavigate();
-  const [meal, setMeal] = useState<MealKey>('lunch');
-  const [foods, setFoods] = useState<Record<FoodRole, Food[]>>({
+
+  const [step, setStep] = useState(0);
+  const [meal, setMeal] = useState<MealKey | null>(null);
+  const [protein, setProtein] = useState<string | null>(null);
+  const [carb, setCarb] = useState<string | null>(null);
+  const [veg, setVeg] = useState<string | null>(null);
+  const [fat, setFat] = useState<string | null>(null); // null = not chosen, '' = skipped
+
+  const [foodsByRole, setFoodsByRole] = useState<Record<Role, Food[]>>({
     protein: [], carb: [], veg: [], fat: [],
   });
-  const [sel, setSel] = useState<Selection>(EMPTY);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!profile) { navigate('/profile'); return; }
     let cancelled = false;
-    setLoading(true);
-    setError(null);
+    setLoading(true); setError(null);
     Promise.all(
-      (['protein', 'carb', 'veg', 'fat'] as FoodRole[]).map((role) =>
-        fetchFoodsForRole(role, profile.excludes).then((list) => [role, list] as const),
+      (['protein', 'carb', 'veg', 'fat'] as Role[]).map((r) =>
+        fetchFoodsForRole(r, profile.excludes).then((list) => [r, list] as const),
       ),
     )
-      .then((entries) => {
-        if (cancelled) return;
-        setFoods(Object.fromEntries(entries) as Record<FoodRole, Food[]>);
-      })
+      .then((entries) => !cancelled && setFoodsByRole(Object.fromEntries(entries) as Record<Role, Food[]>))
       .catch((e: Error) => !cancelled && setError(e.message))
       .finally(() => !cancelled && setLoading(false));
     return () => { cancelled = true; };
   }, [profile, navigate]);
 
-  const ready = useMemo(
-    () => sel.protein != null && sel.carb != null && sel.veg != null,
-    [sel],
-  );
-
   function submit() {
-    if (!ready) return;
-    const payload = {
+    if (!meal || !protein || !carb || !veg) return;
+    sessionStorage.setItem('vatia:mealPick:v1', JSON.stringify({
       meal,
-      selection: {
-        protein: sel.protein!.id,
-        carb: sel.carb!.id,
-        veg: sel.veg!.id,
-        fat: sel.fat?.id ?? null,
-      },
-    };
-    sessionStorage.setItem('vatia:mealPick:v1', JSON.stringify(payload));
+      selection: { protein, carb, veg, fat: fat || null },
+    }));
     navigate('/plan');
   }
 
-  return (
-    <div className="stack">
-      <h1>{t('meal.title')}</h1>
-      <p className="small">{t('meal.pick')}</p>
+  const back = step > 0 ? () => setStep(step - 1) : undefined;
+  const next = () => setStep((s) => Math.min(TOTAL_STEPS - 1, s + 1));
 
-      <label>
-        <span>{t('meal.select_meal')}</span>
-        <select value={meal} onChange={(e) => setMeal(e.target.value as MealKey)}>
-          {MEALS.map((m) => <option key={m} value={m}>{t(`meal.${m}`)}</option>)}
-        </select>
-      </label>
+  // ── Step 0: meal type ───────────────────────────────────
+  if (step === 0) {
+    return (
+      <WizardShell
+        step={0} total={TOTAL_STEPS}
+        sectionLabel={t('wizard.section.meal')}
+        question={t('wizard.q.meal')}
+        canNext={meal != null}
+        onNext={next}
+      >
+        <ChoiceList<MealKey>
+          value={meal}
+          onChange={setMeal}
+          options={MEALS.map((m) => ({ value: m, label: t(`meal.${m}`) }))}
+        />
+      </WizardShell>
+    );
+  }
 
-      {loading && <p className="small">…</p>}
-      {error && <p className="small" style={{ color: 'var(--danger)' }}>{error}</p>}
+  // ── Steps 1-3: role picker ──────────────────────────────
+  const roleForStep: Record<number, Role> = { 1: 'protein', 2: 'carb', 3: 'veg' };
+  if (step >= 1 && step <= 3) {
+    const role = roleForStep[step]!;
+    const setter =
+      role === 'protein' ? setProtein :
+      role === 'carb'    ? setCarb    :
+                           setVeg;
+    const value =
+      role === 'protein' ? protein :
+      role === 'carb'    ? carb    :
+                           veg;
+    const q =
+      role === 'protein' ? t('wizard.q.protein') :
+      role === 'carb'    ? t('wizard.q.carb')    :
+                           t('wizard.q.veg');
 
-      {(['protein', 'carb', 'veg', 'fat'] as FoodRole[]).map((role) => (
-        <RolePicker
-          key={role}
-          label={t(`meal.${role}`)}
-          foods={foods[role]}
-          value={sel[role]}
-          onChange={(f) => setSel((s) => ({ ...s, [role]: f }))}
+    return (
+      <WizardShell
+        step={step} total={TOTAL_STEPS}
+        sectionLabel={t('wizard.section.meal')}
+        question={q}
+        canNext={value != null && value !== ''}
+        onBack={back} onNext={next}
+      >
+        <FoodSelect
+          foods={foodsByRole[role]}
+          value={value}
+          onChange={setter}
+          loading={loading}
+          error={error}
           missingMsg={t('error.no_foods')}
         />
-      ))}
+      </WizardShell>
+    );
+  }
 
-      <button type="button" onClick={submit} disabled={!ready}>{t('meal.compute')}</button>
-    </div>
+  // ── Step 4: fat (optional) + submit ─────────────────────
+  return (
+    <WizardShell
+      step={4} total={TOTAL_STEPS}
+      sectionLabel={t('wizard.section.meal')}
+      question={t('wizard.q.fat')}
+      help={t('wizard.q.fat.help')}
+      canNext
+      nextLabel={t('wizard.compute')}
+      onBack={back} onNext={submit}
+    >
+      <FoodSelect
+        foods={foodsByRole.fat}
+        value={fat}
+        onChange={setFat}
+        loading={loading}
+        error={error}
+        missingMsg={t('error.no_foods')}
+        allowSkip
+        skipLabel={t('wizard.fat.skip')}
+      />
+    </WizardShell>
   );
 }
 
-function RolePicker({
-  label, foods, value, onChange, missingMsg,
+function FoodSelect({
+  foods, value, onChange, loading, error, missingMsg, allowSkip, skipLabel,
 }: {
-  label: string;
   foods: Food[];
-  value: Food | null;
-  onChange: (f: Food | null) => void;
+  value: string | null;
+  onChange: (id: string | null) => void;
+  loading: boolean;
+  error: string | null;
   missingMsg: string;
+  allowSkip?: boolean;
+  skipLabel?: string;
 }) {
+  if (loading) return <p className="small">…</p>;
+  if (error) return <p className="error-text">{error}</p>;
+  if (!foods.length) return <p className="small">{missingMsg}</p>;
+
   return (
-    <div className="card">
+    <>
       <label>
-        <span>{label}</span>
-        {foods.length === 0 ? (
-          <p className="small" style={{ margin: 0 }}>{missingMsg}</p>
-        ) : (
-          <select
-            value={value?.id ?? ''}
-            onChange={(e) => {
-              const id = e.target.value;
-              onChange(id ? foods.find((f) => f.id === id) ?? null : null);
-            }}
-          >
-            <option value="">—</option>
-            {foods.map((f) => (
-              <option key={f.id} value={f.id}>
-                {f.name} · {f.kcal_per_100g} kcal · P {f.protein_per_100g} / C {f.carbs_per_100g} / F {f.fat_per_100g}
-              </option>
-            ))}
-          </select>
-        )}
+        <span className="label-text">Scegli</span>
+        <select value={value ?? ''} onChange={(e) => onChange(e.target.value || null)}>
+          <option value="">—</option>
+          {foods.map((f) => (
+            <option key={f.id} value={f.id}>
+              {f.name} · {f.kcal_per_100g} kcal · P{f.protein_per_100g}/C{f.carbs_per_100g}/F{f.fat_per_100g}
+            </option>
+          ))}
+        </select>
       </label>
-    </div>
+      {allowSkip && (
+        <button type="button" className="link"
+                onClick={() => onChange('')}
+                style={{ marginTop: -6 }}>
+          {skipLabel} →
+        </button>
+      )}
+    </>
   );
 }
