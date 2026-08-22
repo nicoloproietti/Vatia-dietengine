@@ -1,12 +1,11 @@
-import { Link, Navigate, Route, Routes } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom';
 import { useLocale } from './i18n/LocaleContext.tsx';
 import { useTheme } from './state/ThemeContext.tsx';
 import { LandingPage } from './pages/Landing.tsx';
 import { ImportPromptPage } from './pages/ImportPrompt.tsx';
 import { ProfilePage } from './pages/Profile.tsx';
 import { SetupPage } from './pages/Setup.tsx';
-import { WeekPage } from './pages/Week.tsx';
-import { BuildMealPage } from './pages/BuildMeal.tsx';
+import { PianoPage } from './pages/Piano.tsx';
 import { ShoppingPage } from './pages/Shopping.tsx';
 
 export function App() {
@@ -42,11 +41,13 @@ export function App() {
           <Route path="/import" element={<ImportPromptPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/setup" element={<SetupPage />} />
-          <Route path="/week" element={<WeekPage />} />
-          <Route path="/build/:day/:meal" element={<BuildMealPage />} />
+          <Route path="/piano" element={<PianoPage />} />
           <Route path="/shopping" element={<ShoppingPage />} />
+          {/* Legacy redirects — bookmarks and older links keep working. */}
+          <Route path="/week" element={<Navigate to="/piano" replace />} />
           <Route path="/meal" element={<Navigate to="/setup" replace />} />
-          <Route path="/plan" element={<Navigate to="/week" replace />} />
+          <Route path="/plan" element={<Navigate to="/piano" replace />} />
+          <Route path="/build/:day/:meal" element={<LegacyBuildRedirect />} />
         </Routes>
       </main>
       <footer className="footer">
@@ -54,4 +55,9 @@ export function App() {
       </footer>
     </>
   );
+}
+
+function LegacyBuildRedirect() {
+  const { day, meal } = useParams();
+  return <Navigate to={`/piano?day=${day}&meal=${meal}`} replace />;
 }

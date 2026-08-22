@@ -1377,3 +1377,173 @@ select {
 .ms-total-badge.is-ok    { color: var(--accent); }
 .ms-total-badge.is-under { color: var(--warn); }
 .ms-total-badge.is-over  { color: var(--danger); }
+
+/* ══ Drawer (slide-over desktop / bottom sheet mobile) ══════════════ */
+
+.drawer-root {
+  position: fixed; inset: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: flex-end;
+}
+.drawer-backdrop {
+  position: absolute; inset: 0;
+  background: color-mix(in srgb, var(--ink) 40%, transparent);
+  animation: fadeIn 160ms ease;
+  cursor: pointer;
+}
+.drawer-panel {
+  position: relative;
+  width: min(560px, 100vw);
+  max-width: 100vw;
+  height: 100dvh;
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 200ms cubic-bezier(.32,.72,0,1);
+  box-shadow: -8px 0 40px color-mix(in srgb, var(--ink) 20%, transparent);
+}
+.drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.drawer-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+}
+.drawer-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--ink);
+}
+.drawer-close {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  line-height: 1;
+}
+.drawer-close:hover { color: var(--ink); background: var(--muted); border-color: var(--ink-3); transform: none; box-shadow: none; }
+.drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px 24px;
+}
+.drawer-footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+@keyframes slideInRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInUp   { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes fadeIn       { from { opacity: 0; } to { opacity: 1; } }
+
+/* Mobile: bottom sheet */
+@media (max-width: 639px) {
+  .drawer-root { align-items: flex-end; justify-content: stretch; }
+  .drawer-panel {
+    width: 100%;
+    height: 92dvh;
+    border-left: none;
+    border-top: 1px solid var(--line);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    animation: slideInUp 220ms cubic-bezier(.32,.72,0,1);
+  }
+  .drawer-header { padding: 16px 20px 12px; }
+  .drawer-body { padding: 16px 20px 24px; }
+  .drawer-footer { padding: 12px 20px calc(12px + env(safe-area-inset-bottom, 0)); }
+  /* Grab handle */
+  .drawer-panel::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 4px;
+    background: var(--line);
+    border-radius: 2px;
+  }
+  .drawer-header { padding-top: 22px; }
+}
+
+/* ══ Piano workspace ═══════════════════════════════════════════════ */
+
+.piano-strip {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.4fr 0.6fr auto;
+  gap: 14px;
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  align-items: center;
+}
+.piano-strip-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.piano-strip-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.piano-strip-val {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.piano-strip-actions {
+  display: flex;
+  gap: 8px;
+  justify-self: end;
+}
+.piano-strip-actions button { padding: 8px 14px; font-size: 13px; }
+
+@media (max-width: 720px) {
+  .piano-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+  }
+  .piano-strip-actions {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+  .piano-strip-actions button { flex: 1; }
+}
+
+.piano-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.piano-header .eyebrow { margin-bottom: 6px; }

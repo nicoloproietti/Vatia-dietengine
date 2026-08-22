@@ -78,7 +78,7 @@ export function SetupPage() {
       if (drift !== 0 && norm.length > 0) norm[0] = (norm[0] ?? 0) + drift;
       setDistribution({ ...distribution, kcalPct: norm });
     }
-    navigate('/week');
+    navigate('/piano');
   }
 
   return (

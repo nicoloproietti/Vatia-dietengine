@@ -40,7 +40,7 @@ export function ShoppingPage() {
       )}
 
       <div className="btn-row">
-        <button type="button" className="link" onClick={() => navigate('/week')}>← {t('nav.week')}</button>
+        <button type="button" className="link" onClick={() => navigate('/piano')}>← {t('nav.week')}</button>
         <div className="right">
           <button type="button" onClick={exportCsv} disabled={rows.length === 0}>{t('shopping.export')}</button>
         </div>
