@@ -4,6 +4,7 @@ import {
   DAYS_IT, DAYS_SHORT_IT,
   DEFAULT_MEAL_NAMES,
   computeDailyTargets,
+  dailyMacrosFromPct,
   dailyMealTargets,
   dayTotals,
 } from '@vatia/diet-engine';
@@ -14,17 +15,17 @@ import { usePlan } from '../state/PlanContext.tsx';
 export function WeekPage() {
   const { t } = useLocale();
   const { profile } = useProfile();
-  const { targetKcal, mealCount, distribution, weekPlan, clearMeal, copyMealToWeek, clearWeek } = usePlan();
+  const { targetKcal, dailyMacroPct, mealCount, distribution, weekPlan, clearMeal, copyMealToWeek, clearWeek } = usePlan();
   const navigate = useNavigate();
 
   const [activeDay, setActiveDay] = useState(0);
 
   if (!profile) { navigate('/profile'); return null; }
 
-  const daily = useMemo(
-    () => computeDailyTargets(profile, targetKcal ?? undefined),
-    [profile, targetKcal],
-  );
+  const daily = useMemo(() => {
+    const base = computeDailyTargets(profile, targetKcal ?? undefined);
+    return { ...base, ...dailyMacrosFromPct(base.kcal, dailyMacroPct) };
+  }, [profile, targetKcal, dailyMacroPct]);
   const targets = useMemo(() => dailyMealTargets(daily, distribution), [daily, distribution]);
   const names = DEFAULT_MEAL_NAMES[mealCount] ?? DEFAULT_MEAL_NAMES[3]!;
 

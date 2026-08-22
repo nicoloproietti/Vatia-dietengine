@@ -1,20 +1,18 @@
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Activity, Sex } from '@vatia/diet-engine';
 import { computeDailyTargets } from '@vatia/diet-engine';
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile, type StoredProfile } from '../state/ProfileContext.tsx';
 import { ChoiceList, WizardShell } from '../components/Wizard.tsx';
-import { csvToProfile, downloadText, profileToCsv } from '../lib/csv.ts';
 
 const ACTIVITIES: Activity[] = ['sedentary', 'light', 'moderate', 'active', 'very_active'];
-const TOTAL_STEPS = 5;
+const TOTAL_STEPS = 4;
 
 export function ProfilePage() {
   const { t } = useLocale();
   const { profile, setProfile } = useProfile();
   const navigate = useNavigate();
-  const fileRef = useRef<HTMLInputElement>(null);
 
   const [step, setStep] = useState(0);
   const [sex, setSex] = useState<Sex | null>(profile?.sex ?? null);
@@ -22,17 +20,13 @@ export function ProfilePage() {
   const [weight, setWeight] = useState<number | ''>(profile?.weight_kg ?? '');
   const [height, setHeight] = useState<number | ''>(profile?.height_cm ?? '');
   const [activity, setActivity] = useState<Activity | null>(profile?.activity ?? null);
-  const [excludes, setExcludes] = useState<string>(profile?.excludes.join(', ') ?? '');
 
   const complete: StoredProfile | null = useMemo(() => {
     if (sex && typeof age === 'number' && typeof weight === 'number' && typeof height === 'number' && activity) {
-      return {
-        sex, age, weight_kg: weight, height_cm: height, activity,
-        excludes: excludes.split(',').map((s) => s.trim()).filter(Boolean),
-      };
+      return { sex, age, weight_kg: weight, height_cm: height, activity };
     }
     return null;
-  }, [sex, age, weight, height, activity, excludes]);
+  }, [sex, age, weight, height, activity]);
 
   const targets = useMemo(
     () => complete ? computeDailyTargets(complete) : null,
@@ -45,27 +39,10 @@ export function ProfilePage() {
     navigate('/setup');
   }
 
-  function onExport() {
-    if (complete) downloadText('vatia-profile.csv', profileToCsv(complete));
-  }
-  async function onImport(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    try {
-      const p = csvToProfile(await file.text());
-      setSex(p.sex); setAge(p.age); setWeight(p.weight_kg); setHeight(p.height_cm);
-      setActivity(p.activity);
-      setExcludes(p.excludes.join(', '));
-      setProfile(p);
-      setStep(TOTAL_STEPS - 1); // jump to review
-    } catch { alert(t('error.generic')); }
-    if (fileRef.current) fileRef.current.value = '';
-  }
-
   const back = step > 0 ? () => setStep(step - 1) : undefined;
   const next = () => setStep((s) => Math.min(TOTAL_STEPS - 1, s + 1));
 
-  // ─── Step content ─────────────────────────────────────────────────────
+  // ─── Steps ───────────────────────────────────────────────────────────
 
   if (step === 0) {
     return (
@@ -79,7 +56,7 @@ export function ProfilePage() {
       >
         <ChoiceList<Sex>
           value={sex}
-          onChange={(v) => { setSex(v); }}
+          onChange={setSex}
           options={[
             { value: 'male',   label: t('profile.sex.male') },
             { value: 'female', label: t('profile.sex.female') },
@@ -147,71 +124,39 @@ export function ProfilePage() {
     );
   }
 
-  if (step === 3) {
-    return (
-      <WizardShell
-        step={3} total={TOTAL_STEPS}
-        sectionLabel={t('wizard.section.profile')}
-        question={t('wizard.q.activity')}
-        canNext={activity != null}
-        onBack={back} onNext={next}
-      >
-        <ChoiceList<Activity>
-          value={activity}
-          onChange={setActivity}
-          options={ACTIVITIES.map((a) => ({
-            value: a,
-            label: t(`profile.activity.${a}`).split(' (')[0]!,
-            hint: t(`profile.activity.${a}`).includes('(')
-              ? t(`profile.activity.${a}`).split(' (')[1]?.replace(')', '')
-              : undefined,
-          }))}
-        />
-      </WizardShell>
-    );
-  }
-
-  // Step 4: excludes + review + finish (last step)
+  // Step 3 (last): activity + inline review (BMR/TDEE/kcal only, no macros)
   return (
     <WizardShell
-      step={4} total={TOTAL_STEPS}
+      step={3} total={TOTAL_STEPS}
       sectionLabel={t('wizard.section.profile')}
-      question={t('wizard.q.excludes')}
-      help={t('wizard.q.excludes.help')}
+      question={t('wizard.q.activity')}
       canNext={complete != null}
       nextLabel={t('wizard.compute')}
       onBack={back}
       onNext={finish}
     >
-      <label>
-        <span className="label-text">{t('profile.exclude')}</span>
-        <input
-          type="text"
-          placeholder={t('exclude.example')}
-          value={excludes}
-          onChange={(e) => setExcludes(e.target.value)}
-        />
-      </label>
+      <ChoiceList<Activity>
+        value={activity}
+        onChange={setActivity}
+        options={ACTIVITIES.map((a) => ({
+          value: a,
+          label: t(`profile.activity.${a}`).split(' (')[0]!,
+          hint: t(`profile.activity.${a}`).includes('(')
+            ? t(`profile.activity.${a}`).split(' (')[1]?.replace(')', '')
+            : undefined,
+        }))}
+      />
 
       {targets && (
         <div style={{ marginTop: 32 }}>
           <div className="wizard-step-meta"><span>{t('targets.title')}</span><span /></div>
-          <div className="macro-row">
+          <div className="macro-row" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             <div><small>{t('targets.bmr')}</small><strong>{targets.bmr.toFixed(0)}</strong></div>
             <div><small>{t('targets.tdee')}</small><strong>{targets.tdee.toFixed(0)}</strong></div>
-            <div><small>{t('targets.kcal')}</small><strong>{targets.kcal.toFixed(0)}</strong></div>
             <div>
-              <small>P · C · F</small>
-              <strong className="mono">{targets.protein_g}/{targets.carbs_g}/{targets.fat_g}</strong>
-              <span className="sub">g</span>
+              <small>{t('targets.kcal')} <span style={{ textTransform: 'none' }}>(mant.)</span></small>
+              <strong>{targets.kcal.toFixed(0)}</strong>
             </div>
-          </div>
-          <p className="small" style={{ marginTop: 12 }}>{t('targets.formula_note')}</p>
-
-          <div style={{ display: 'flex', gap: 10, marginTop: 24 }}>
-            <button type="button" className="ghost" onClick={onExport}>{t('profile.export')}</button>
-            <button type="button" className="ghost" onClick={() => fileRef.current?.click()}>{t('profile.import')}</button>
-            <input ref={fileRef} type="file" accept=".csv,text/csv" hidden onChange={onImport} />
           </div>
         </div>
       )}

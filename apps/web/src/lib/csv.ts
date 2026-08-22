@@ -9,7 +9,6 @@ const PROFILE_FIELDS = [
   'activity',
   'protein_g_per_kg',
   'fat_pct_kcal',
-  'excludes',
 ] as const;
 
 export function profileToCsv(p: StoredProfile): string {
@@ -40,7 +39,6 @@ export function csvToProfile(csv: string): StoredProfile {
     activity: (map.activity as StoredProfile['activity']) || 'moderate',
     ...(map.protein_g_per_kg ? { protein_g_per_kg: Number(map.protein_g_per_kg) } : {}),
     ...(map.fat_pct_kcal ? { fat_pct_kcal: Number(map.fat_pct_kcal) } : {}),
-    excludes: map.excludes ? map.excludes.split('|').filter(Boolean) : [],
   };
 }
 

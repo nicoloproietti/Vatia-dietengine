@@ -2,6 +2,7 @@ import { Link, Navigate, Route, Routes } from 'react-router-dom';
 import { useLocale } from './i18n/LocaleContext.tsx';
 import { useTheme } from './state/ThemeContext.tsx';
 import { LandingPage } from './pages/Landing.tsx';
+import { ImportPromptPage } from './pages/ImportPrompt.tsx';
 import { ProfilePage } from './pages/Profile.tsx';
 import { SetupPage } from './pages/Setup.tsx';
 import { WeekPage } from './pages/Week.tsx';
@@ -16,7 +17,6 @@ export function App() {
       <header className="topbar">
         <Link to="/" className="brand">{t('brand')}</Link>
         <div className="topbar-actions">
-          <Link to="/week" className="icon-btn">{t('nav.week')}</Link>
           <button
             type="button"
             className="icon-btn"
@@ -39,6 +39,7 @@ export function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/import" element={<ImportPromptPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/setup" element={<SetupPage />} />
           <Route path="/week" element={<WeekPage />} />

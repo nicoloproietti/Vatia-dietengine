@@ -12,10 +12,7 @@ const MACRO_BY_ROLE: Record<Exclude<FoodRole, 'veg'>, string> = {
   fat: 'fat_source',
 };
 
-export async function fetchFoodsForRole(
-  role: FoodRole,
-  excludes: string[] = [],
-): Promise<Food[]> {
+export async function fetchFoodsForRole(role: FoodRole): Promise<Food[]> {
   let query = supabase
     .from('foods')
     .select('id,name,category,macro_category,kcal,protein,carbs,fat,usable_for_meal_generator')
@@ -30,12 +27,7 @@ export async function fetchFoodsForRole(
 
   const { data, error } = await query.limit(500);
   if (error) throw error;
-  const rows = (data ?? []) as FoodRow[];
-  const filtered = excludes.length
-    ? rows.filter((r) => !excludes.some((e) => r.name.toLowerCase().includes(e.toLowerCase())))
-    : rows;
-
-  return filtered.map(toEngineFood);
+  return ((data ?? []) as FoodRow[]).map(toEngineFood);
 }
 
 export function toEngineFood(row: FoodRow): Food {

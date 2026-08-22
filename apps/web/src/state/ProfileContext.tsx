@@ -2,16 +2,15 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import type { ReactNode } from 'react';
 import type { Profile } from '@vatia/diet-engine';
 
-export interface StoredProfile extends Profile {
-  excludes: string[];
-}
+export type StoredProfile = Profile;
 
 function migrate(raw: unknown): StoredProfile | null {
   if (!raw || typeof raw !== 'object') return null;
   const r = raw as Record<string, unknown>;
-  // Drop legacy `goal` field (present in v1 exports) — the engine no
-  // longer chooses a goal for the user; daily kcal is decided in setup.
+  // Drop legacy fields no longer part of Profile so old localStorage
+  // entries and imported CSVs don't break the current shape.
   if ('goal' in r) delete r.goal;
+  if ('excludes' in r) delete r.excludes;
   if (typeof r.sex !== 'string' || typeof r.age !== 'number') return null;
   return r as unknown as StoredProfile;
 }

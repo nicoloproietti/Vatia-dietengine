@@ -99,6 +99,23 @@ export function splitDailyIntoMeals(
   return meals;
 }
 
+export interface MacroPct { protein: number; carbs: number; fat: number }
+
+/**
+ * Grams for each macro given a kcal target and a percent split.
+ * The split does not need to sum to 100 — grams are computed
+ * independently from each percentage and its kcal-per-gram factor.
+ */
+export function dailyMacrosFromPct(kcal: number, split: MacroPct): {
+  protein_g: number; carbs_g: number; fat_g: number;
+} {
+  return {
+    protein_g: round1((kcal * split.protein) / 100 / KCAL_PER_G.protein),
+    carbs_g:   round1((kcal * split.carbs)   / 100 / KCAL_PER_G.carbs),
+    fat_g:     round1((kcal * split.fat)     / 100 / KCAL_PER_G.fat),
+  };
+}
+
 export function macrosToKcal(t: {
   protein_g: number;
   carbs_g: number;

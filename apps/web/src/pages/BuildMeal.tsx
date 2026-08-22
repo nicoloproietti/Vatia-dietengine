@@ -5,6 +5,7 @@ import {
   calcNutrition,
   computeDailyTargets,
   computeItemNutrition,
+  dailyMacrosFromPct,
   isVerdura,
   mealTargetsFor,
   solveOptimalGrams,
@@ -46,7 +47,7 @@ type Phase = 'compose' | 'adjust';
 export function BuildMealPage() {
   const { t } = useLocale();
   const { profile } = useProfile();
-  const { targetKcal, mealCount, distribution, weekPlan, saveMeal } = usePlan();
+  const { targetKcal, dailyMacroPct, mealCount, distribution, weekPlan, saveMeal } = usePlan();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -56,10 +57,10 @@ export function BuildMealPage() {
   if (!profile) { navigate('/profile'); return null; }
   if (!Number.isFinite(dayIdx) || !Number.isFinite(mealIdx)) { navigate('/week'); return null; }
 
-  const daily = useMemo(
-    () => computeDailyTargets(profile, targetKcal ?? undefined),
-    [profile, targetKcal],
-  );
+  const daily = useMemo(() => {
+    const base = computeDailyTargets(profile, targetKcal ?? undefined);
+    return { ...base, ...dailyMacrosFromPct(base.kcal, dailyMacroPct) };
+  }, [profile, targetKcal, dailyMacroPct]);
   const target = useMemo(() => mealTargetsFor(daily, distribution, mealIdx), [daily, distribution, mealIdx]);
   const names = DEFAULT_MEAL_NAMES[mealCount] ?? DEFAULT_MEAL_NAMES[3]!;
   const mealName = names[mealIdx] ?? '—';
@@ -92,15 +93,10 @@ export function BuildMealPage() {
       if (cancelled) return;
       setLoading(false);
       if (error) { setResults([]); return; }
-      const rows = ((data ?? []) as FoodRow[]).map(toEngineFood);
-      const excludes = profile.excludes;
-      const filtered = excludes.length
-        ? rows.filter((r) => !excludes.some((e) => r.name.toLowerCase().includes(e.toLowerCase())))
-        : rows;
-      setResults(filtered);
+      setResults(((data ?? []) as FoodRow[]).map(toEngineFood));
     }, 200);
     return () => { cancelled = true; clearTimeout(timer); };
-  }, [q, phase, profile]);
+  }, [q, phase]);
 
   // ── Actions ─────────────────────────────────────────────────────────
 

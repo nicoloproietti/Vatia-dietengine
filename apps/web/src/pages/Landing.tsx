@@ -10,7 +10,7 @@ export function LandingPage() {
         <h1>{t('landing.title')}</h1>
         <p className="lede">{t('landing.lede')}</p>
         <div className="cta-row">
-          <Link to="/profile">
+          <Link to="/import">
             <button type="button">{t('landing.cta')} →</button>
           </Link>
         </div>

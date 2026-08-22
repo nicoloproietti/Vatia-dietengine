@@ -5,6 +5,7 @@ import {
   DEFAULT_MEAL_NAMES,
   bmrMifflinStJeor,
   computeDailyTargets,
+  dailyMacrosFromPct,
   defaultDistribution,
   mealTargetsFor,
   type MealDistribution,
@@ -14,6 +15,8 @@ import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
 import { CalorieSlider } from '../components/CalorieSlider.tsx';
+import { MacroSplit } from '../components/MacroSplit.tsx';
+import { downloadText, profileToCsv } from '../lib/csv.ts';
 
 const MEAL_OPTIONS = [2, 3, 4, 5, 6];
 
@@ -22,6 +25,7 @@ export function SetupPage() {
   const { profile } = useProfile();
   const {
     targetKcal, setTargetKcal,
+    dailyMacroPct, setDailyMacroPct,
     mealCount, setMealCount,
     distribution, setDistribution,
   } = usePlan();
@@ -38,7 +42,11 @@ export function SetupPage() {
   }, [targetKcal, tdee, setTargetKcal]);
 
   const kcal = targetKcal ?? tdee;
-  const daily = useMemo(() => computeDailyTargets(profile, kcal), [profile, kcal]);
+  const daily = useMemo(() => {
+    const base = computeDailyTargets(profile, kcal);
+    const macros = dailyMacrosFromPct(kcal, dailyMacroPct);
+    return { ...base, ...macros };
+  }, [profile, kcal, dailyMacroPct]);
   const names = DEFAULT_MEAL_NAMES[mealCount] ?? DEFAULT_MEAL_NAMES[3]!;
 
   const kcalSum = distribution.kcalPct.reduce((a, b) => a + b, 0);
@@ -87,6 +95,18 @@ export function SetupPage() {
         </div>
         <CalorieSlider value={kcal} tdee={tdee} onChange={setTargetKcal} />
         <p className="small" style={{ marginTop: 6 }}>{t('setup.dailyKcal.help')}</p>
+      </section>
+
+      <hr />
+
+      {/* ── Daily macro split ── */}
+      <section>
+        <div className="wizard-step-meta">
+          <span>{t('setup.macroPct.title')}</span>
+          <span className="mono">{daily.protein_g} · {daily.carbs_g} · {daily.fat_g} g</span>
+        </div>
+        <p className="small" style={{ marginBottom: 8 }}>{t('setup.macroPct.body')}</p>
+        <MacroSplit value={dailyMacroPct} kcal={kcal} onChange={setDailyMacroPct} />
       </section>
 
       <hr />
@@ -187,6 +207,12 @@ export function SetupPage() {
           {t('setup.reset')}
         </button>
         <div className="right">
+          <button
+            type="button" className="ghost"
+            onClick={() => downloadText('vatia-profile.csv', profileToCsv(profile))}
+          >
+            {t('profile.export')}
+          </button>
           <button type="button" onClick={goWeek}>{t('setup.continue')} →</button>
         </div>
       </div>
