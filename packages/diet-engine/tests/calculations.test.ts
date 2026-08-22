@@ -54,7 +54,6 @@ describe('computeDailyTargets', () => {
     weight_kg: 80,
     height_cm: 180,
     activity: 'moderate',
-    goal: 'maintain',
   };
 
   it('macros reconstruct the total kcal within rounding', () => {
@@ -62,11 +61,22 @@ describe('computeDailyTargets', () => {
     expect(macrosToKcal(t)).toBeCloseTo(t.kcal, 0);
   });
 
-  it('lose goal has fewer kcal than maintain', () => {
-    const maintain = computeDailyTargets({ ...profile, goal: 'maintain' });
-    const lose = computeDailyTargets({ ...profile, goal: 'lose' });
-    expect(lose.kcal).toBeLessThan(maintain.kcal);
-    expect(maintain.kcal - lose.kcal).toBeCloseTo(500, 0);
+  it('defaults to TDEE (maintenance) when no targetKcal is given', () => {
+    const t = computeDailyTargets(profile);
+    expect(t.kcal).toBeCloseTo(t.tdee, 0);
+  });
+
+  it('honours a caller-supplied targetKcal (deficit / surplus)', () => {
+    const t = computeDailyTargets(profile);
+    const deficit = computeDailyTargets(profile, t.tdee - 500);
+    const surplus = computeDailyTargets(profile, t.tdee + 300);
+    expect(deficit.kcal).toBeCloseTo(t.tdee - 500, 0);
+    expect(surplus.kcal).toBeCloseTo(t.tdee + 300, 0);
+  });
+
+  it('never drops below the 1000 kcal floor even for aggressive deficits', () => {
+    const t = computeDailyTargets(profile, 500);
+    expect(t.kcal).toBeGreaterThanOrEqual(1000);
   });
 
   it('protein scales with body weight at the default 1.8 g/kg', () => {
@@ -79,18 +89,6 @@ describe('computeDailyTargets', () => {
     expect(t.protein_g).toBeCloseTo(80 * 2.2, 1);
   });
 
-  it('never drops below the 1000 kcal floor', () => {
-    const tiny: Profile = {
-      sex: 'female',
-      age: 80,
-      weight_kg: 40,
-      height_cm: 150,
-      activity: 'sedentary',
-      goal: 'lose',
-    };
-    const t = computeDailyTargets(tiny);
-    expect(t.kcal).toBeGreaterThanOrEqual(1000);
-  });
 });
 
 describe('splitDailyIntoMeals', () => {
@@ -101,7 +99,6 @@ describe('splitDailyIntoMeals', () => {
       weight_kg: 80,
       height_cm: 180,
       activity: 'moderate',
-      goal: 'maintain',
     });
     const meals = splitDailyIntoMeals(targets);
     const sum =
@@ -119,7 +116,6 @@ describe('splitDailyIntoMeals', () => {
       weight_kg: 80,
       height_cm: 180,
       activity: 'moderate',
-      goal: 'maintain',
     });
     expect(() =>
       splitDailyIntoMeals(targets, {

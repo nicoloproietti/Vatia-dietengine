@@ -15,7 +15,6 @@ export interface Profile {
   weight_kg: number;
   height_cm: number;
   activity: Activity;
-  goal: Goal;
   /** grams of protein per kg of body weight (default 1.8) */
   protein_g_per_kg?: number;
   /** fraction of kcal from fat (default 0.25) */

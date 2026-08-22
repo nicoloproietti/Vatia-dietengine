@@ -2,7 +2,6 @@ import type {
   Activity,
   DailyPlan,
   DailyTargets,
-  Goal,
   MealKey,
   MealTarget,
   Profile,
@@ -18,13 +17,6 @@ export const ACTIVITY_MULTIPLIER: Record<Activity, number> = {
   moderate: 1.55,
   active: 1.725,
   very_active: 1.9,
-};
-
-/** kcal delta applied to TDEE for each goal */
-export const GOAL_KCAL_DELTA: Record<Goal, number> = {
-  lose: -500,
-  maintain: 0,
-  gain: 300,
 };
 
 export const DEFAULT_PROTEIN_G_PER_KG = 1.8;
@@ -57,10 +49,16 @@ export function tdee(bmr: number, activity: Activity): number {
   return bmr * ACTIVITY_MULTIPLIER[activity];
 }
 
-export function computeDailyTargets(profile: Profile): DailyTargets {
+/**
+ * Daily macro targets.
+ * `targetKcal` lets the caller pick any daily kcal (deficit / surplus /
+ * maintenance) — the engine does not decide a goal for the user.
+ * Falls back to TDEE (maintenance) when omitted.
+ */
+export function computeDailyTargets(profile: Profile, targetKcal?: number): DailyTargets {
   const bmr = bmrMifflinStJeor(profile);
   const tdeeValue = tdee(bmr, profile.activity);
-  const kcal = Math.max(1000, tdeeValue + GOAL_KCAL_DELTA[profile.goal]);
+  const kcal = Math.max(1000, targetKcal ?? tdeeValue);
 
   const proteinPerKg = profile.protein_g_per_kg ?? DEFAULT_PROTEIN_G_PER_KG;
   const fatPct = profile.fat_pct_kcal ?? DEFAULT_FAT_PCT_KCAL;

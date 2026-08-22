@@ -1162,3 +1162,142 @@ select {
   }
   .mb-adjust-nutri { grid-column: 1 / -1; }
 }
+
+/* ══ CalorieSlider ══════════════════════════════════════════════════ */
+
+.cs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0 8px;
+}
+.cs-value {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.cs-input {
+  font-family: var(--font-mono);
+  font-size: 48px;
+  font-weight: 500;
+  width: auto;
+  min-width: 4ch;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  border-bottom: 2px solid var(--line);
+  border-radius: 0;
+}
+.cs-input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+  box-shadow: none;
+}
+.cs-suffix {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.cs-track {
+  position: relative;
+  height: 32px;
+  margin-top: 8px;
+}
+.cs-zone {
+  position: absolute;
+  top: 12px;
+  height: 8px;
+  border-radius: 4px;
+}
+.cs-zone-deficit { left: 0; background: color-mix(in srgb, var(--c-carbs) 25%, transparent); }
+.cs-zone-surplus { right: 0; background: color-mix(in srgb, var(--accent) 25%, transparent); }
+.cs-tick {
+  position: absolute;
+  top: 6px;
+  width: 2px;
+  height: 20px;
+  background: var(--ink);
+  transform: translateX(-1px);
+  z-index: 3;
+}
+.cs-thumb-shadow {
+  position: absolute;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translateX(-10px);
+  pointer-events: none;
+  z-index: 2;
+  transition: left 120ms ease, background 200ms ease;
+  border: 3px solid var(--surface);
+  box-sizing: border-box;
+}
+.cs-range {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  z-index: 4;
+  opacity: 0; /* invisible native slider, click/drag surface only */
+}
+.cs-legend {
+  position: relative;
+  height: 34px;
+  margin-top: -2px;
+}
+.cs-anchor {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-sans);
+}
+.cs-anchor-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cs-anchor-val {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.cs-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 6px;
+  flex-wrap: wrap;
+}
+.cs-zone-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+.cs-zone-badge.is-deficit  { color: var(--c-carbs); background: color-mix(in srgb, var(--c-carbs) 10%, transparent); border-color: color-mix(in srgb, var(--c-carbs) 30%, transparent); }
+.cs-zone-badge.is-surplus  { color: var(--accent); background: var(--accent-tint); border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
+.cs-zone-badge.is-maintain { color: var(--ink-3); background: var(--muted); border-color: var(--line); }

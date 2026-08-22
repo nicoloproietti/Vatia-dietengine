@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { Activity, Goal, Sex } from '@vatia/diet-engine';
+import type { Activity, Sex } from '@vatia/diet-engine';
 import { computeDailyTargets } from '@vatia/diet-engine';
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile, type StoredProfile } from '../state/ProfileContext.tsx';
@@ -8,8 +8,7 @@ import { ChoiceList, WizardShell } from '../components/Wizard.tsx';
 import { csvToProfile, downloadText, profileToCsv } from '../lib/csv.ts';
 
 const ACTIVITIES: Activity[] = ['sedentary', 'light', 'moderate', 'active', 'very_active'];
-const GOALS: Goal[] = ['lose', 'maintain', 'gain'];
-const TOTAL_STEPS = 6;
+const TOTAL_STEPS = 5;
 
 export function ProfilePage() {
   const { t } = useLocale();
@@ -23,18 +22,17 @@ export function ProfilePage() {
   const [weight, setWeight] = useState<number | ''>(profile?.weight_kg ?? '');
   const [height, setHeight] = useState<number | ''>(profile?.height_cm ?? '');
   const [activity, setActivity] = useState<Activity | null>(profile?.activity ?? null);
-  const [goal, setGoal] = useState<Goal | null>(profile?.goal ?? null);
   const [excludes, setExcludes] = useState<string>(profile?.excludes.join(', ') ?? '');
 
   const complete: StoredProfile | null = useMemo(() => {
-    if (sex && typeof age === 'number' && typeof weight === 'number' && typeof height === 'number' && activity && goal) {
+    if (sex && typeof age === 'number' && typeof weight === 'number' && typeof height === 'number' && activity) {
       return {
-        sex, age, weight_kg: weight, height_cm: height, activity, goal,
+        sex, age, weight_kg: weight, height_cm: height, activity,
         excludes: excludes.split(',').map((s) => s.trim()).filter(Boolean),
       };
     }
     return null;
-  }, [sex, age, weight, height, activity, goal, excludes]);
+  }, [sex, age, weight, height, activity, excludes]);
 
   const targets = useMemo(
     () => complete ? computeDailyTargets(complete) : null,
@@ -56,7 +54,7 @@ export function ProfilePage() {
     try {
       const p = csvToProfile(await file.text());
       setSex(p.sex); setAge(p.age); setWeight(p.weight_kg); setHeight(p.height_cm);
-      setActivity(p.activity); setGoal(p.goal);
+      setActivity(p.activity);
       setExcludes(p.excludes.join(', '));
       setProfile(p);
       setStep(TOTAL_STEPS - 1); // jump to review
@@ -173,34 +171,10 @@ export function ProfilePage() {
     );
   }
 
-  if (step === 4) {
-    return (
-      <WizardShell
-        step={4} total={TOTAL_STEPS}
-        sectionLabel={t('wizard.section.profile')}
-        question={t('wizard.q.goal')}
-        canNext={goal != null}
-        onBack={back} onNext={next}
-      >
-        <ChoiceList<Goal>
-          value={goal}
-          onChange={setGoal}
-          options={GOALS.map((g) => ({
-            value: g,
-            label: t(`profile.goal.${g}`).split(' (')[0]!,
-            hint: t(`profile.goal.${g}`).includes('(')
-              ? t(`profile.goal.${g}`).split(' (')[1]?.replace(')', '')
-              : undefined,
-          }))}
-        />
-      </WizardShell>
-    );
-  }
-
-  // Step 5: excludes + review + finish
+  // Step 4: excludes + review + finish (last step)
   return (
     <WizardShell
-      step={5} total={TOTAL_STEPS}
+      step={4} total={TOTAL_STEPS}
       sectionLabel={t('wizard.section.profile')}
       question={t('wizard.q.excludes')}
       help={t('wizard.q.excludes.help')}

@@ -14,14 +14,17 @@ import { usePlan } from '../state/PlanContext.tsx';
 export function WeekPage() {
   const { t } = useLocale();
   const { profile } = useProfile();
-  const { mealCount, distribution, weekPlan, clearMeal, copyMealToWeek, clearWeek } = usePlan();
+  const { targetKcal, mealCount, distribution, weekPlan, clearMeal, copyMealToWeek, clearWeek } = usePlan();
   const navigate = useNavigate();
 
   const [activeDay, setActiveDay] = useState(0);
 
   if (!profile) { navigate('/profile'); return null; }
 
-  const daily = useMemo(() => computeDailyTargets(profile), [profile]);
+  const daily = useMemo(
+    () => computeDailyTargets(profile, targetKcal ?? undefined),
+    [profile, targetKcal],
+  );
   const targets = useMemo(() => dailyMealTargets(daily, distribution), [daily, distribution]);
   const names = DEFAULT_MEAL_NAMES[mealCount] ?? DEFAULT_MEAL_NAMES[3]!;
 

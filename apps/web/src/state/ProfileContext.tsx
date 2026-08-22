@@ -6,6 +6,16 @@ export interface StoredProfile extends Profile {
   excludes: string[];
 }
 
+function migrate(raw: unknown): StoredProfile | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const r = raw as Record<string, unknown>;
+  // Drop legacy `goal` field (present in v1 exports) — the engine no
+  // longer chooses a goal for the user; daily kcal is decided in setup.
+  if ('goal' in r) delete r.goal;
+  if (typeof r.sex !== 'string' || typeof r.age !== 'number') return null;
+  return r as unknown as StoredProfile;
+}
+
 interface ProfileValue {
   profile: StoredProfile | null;
   setProfile: (p: StoredProfile | null) => void;
@@ -18,7 +28,7 @@ function loadInitial(): StoredProfile | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as StoredProfile;
+    return migrate(JSON.parse(raw));
   } catch {
     return null;
   }

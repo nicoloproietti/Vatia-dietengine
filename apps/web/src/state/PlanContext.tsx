@@ -9,6 +9,9 @@ import {
 } from '@vatia/diet-engine';
 
 interface PlanValue {
+  /** User-chosen daily kcal target. `null` = not yet set (defaults to TDEE at read time). */
+  targetKcal: number | null;
+  setTargetKcal: (kcal: number | null) => void;
   mealCount: number;
   setMealCount: (n: number) => void;
   distribution: MealDistribution;
@@ -24,6 +27,7 @@ const PlanCtx = createContext<PlanValue | null>(null);
 const STORAGE_KEY = 'vatia:plan:v1';
 
 interface Persisted {
+  targetKcal: number | null;
   mealCount: number;
   distribution: MealDistribution;
   weekPlan: WeekPlan;
@@ -32,10 +36,19 @@ interface Persisted {
 function load(): Persisted {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw) as Persisted;
+    if (raw) {
+      const p = JSON.parse(raw) as Partial<Persisted>;
+      return {
+        targetKcal: p.targetKcal ?? null,
+        mealCount: p.mealCount ?? 4,
+        distribution: p.distribution ?? defaultDistribution(p.mealCount ?? 4),
+        weekPlan: p.weekPlan ?? emptyWeekPlan(),
+      };
+    }
   } catch { /* ignore */ }
   const mealCount = 4;
   return {
+    targetKcal: null,
     mealCount,
     distribution: defaultDistribution(mealCount),
     weekPlan: emptyWeekPlan(),
@@ -44,16 +57,17 @@ function load(): Persisted {
 
 export function PlanProvider({ children }: { children: ReactNode }) {
   const initial = load();
+  const [targetKcal, setTargetKcal] = useState<number | null>(initial.targetKcal);
   const [mealCount, setMealCountState] = useState<number>(initial.mealCount);
   const [distribution, setDistribution] = useState<MealDistribution>(initial.distribution);
   const [weekPlan, setWeekPlan] = useState<WeekPlan>(initial.weekPlan);
 
   useEffect(() => {
     try {
-      const payload: Persisted = { mealCount, distribution, weekPlan };
+      const payload: Persisted = { targetKcal, mealCount, distribution, weekPlan };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     } catch { /* ignore */ }
-  }, [mealCount, distribution, weekPlan]);
+  }, [targetKcal, mealCount, distribution, weekPlan]);
 
   const setMealCount = useCallback((n: number) => {
     setMealCountState(n);
@@ -92,10 +106,11 @@ export function PlanProvider({ children }: { children: ReactNode }) {
   const clearWeek = useCallback(() => setWeekPlan(emptyWeekPlan()), []);
 
   const value = useMemo<PlanValue>(() => ({
+    targetKcal, setTargetKcal,
     mealCount, setMealCount,
     distribution, setDistribution,
     weekPlan, saveMeal, clearMeal, copyMealToWeek, clearWeek,
-  }), [mealCount, setMealCount, distribution, weekPlan, saveMeal, clearMeal, copyMealToWeek, clearWeek]);
+  }), [targetKcal, mealCount, setMealCount, distribution, weekPlan, saveMeal, clearMeal, copyMealToWeek, clearWeek]);
 
   return <PlanCtx.Provider value={value}>{children}</PlanCtx.Provider>;
 }

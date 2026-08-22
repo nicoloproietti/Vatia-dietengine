@@ -1,7 +1,9 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
+  ACTIVITY_MULTIPLIER,
   DEFAULT_MEAL_NAMES,
+  bmrMifflinStJeor,
   computeDailyTargets,
   defaultDistribution,
   mealTargetsFor,
@@ -11,18 +13,32 @@ import {
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
+import { CalorieSlider } from '../components/CalorieSlider.tsx';
 
 const MEAL_OPTIONS = [2, 3, 4, 5, 6];
 
 export function SetupPage() {
   const { t } = useLocale();
   const { profile } = useProfile();
-  const { mealCount, setMealCount, distribution, setDistribution } = usePlan();
+  const {
+    targetKcal, setTargetKcal,
+    mealCount, setMealCount,
+    distribution, setDistribution,
+  } = usePlan();
   const navigate = useNavigate();
 
   if (!profile) { navigate('/profile'); return null; }
 
-  const daily = useMemo(() => computeDailyTargets(profile), [profile]);
+  const bmr = useMemo(() => Math.round(bmrMifflinStJeor(profile)), [profile]);
+  const tdee = useMemo(() => Math.round(bmr * ACTIVITY_MULTIPLIER[profile.activity]), [bmr, profile.activity]);
+
+  // Seed targetKcal to TDEE the first time the user lands here
+  useEffect(() => {
+    if (targetKcal == null) setTargetKcal(tdee);
+  }, [targetKcal, tdee, setTargetKcal]);
+
+  const kcal = targetKcal ?? tdee;
+  const daily = useMemo(() => computeDailyTargets(profile, kcal), [profile, kcal]);
   const names = DEFAULT_MEAL_NAMES[mealCount] ?? DEFAULT_MEAL_NAMES[3]!;
 
   const kcalSum = distribution.kcalPct.reduce((a, b) => a + b, 0);
@@ -30,7 +46,7 @@ export function SetupPage() {
     .map((m, i) => ({ i, sum: m.protein + m.carbs + m.fat }))
     .filter((x) => x.sum !== 100);
 
-  function updateKcal(i: number, v: number) {
+  function updateKcalPct(i: number, v: number) {
     const next: MealDistribution = {
       ...distribution,
       kcalPct: distribution.kcalPct.map((x, idx) => (idx === i ? clamp(v, 0, 100) : x)),
@@ -48,7 +64,6 @@ export function SetupPage() {
   }
 
   function goWeek() {
-    // Auto-normalise kcalPct so it sums exactly to 100
     if (kcalSum !== 100 && kcalSum > 0) {
       const norm = distribution.kcalPct.map((v) => Math.round((v * 100) / kcalSum));
       const drift = 100 - norm.reduce((a, b) => a + b, 0);
@@ -64,11 +79,23 @@ export function SetupPage() {
       <h1>{t('setup.title')}</h1>
       <p className="lede">{t('setup.subtitle')}</p>
 
-      {/* Meal count selector */}
-      <section style={{ marginTop: 8 }}>
+      {/* ── Daily kcal slider ── */}
+      <section style={{ marginTop: 16 }}>
+        <div className="wizard-step-meta">
+          <span>{t('setup.dailyKcal')}</span>
+          <span className="mono">BMR {bmr} · TDEE {tdee}</span>
+        </div>
+        <CalorieSlider value={kcal} tdee={tdee} onChange={setTargetKcal} />
+        <p className="small" style={{ marginTop: 6 }}>{t('setup.dailyKcal.help')}</p>
+      </section>
+
+      <hr />
+
+      {/* ── Meal count selector ── */}
+      <section>
         <div className="wizard-step-meta">
           <span>{t('setup.mealCount')}</span>
-          <span className="mono">{daily.kcal} kcal · P {daily.protein_g} · C {daily.carbs_g} · F {daily.fat_g} g/g</span>
+          <span className="mono">P {daily.protein_g} · C {daily.carbs_g} · F {daily.fat_g} g/g</span>
         </div>
         <div className="stepper">
           {MEAL_OPTIONS.map((n) => (
@@ -86,7 +113,7 @@ export function SetupPage() {
         <p className="small" style={{ marginTop: 8 }}>{t('setup.mealCount.hint')}</p>
       </section>
 
-      {/* Per-meal config */}
+      {/* ── Per-meal config ── */}
       <section style={{ marginTop: 32 }}>
         <div className="wizard-step-meta">
           <span>{t('setup.kcalPct')}</span>
@@ -115,28 +142,30 @@ export function SetupPage() {
                       <input
                         type="number" min={0} max={100}
                         value={kcalV}
-                        onChange={(e) => updateKcal(i, Number(e.target.value))}
+                        onChange={(e) => updateKcalPct(i, Number(e.target.value))}
                       />
                     </label>
                     <div className="mono small">
-                      P {target.protein_g}g · C {target.carbs_g}g · F {target.fat_g}g
+                      <span style={{ color: 'var(--c-protein)' }}>P {target.protein_g}g</span> ·{' '}
+                      <span style={{ color: 'var(--c-carbs)' }}>C {target.carbs_g}g</span> ·{' '}
+                      <span style={{ color: 'var(--c-fat)' }}>F {target.fat_g}g</span>
                     </div>
                   </div>
                   <div className="grid-3" style={{ marginTop: 12 }}>
                     <label>
-                      <span className="label-text">% Proteine</span>
+                      <span className="label-text" style={{ color: 'var(--c-protein)' }}>% Proteine</span>
                       <input type="number" min={0} max={100}
                              value={macros.protein}
                              onChange={(e) => updateMacro(i, 'protein', Number(e.target.value))} />
                     </label>
                     <label>
-                      <span className="label-text">% Carboidrati</span>
+                      <span className="label-text" style={{ color: 'var(--c-carbs)' }}>% Carbo</span>
                       <input type="number" min={0} max={100}
                              value={macros.carbs}
                              onChange={(e) => updateMacro(i, 'carbs', Number(e.target.value))} />
                     </label>
                     <label>
-                      <span className="label-text">% Grassi</span>
+                      <span className="label-text" style={{ color: 'var(--c-fat)' }}>% Grassi</span>
                       <input type="number" min={0} max={100}
                              value={macros.fat}
                              onChange={(e) => updateMacro(i, 'fat', Number(e.target.value))} />
@@ -154,7 +183,7 @@ export function SetupPage() {
       </section>
 
       <div className="btn-row">
-        <button type="button" className="link" onClick={() => setDistribution(defaultDistribution(mealCount))}>
+        <button type="button" className="link" onClick={() => { setDistribution(defaultDistribution(mealCount)); setTargetKcal(tdee); }}>
           {t('setup.reset')}
         </button>
         <div className="right">

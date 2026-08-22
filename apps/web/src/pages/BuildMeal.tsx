@@ -46,7 +46,7 @@ type Phase = 'compose' | 'adjust';
 export function BuildMealPage() {
   const { t } = useLocale();
   const { profile } = useProfile();
-  const { mealCount, distribution, weekPlan, saveMeal } = usePlan();
+  const { targetKcal, mealCount, distribution, weekPlan, saveMeal } = usePlan();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -56,7 +56,10 @@ export function BuildMealPage() {
   if (!profile) { navigate('/profile'); return null; }
   if (!Number.isFinite(dayIdx) || !Number.isFinite(mealIdx)) { navigate('/week'); return null; }
 
-  const daily = useMemo(() => computeDailyTargets(profile), [profile]);
+  const daily = useMemo(
+    () => computeDailyTargets(profile, targetKcal ?? undefined),
+    [profile, targetKcal],
+  );
   const target = useMemo(() => mealTargetsFor(daily, distribution, mealIdx), [daily, distribution, mealIdx]);
   const names = DEFAULT_MEAL_NAMES[mealCount] ?? DEFAULT_MEAL_NAMES[3]!;
   const mealName = names[mealIdx] ?? '—';
