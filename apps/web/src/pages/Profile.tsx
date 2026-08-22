@@ -44,7 +44,7 @@ export function ProfilePage() {
   function finish() {
     if (!complete) return;
     setProfile(complete);
-    navigate('/meal');
+    navigate('/setup');
   }
 
   function onExport() {

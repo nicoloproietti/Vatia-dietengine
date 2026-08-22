@@ -9,3 +9,7 @@ coverage
 apps/web/.env
 apps/web/dist
 apps/web/node_modules
+
+# python bytecode
+__pycache__/
+*.pyc
