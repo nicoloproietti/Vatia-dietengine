@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - claude/vatia-portfolio-rebuild-caw3f1
   workflow_dispatch:
 
 permissions:
