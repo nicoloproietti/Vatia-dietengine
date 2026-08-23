@@ -34,9 +34,9 @@ interface Props {
 }
 
 /**
- * The meal builder as a self-contained panel — same interaction as the
- * old BuildMealPage but no navigation and no top-level layout. Meant to
- * be rendered inside a Drawer.
+ * The meal builder as a self-contained panel. Rendered inside its own
+ * full-screen route (BuildMeal.tsx) — meal construction is the app's
+ * main task, so it owns the whole screen rather than an overlay.
  */
 export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props) {
   const { t } = useLocale();

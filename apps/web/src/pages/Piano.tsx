@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   DAYS_IT, DAYS_SHORT_IT,
   DEFAULT_MEAL_NAMES,
@@ -11,20 +11,17 @@ import {
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
-import { Drawer } from '../components/Drawer.tsx';
-import { BuildMealPanel, type BuilderPhase } from '../components/BuildMealPanel.tsx';
 import { DaySelector } from '../components/DaySelector.tsx';
 import { TargetBar } from '../components/TargetBar.tsx';
 import { EmptyState } from '../components/EmptyState.tsx';
 import { formatNumber } from '../lib/format.ts';
 
-interface OpenSlot { day: number; meal: number }
-
 /**
  * The workspace: settings summary strip on top, week grid in the
- * middle, day-total bars at the bottom, and the meal builder in a
- * slide-over drawer (bottom sheet on mobile). Everything is on one
- * page — the user rarely navigates once they get here.
+ * middle, day-total bars at the bottom. Building a meal navigates to
+ * its own full-screen route (/build/:day/:meal) — meal construction is
+ * the app's main task, so it gets the whole screen rather than an
+ * overlay on top of the week plan.
  */
 export function PianoPage() {
   const { t } = useLocale();
@@ -34,7 +31,6 @@ export function PianoPage() {
     clearMeal, copyMealToWeek, clearWeek,
   } = usePlan();
   const navigate = useNavigate();
-  const [search, setSearch] = useSearchParams();
 
   if (!profile) { navigate('/import'); return null; }
 
@@ -56,32 +52,12 @@ export function PianoPage() {
     [weekPlan],
   );
 
-  // Drawer state — supports deep-link via ?day=&meal= for bookmarks / redirect
-  const [open, setOpen] = useState<OpenSlot | null>(null);
-  const [builderPhase, setBuilderPhase] = useState<BuilderPhase>('compose');
-  useEffect(() => {
-    const d = Number(search.get('day'));
-    const m = Number(search.get('meal'));
-    if (Number.isFinite(d) && Number.isFinite(m) && search.get('day') !== null) {
-      setOpen({ day: d, meal: m });
-      setActiveDay(d);
-    }
-  }, [search]);
-
   function openBuilder(day: number, meal: number) {
-    setOpen({ day, meal });
-    setSearch({ day: String(day), meal: String(meal) }, { replace: true });
-  }
-  function closeBuilder() {
-    setOpen(null);
-    if (search.get('day') !== null) setSearch({}, { replace: true });
+    navigate(`/build/${day}/${meal}`);
   }
 
   const totalDone = DAYS_IT.filter((_, i) => (weekPlan[i] ? Object.keys(weekPlan[i]).length : 0) >= mealCount).length;
   const mealsCompleted = Object.keys(weekPlan).reduce((s, d) => s + Object.keys(weekPlan[Number(d)] ?? {}).length, 0);
-
-  const drawerEyebrow = builderPhase === 'compose' ? 'Fase 1 · scegli' : 'Fase 2 · regola';
-  const drawerTitle = open ? `${DAYS_IT[open.day]} · ${names[open.meal] ?? ''}` : '';
 
   return (
     <>
@@ -226,23 +202,6 @@ export function PianoPage() {
           </button>
         </div>
       </div>
-
-      {/* ── Drawer (slide-over / bottom sheet) ── */}
-      <Drawer
-        open={open != null}
-        onClose={closeBuilder}
-        eyebrow={open ? drawerEyebrow : undefined}
-        title={drawerTitle || t('builder.title')}
-      >
-        {open && (
-          <BuildMealPanel
-            dayIdx={open.day}
-            mealIdx={open.meal}
-            onDone={closeBuilder}
-            onPhaseChange={setBuilderPhase}
-          />
-        )}
-      </Drawer>
     </>
   );
 }
