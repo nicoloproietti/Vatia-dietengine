@@ -1,5 +1,6 @@
 import { useEffect, type ReactNode } from 'react';
 import { useLocale } from '../i18n/LocaleContext.tsx';
+import { WizardProgress } from './WizardProgress.tsx';
 
 interface WizardShellProps {
   step: number;              // 0-based
@@ -35,24 +36,9 @@ export function WizardShell({
     return () => window.removeEventListener('keydown', onKey);
   }, [canNext, onNext]);
 
-  const dots = Array.from({ length: total }, (_, i) => {
-    const cls =
-      i < step ? 'is-done' :
-      i === step ? 'is-current' : '';
-    return <span key={i} className={cls} />;
-  });
-
   return (
     <div className="wizard">
-      <div className="wizard-progress" role="progressbar"
-           aria-valuenow={step + 1} aria-valuemin={1} aria-valuemax={total}>
-        {dots}
-      </div>
-
-      <div className="wizard-step-meta">
-        <span>{sectionLabel}</span>
-        <span className="mono">{String(step + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}</span>
-      </div>
+      <WizardProgress step={step} total={total} sectionLabel={sectionLabel} />
 
       <h1 className="wizard-question">{question}</h1>
       {help && <p className="wizard-help">{help}</p>}
@@ -75,8 +61,15 @@ export function WizardShell({
   );
 }
 
+/** Choice card group — one big decision per screen, per the Vatia design system. */
+export interface ChoiceCardOption<T extends string> {
+  value: T;
+  label: string;
+  hint?: string | undefined;
+}
+
 interface ChoiceListProps<T extends string> {
-  options: Array<{ value: T; label: string; hint?: string | undefined }>;
+  options: Array<ChoiceCardOption<T>>;
   value: T | null;
   onChange: (v: T) => void;
 }
@@ -99,3 +92,6 @@ export function ChoiceList<T extends string>({ options, value, onChange }: Choic
     </div>
   );
 }
+
+/** Alias matching the design system's component name. Same implementation. */
+export const ChoiceCard = ChoiceList;

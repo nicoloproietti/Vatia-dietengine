@@ -1,5 +1,6 @@
 import { dailyMacrosFromPct, type MacroPct } from '@vatia/diet-engine';
 import { useLocale } from '../i18n/LocaleContext.tsx';
+import { formatNumber } from '../lib/format.ts';
 
 interface Props {
   value: MacroPct;
@@ -18,6 +19,7 @@ export function MacroSplit({ value, kcal, onChange }: Props) {
   const grams = dailyMacrosFromPct(kcal, value);
   const total = value.protein + value.carbs + value.fat;
   const state = total === 100 ? 'ok' : total > 100 ? 'over' : 'under';
+  const segDenom = Math.max(total, 1);
 
   function set(k: keyof MacroPct, raw: number) {
     const v = Math.max(0, Math.min(100, Math.round(raw) || 0));
@@ -38,7 +40,7 @@ export function MacroSplit({ value, kcal, onChange }: Props) {
           <div
             key={c.k}
             className="ms-bar-seg"
-            style={{ width: `${Math.max(2, value[c.k])}%`, background: c.color }}
+            style={{ width: `${(value[c.k] / segDenom) * 100}%`, background: c.color }}
             title={`${c.label}: ${value[c.k]}%`}
           />
         ))}
@@ -58,7 +60,7 @@ export function MacroSplit({ value, kcal, onChange }: Props) {
               aria-label={`% ${c.label}`}
             />
             <span className="ms-pct-suffix">%</span>
-            <span className="ms-grams mono">{c.g} g</span>
+            <span className="ms-grams mono">{formatNumber(c.g)} g</span>
           </div>
         ))}
       </div>
@@ -67,9 +69,9 @@ export function MacroSplit({ value, kcal, onChange }: Props) {
       <div className="ms-total">
         <div className={`ms-total-fill is-${state}`} style={{ width: `${Math.min(100, total)}%` }} />
         <span className={`ms-total-badge is-${state}`}>
-          {state === 'ok' && '100 % ✓'}
-          {state === 'over' && `${total} % — ${total - 100} % di troppo`}
-          {state === 'under' && `${total} % — mancano ${100 - total} %`}
+          {state === 'ok' && 'Somma 100% — a posto'}
+          {state === 'over' && `Somma ${total}% — eccedono ${total - 100} punti`}
+          {state === 'under' && `Somma ${total}% — mancano ${100 - total} punti`}
         </span>
       </div>
     </div>

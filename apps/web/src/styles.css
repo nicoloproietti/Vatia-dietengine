@@ -152,13 +152,14 @@ body {
 
 .icon-btn {
   background: transparent;
-  border: 1px solid transparent;
-  padding: 8px 12px;
+  border: 1px solid var(--line);
+  min-height: 44px;
+  padding: 11px 18px;
   color: var(--ink-2);
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
   border-radius: var(--radius);
@@ -240,6 +241,7 @@ button {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.005em;
+  min-height: 44px;
   padding: 14px 22px;
   border-radius: var(--radius);
   border: 1px solid var(--accent);
@@ -267,7 +269,8 @@ button.ghost {
   background: transparent;
   border-color: transparent;
   color: var(--ink-2);
-  padding: 8px 12px;
+  min-height: auto;
+  padding: 10px 14px;
   font-size: 14px;
 }
 button.ghost:hover:not(:disabled) { color: var(--ink); background: var(--muted); }
@@ -275,6 +278,7 @@ button.ghost:hover:not(:disabled) { color: var(--ink); background: var(--muted);
 button.link {
   background: transparent;
   border: none;
+  min-height: auto;
   padding: 0;
   color: var(--ink-2);
   text-decoration: underline;
@@ -645,6 +649,7 @@ select {
   cursor: pointer;
   border-radius: 3px;
   min-width: 44px;
+  min-height: 44px;
 }
 .stepper-btn:hover:not(.is-selected) { background: var(--muted); color: var(--ink); transform: none; box-shadow: none; }
 .stepper-btn.is-selected {
@@ -915,7 +920,7 @@ select {
 .mb-rings {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 16px;
   margin: 24px 0 28px;
 }
 @media (max-width: 540px) {
@@ -929,8 +934,8 @@ select {
 }
 .mb-ring-svg {
   position: relative;
-  width: 84px;
-  height: 84px;
+  width: 96px;
+  height: 96px;
 }
 .mb-ring-svg svg { display: block; }
 .mb-ring-center {
@@ -941,7 +946,7 @@ select {
 }
 .mb-ring-val {
   font-family: var(--font-mono);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
@@ -960,6 +965,14 @@ select {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+.mb-ring-delta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.mb-ring.is-mobile .mb-ring-val { font-size: 13px; }
+.mb-ring.is-mobile .mb-ring-label { font-size: 10px; }
 
 /* Category chips (small pill next to a food name) */
 .cat-chip {
@@ -977,12 +990,12 @@ select {
 }
 .cat-chip.cat-verdura   { background: var(--cat-verdura); }
 .cat-chip.cat-frutta    { background: var(--cat-frutta); }
-.cat-chip.cat-cereali   { background: var(--cat-cereali); color: var(--ink); }
+.cat-chip.cat-cereali   { background: var(--cat-cereali); color: #221D14; }
 .cat-chip.cat-legumi    { background: var(--cat-legumi); }
 .cat-chip.cat-carne     { background: var(--cat-carne); }
 .cat-chip.cat-pesce     { background: var(--cat-pesce); }
-.cat-chip.cat-latticini { background: var(--cat-latticini); color: var(--ink); }
-.cat-chip.cat-uova      { background: var(--cat-uova); color: var(--ink); }
+.cat-chip.cat-latticini { background: var(--cat-latticini); color: #221D14; }
+.cat-chip.cat-uova      { background: var(--cat-uova); color: #221D14; }
 .cat-chip.cat-grassi    { background: var(--cat-grassi); }
 
 /* Compose section */
@@ -1093,13 +1106,15 @@ select {
 }
 .mb-selected-item .mb-name { font-weight: 500; }
 
-.mb-hint-empty {
+.mb-hint-empty,
+.empty-state {
   padding: 24px;
   text-align: center;
   border: 1px dashed var(--line);
   border-radius: var(--radius);
   color: var(--ink-3);
   font-size: 14px;
+  line-height: 1.5;
 }
 
 /* Adjust section — per-food row with gram input */
@@ -1170,6 +1185,12 @@ select {
   flex-direction: column;
   gap: 10px;
   padding: 16px 0 8px;
+}
+.cs-eyebrow {
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 .cs-value {
   display: flex;
@@ -1252,33 +1273,6 @@ select {
   z-index: 4;
   opacity: 0; /* invisible native slider, click/drag surface only */
 }
-.cs-legend {
-  position: relative;
-  height: 34px;
-  margin-top: -2px;
-}
-.cs-anchor {
-  position: absolute;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  font-family: var(--font-sans);
-}
-.cs-anchor-label {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--ink-3);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.cs-anchor-val {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--ink);
-  font-variant-numeric: tabular-nums;
-}
 .cs-status {
   display: flex;
   align-items: center;
@@ -1286,21 +1280,23 @@ select {
   padding-top: 6px;
   flex-wrap: wrap;
 }
+.cs-anchor-right {
+  margin-left: auto;
+  color: var(--ink-3);
+}
 .cs-zone-badge {
   display: inline-flex;
   align-items: center;
-  padding: 3px 10px;
+  padding: 4px 10px;
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-radius: 3px;
-  border: 1px solid transparent;
+  background: var(--muted);
+  border: 1px solid var(--line);
 }
-.cs-zone-badge.is-deficit  { color: var(--c-carbs); background: color-mix(in srgb, var(--c-carbs) 10%, transparent); border-color: color-mix(in srgb, var(--c-carbs) 30%, transparent); }
-.cs-zone-badge.is-surplus  { color: var(--accent); background: var(--accent-tint); border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
-.cs-zone-badge.is-maintain { color: var(--ink-3); background: var(--muted); border-color: var(--line); }
 
 /* ══ MacroSplit ═════════════════════════════════════════════════════ */
 
@@ -1319,14 +1315,14 @@ select {
 .ms-rows { display: flex; flex-direction: column; gap: 8px; }
 .ms-row {
   display: grid;
-  grid-template-columns: 12px 1fr 72px auto 80px;
-  gap: 10px;
+  grid-template-columns: 12px 1fr 84px auto 90px;
+  gap: 12px;
   align-items: center;
 }
 .ms-dot { width: 10px; height: 10px; border-radius: 50%; }
 .ms-name { font-family: var(--font-sans); font-weight: 600; font-size: 14px; }
 .ms-pct-input {
-  width: 72px;
+  width: 84px;
   padding: 6px 10px;
   font-family: var(--font-mono);
   font-size: 15px;
@@ -1350,10 +1346,10 @@ select {
 .ms-total {
   position: relative;
   margin-top: 4px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--bg);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -1514,9 +1510,9 @@ select {
   letter-spacing: 0.1em;
 }
 .piano-strip-val {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
 }

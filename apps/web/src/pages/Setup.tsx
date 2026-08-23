@@ -16,6 +16,8 @@ import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
 import { CalorieSlider } from '../components/CalorieSlider.tsx';
 import { MacroSplit } from '../components/MacroSplit.tsx';
+import { MealStepper } from '../components/MealStepper.tsx';
+import { formatNumber } from '../lib/format.ts';
 import { downloadText, profileToCsv } from '../lib/csv.ts';
 
 const MEAL_OPTIONS = [2, 3, 4, 5, 6];
@@ -91,9 +93,9 @@ export function SetupPage() {
       <section style={{ marginTop: 16 }}>
         <div className="wizard-step-meta">
           <span>{t('setup.dailyKcal')}</span>
-          <span className="mono">BMR {bmr} · TDEE {tdee}</span>
+          <span className="mono">BMR {formatNumber(bmr)} · TDEE {formatNumber(tdee)}</span>
         </div>
-        <CalorieSlider value={kcal} tdee={tdee} onChange={setTargetKcal} />
+        <CalorieSlider value={kcal} tdee={tdee} bmr={bmr} onChange={setTargetKcal} />
         <p className="small" style={{ marginTop: 6 }}>{t('setup.dailyKcal.help')}</p>
       </section>
 
@@ -115,21 +117,9 @@ export function SetupPage() {
       <section>
         <div className="wizard-step-meta">
           <span>{t('setup.mealCount')}</span>
-          <span className="mono">P {daily.protein_g} · C {daily.carbs_g} · F {daily.fat_g} g/g</span>
+          <span className="mono">P {formatNumber(daily.protein_g)} · C {formatNumber(daily.carbs_g)} · F {formatNumber(daily.fat_g)} g/g</span>
         </div>
-        <div className="stepper">
-          {MEAL_OPTIONS.map((n) => (
-            <button
-              key={n}
-              type="button"
-              className={`stepper-btn ${mealCount === n ? 'is-selected' : ''}`}
-              onClick={() => setMealCount(n)}
-              aria-pressed={mealCount === n}
-            >
-              {n}
-            </button>
-          ))}
-        </div>
+        <MealStepper value={mealCount} options={MEAL_OPTIONS} onChange={setMealCount} />
         <p className="small" style={{ marginTop: 8 }}>{t('setup.mealCount.hint')}</p>
       </section>
 

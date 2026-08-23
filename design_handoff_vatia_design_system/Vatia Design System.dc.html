@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;
+--bg:#FBF7EC;--surface:#FFFDF6;--ink:#221D14;--ink-2:#5A503F;--ink-3:#94886F;--line:#E5DBC6;--line-2:#F0E9D6;--muted:#F4EDDA;
+--accent:#4E7A3B;--accent-2:#3A5E2C;--accent-ink:#FBF7EC;--accent-tint:#EAF2E3;--focus-ring:rgba(78,122,59,.30);
+--c-kcal:#4E7A3B;--c-protein:#C1362A;--c-carbs:#E17400;--c-fat:#B58900;
+--cat-verdura:#4E7A3B;--cat-frutta:#E17400;--cat-cereali:#C68F00;--cat-legumi:#7A5C2E;--cat-carne:#C1362A;--cat-pesce:#4A80A0;--cat-latticini:#A88F5A;--cat-uova:#E5AA1D;--cat-grassi:#8B6914;--cat-altro:#94886F;
+--ok:#4E7A3B;--warn:#B7791F;--danger:#C1362A;
+--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+[data-theme='dark']{color-scheme:dark;
+--bg:#171310;--surface:#1E1913;--ink:#F1E7CE;--ink-2:#C3B69A;--ink-3:#7B7059;--line:#3A322A;--line-2:#2A241E;--muted:#26201A;
+--accent:#7EB05F;--accent-2:#9ECC80;--accent-ink:#171310;--accent-tint:#2A3A1F;--focus-ring:rgba(126,176,95,.34);
+--c-kcal:#7EB05F;--c-protein:#E76C60;--c-carbs:#F09340;--c-fat:#D9B558;
+--cat-verdura:#7EB05F;--cat-frutta:#F09340;--cat-cereali:#E5B460;--cat-legumi:#C09566;--cat-carne:#E76C60;--cat-pesce:#7BB0D0;--cat-latticini:#D0B686;--cat-uova:#F0C55D;--cat-grassi:#C09E60;--cat-altro:#94886F;
+--ok:#7EB05F;--warn:#E5B460;--danger:#E76C60;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;transition:background 160ms ease,color 160ms ease}
+::selection{background:var(--accent);color:var(--accent-ink)}
+*:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent}
+@keyframes slideInRight{from{transform:translateX(24px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes slideInUp{from{transform:translateY(32px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--bg)">
+
+<header style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 40px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:20">
+  <span style="display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:-0.02em">
+    <span style="width:10px;height:10px;border-radius:50%;background:var(--accent)"></span>Vatia
+    <span style="font-family:var(--font-mono);font-size:11px;font-weight:400;color:var(--ink-3);letter-spacing:0.06em;text-transform:uppercase;margin-left:6px">sistema di design</span>
+  </span>
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.08em">{{ themeName }}</span>
+    <button type="button" onClick="{{ toggleTheme }}" style="min-height:44px;padding:11px 18px;font-family:var(--font-sans);font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:4px;cursor:pointer" style-hover="background:var(--muted);border-color:var(--ink-3)">Cambia tema</button>
+  </div>
+</header>
+
+<div style="max-width:1120px;margin:0 auto;padding:56px 40px 120px;display:flex;flex-direction:column;gap:88px">
+
+  <section style="display:flex;flex-direction:column;gap:20px">
+    <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase">00 — fondamenta</span>
+    <h1 style="font-size:64px;line-height:1.02;letter-spacing:-0.035em;font-weight:800;max-width:20ch">Cibo vero, numeri esposti.</h1>
+    <p style="font-size:20px;line-height:1.45;color:var(--ink-2);max-width:52ch">Il sistema visivo di Vatia: carta panna e inchiostro caldo, un accento basilico, quattro colori macro coerenti in tutta l'app. Superfici piatte, bordi da 1px, numeri in monospazio allineati a destra. Tutti i componenti qui sotto sono vivi — muovili.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;padding-top:8px">
+      <span style="display:inline-flex;align-items:center;padding:4px 10px;background:var(--muted);border:1px solid var(--line);color:var(--ink-2);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border-radius:3px">Inter</span>
+      <span style="display:inline-flex;align-items:center;padding:4px 10px;background:var(--muted);border:1px solid var(--line);color:var(--ink-2);font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border-radius:3px">JetBrains Mono</span>
+      <span style="display:inline-flex;align-items:center;padding:4px 10px;background:var(--accent-tint);border:1px solid var(--accent);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border-radius:3px">radius 4 / 8</span>
+      <span style="display:inline-flex;align-items:center;padding:4px 10px;background:var(--muted);border:1px solid var(--line);color:var(--ink-2);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border-radius:3px">hairline 1px</span>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:12px">
+      <h2 style="font-size:32px;font-weight:700;letter-spacing:-0.025em">Palette</h2>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">01 — token · light / dark</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <h3 style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3)">Superfici e inchiostro</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px">
+        <div style="border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)">
+          <div style="height:64px;background:var(--bg);border-bottom:1px solid var(--line)"></div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600">--bg</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">FBF7EC / 171310</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)">
+          <div style="height:64px;background:var(--surface);border-bottom:1px solid var(--line)"></div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600">--surface</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">FFFDF6 / 1E1913</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)">
+          <div style="height:64px;background:var(--muted);border-bottom:1px solid var(--line)"></div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600">--muted</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">F4EDDA / 26201A</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)">
+          <div style="height:64px;background:var(--ink);border-bottom:1px solid var(--line)"></div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600">--ink</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">221D14 / F1E7CE</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)">
+          <div style="height:64px;background:var(--ink-2);border-bottom:1px solid var(--line)"></div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600">--ink-2</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">5A503F / C3B69A</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)">
+          <div style="height:64px;background:var(--ink-3);border-bottom:1px solid var(--line)"></div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600">--ink-3</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">94886F / 7B7059</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)">
+          <div style="height:64px;background:var(--line);border-bottom:1px solid var(--line)"></div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600">--line</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">E5DBC6 / 3A322A</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)">
+          <div style="height:64px;background:var(--accent);border-bottom:1px solid var(--line)"></div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600">--accent</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">4E7A3B / 7EB05F</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <h3 style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3)">Macro — un colore, un'etichetta, sempre</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+          <div style="height:8px;border-radius:4px;background:var(--c-kcal)"></div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-kcal)">Kcal · verde basilico</span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">--c-kcal · 4E7A3B / 7EB05F</span>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+          <div style="height:8px;border-radius:4px;background:var(--c-protein)"></div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-protein)">Proteine · rosso pomodoro</span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">--c-protein · C1362A / E76C60</span>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+          <div style="height:8px;border-radius:4px;background:var(--c-carbs)"></div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-carbs)">Carboidrati · arancio carota</span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">--c-carbs · E17400 / F09340</span>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+          <div style="height:8px;border-radius:4px;background:var(--c-fat)"></div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-fat)">Grassi · giallo olio</span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">--c-fat · B58900 / D9B558</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <h3 style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3)">Categorie alimento</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-verdura);color:var(--surface)">verdura</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-frutta);color:var(--surface)">frutta</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-cereali);color:#221D14">cereali</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-legumi);color:var(--surface)">legumi</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-carne);color:var(--surface)">carne</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-pesce);color:var(--surface)">pesce</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-latticini);color:#221D14">latticini</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-uova);color:#221D14">uova</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-grassi);color:var(--surface)">grassi</span>
+        <span style="display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--cat-altro);color:var(--surface)">altro</span>
+      </div>
+      <p style="font-size:14px;color:var(--ink-3);max-width:60ch;margin-top:4px">Cereali, latticini e uova portano inchiostro scuro sul fondo chiaro del chip: è l'unica coppia che regge AA in entrambi i temi.</p>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:12px">
+      <h2 style="font-size:32px;font-weight:700;letter-spacing:-0.025em">Tipografia</h2>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">02 — scala</span>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <div style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.06em">display · 800 · 64/1.02</span>
+        <span style="font-size:64px;font-weight:800;letter-spacing:-0.035em;line-height:1.02">Costruisci un pasto</span>
+      </div>
+      <div style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.06em">domanda wizard · 700 · 40</span>
+        <span style="font-size:40px;font-weight:700;letter-spacing:-0.025em;line-height:1.1">Quanto pesi?</span>
+      </div>
+      <div style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.06em">lede · 400 · 20/1.4</span>
+        <span style="font-size:20px;color:var(--ink-2);line-height:1.4;max-width:44ch">Nessun account. Il tuo piano vive nel browser e si esporta come CSV.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.06em">corpo · 400 · 17/1.55</span>
+        <span style="font-size:17px;color:var(--ink-2);line-height:1.55;max-width:62ch">Il fabbisogno viene dalla formula Mifflin-St Jeor. La vedi scritta, con i tuoi numeri dentro: nessun modello nascosto decide per te quante calorie mangiare.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.06em">etichetta · 600 · 12 · 0.1em</span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3)">Livello di attività</span>
+      </div>
+      <div style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.06em">numeri · mono 500 · tabular</span>
+        <span style="font-family:var(--font-mono);font-size:32px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-0.02em">2 140 kcal · 148 g · 63 %</span>
+      </div>
+      <div style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:baseline;padding:20px 0">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.06em">tabella numeri · mono 500</span>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:2px 20px;max-width:340px;font-family:var(--font-mono);font-size:15px;font-variant-numeric:tabular-nums">
+          <span style="font-family:var(--font-sans);font-size:15px">Petto di pollo</span><span style="text-align:right">180 g</span>
+          <span style="font-family:var(--font-sans);font-size:15px">Riso basmati</span><span style="text-align:right">85 g</span>
+          <span style="font-family:var(--font-sans);font-size:15px">Olio di oliva</span><span style="text-align:right">12 g</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:32px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:12px">
+      <h2 style="font-size:32px;font-weight:700;letter-spacing:-0.025em">Componenti</h2>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">03 — vivi, interattivi</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px">
+      <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Bottoni</span>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+          <button type="button" style="min-height:44px;padding:14px 22px;font-family:var(--font-sans);font-size:16px;font-weight:600;color:var(--accent-ink);background:var(--accent);border:1px solid var(--accent);border-radius:4px;cursor:pointer" style-hover="background:var(--accent-2);border-color:var(--accent-2)">Costruisci un pasto</button>
+          <button type="button" style="min-height:44px;padding:14px 22px;font-family:var(--font-sans);font-size:16px;font-weight:600;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:4px;cursor:pointer" style-hover="background:var(--muted);border-color:var(--ink-2)">Indietro</button>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+          <button type="button" style="min-height:44px;padding:10px 14px;font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--ink-2);background:transparent;border:1px solid transparent;border-radius:4px;cursor:pointer" style-hover="color:var(--ink);background:var(--muted)">Svuota</button>
+          <button type="button" style="padding:0;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--ink-2);background:transparent;border:none;text-decoration:underline;text-underline-offset:3px;cursor:pointer" style-hover="color:var(--accent)">Importa un CSV</button>
+          <button type="button" disabled="{{ true }}" style="min-height:44px;padding:14px 22px;font-family:var(--font-sans);font-size:16px;font-weight:600;color:var(--accent-ink);background:var(--accent);border:1px solid var(--accent);border-radius:4px;opacity:0.35;cursor:not-allowed">Avanti</button>
+        </div>
+        <p style="font-size:13px;color:var(--ink-3)">Altezza minima 44px, gap 8px tra target adiacenti. Focus da tastiera: anello accento a 2px, offset 3px — provalo con Tab.</p>
+      </div>
+
+      <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Input</span>
+        <label style="display:block">
+          <span style="display:block;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px">Cerca alimento</span>
+          <input type="text" placeholder="pollo, riso, zucchine…" style="width:100%;padding:14px 16px;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px" style-focus="outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--focus-ring)">
+        </label>
+        <label style="display:block">
+          <span style="display:block;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px">Peso</span>
+          <input type="text" value="72" style="width:100%;padding:18px 20px;font-family:var(--font-mono);font-size:32px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px" style-focus="outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--focus-ring)">
+        </label>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px">
+      <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Choice card · una scelta per schermata</span>
+        <div style="display:grid;gap:10px">
+          <sc-for list="{{ activities }}" as="opt" hint-placeholder-count="3">
+            <button type="button" onClick="{{ opt.pick }}" style="{{ opt.style }}">
+              <span>{{ opt.name }}</span>
+              <span style="font-size:13px;font-weight:400;color:var(--ink-3)">{{ opt.hint }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Stepper pasti · Progress wizard</span>
+        <div style="display:inline-flex;gap:6px;border:1px solid var(--line);border-radius:4px;padding:4px;background:var(--bg);width:fit-content">
+          <sc-for list="{{ mealCounts }}" as="m" hint-placeholder-count="5">
+            <button type="button" onClick="{{ m.pick }}" style="{{ m.style }}">{{ m.n }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:6px">
+          <span style="height:4px;flex:1;border-radius:2px;background:var(--accent)"></span>
+          <span style="height:4px;flex:1;border-radius:2px;background:var(--accent)"></span>
+          <span style="height:4px;flex:1;border-radius:2px;background:var(--ink)"></span>
+          <span style="height:4px;flex:1;border-radius:2px;background:var(--line)"></span>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);letter-spacing:0.06em;text-transform:uppercase">
+          <span>passo 03 / 04</span><span>profilo</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:26px;display:flex;flex-direction:column;gap:10px">
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Slider kcal · TDEE come riferimento</span>
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <span style="font-family:var(--font-mono);font-size:48px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-0.03em;border-bottom:2px solid var(--line);padding-bottom:2px">{{ kcal }}</span>
+        <span style="font-size:13px;font-weight:500;color:var(--ink-3)">kcal / giorno</span>
+      </div>
+      <div style="position:relative;height:32px;margin-top:10px">
+        <div style="position:absolute;top:12px;left:0;height:8px;border-radius:4px;background:color-mix(in srgb, var(--c-carbs) 25%, transparent);width:{{ deficitWidth }}"></div>
+        <div style="position:absolute;top:12px;right:0;height:8px;border-radius:4px;background:color-mix(in srgb, var(--accent) 25%, transparent);width:{{ surplusWidth }}"></div>
+        <div style="position:absolute;top:6px;width:2px;height:20px;background:var(--ink);z-index:3;left:{{ tdeePos }}"></div>
+        <div style="position:absolute;top:8px;width:20px;height:20px;border-radius:50%;transform:translateX(-10px);z-index:2;border:3px solid var(--surface);box-sizing:border-box;left:{{ kcalPos }};background:{{ zoneColor }}"></div>
+        <input type="range" min="1200" max="3600" step="10" value="{{ kcal }}" onChange="{{ setKcal }}" aria-label="Calorie al giorno" style="position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;z-index:4">
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:6px">
+        <span style="display:inline-flex;align-items:center;padding:4px 10px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border-radius:3px;border:1px solid var(--line);color:{{ zoneColor }};background:var(--muted)">{{ zoneLabel }}</span>
+        <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums">{{ deltaText }} vs TDEE · stima {{ kgMonth }} kg / mese</span>
+        <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;margin-left:auto">TDEE 2 460 · BMR 1 720</span>
+      </div>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:26px;display:flex;flex-direction:column;gap:16px">
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Barra segmentata macro · somma sempre visibile</span>
+      <div style="display:flex;height:12px;border-radius:3px;overflow:hidden;background:var(--line-2)">
+        <div style="background:var(--c-protein);width:{{ pWidth }}"></div>
+        <div style="background:var(--c-carbs);width:{{ cWidth }}"></div>
+        <div style="background:var(--c-fat);width:{{ fWidth }}"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ macroRows }}" as="row" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:12px 1fr 84px 90px;gap:12px;align-items:center">
+            <span style="width:10px;height:10px;border-radius:50%;background:{{ row.color }}"></span>
+            <span style="font-size:14px;font-weight:600">{{ row.name }}</span>
+            <input type="number" value="{{ row.pct }}" onChange="{{ row.set }}" aria-label="{{ row.name }}" style="width:84px;padding:8px 10px;font-family:var(--font-mono);font-size:15px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px" style-focus="outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--focus-ring)">
+            <span style="text-align:right;font-family:var(--font-mono);font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums">{{ row.grams }} g</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="position:relative;padding:10px 14px;border:1px solid var(--line);border-radius:4px;background:var(--bg);overflow:hidden">
+        <div style="position:absolute;left:0;top:0;bottom:0;opacity:0.15;width:{{ sumWidth }};background:{{ sumColor }}"></div>
+        <span style="position:relative;font-size:12px;font-weight:600;letter-spacing:0.03em;color:{{ sumColor }}">{{ sumText }}</span>
+      </div>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:26px;display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Ring macro + barre target · sforamento leggibile senza colore</span>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums">riempimento {{ fillPct }}%</span>
+          <input type="range" min="0" max="130" step="1" value="{{ fillPct }}" onChange="{{ setFill }}" aria-label="Riempimento demo" style="width:180px;height:24px;accent-color:var(--accent);opacity:1;cursor:pointer">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+        <sc-for list="{{ rings }}" as="r" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="position:relative;width:96px;height:96px">
+              <svg width="96" height="96" viewBox="0 0 96 96" style="display:block">
+                <circle cx="48" cy="48" r="44" fill="none" stroke="var(--line)" stroke-width="8"></circle>
+                <circle cx="48" cy="48" r="44" fill="none" stroke="{{ r.color }}" stroke-width="8" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="{{ r.offset }}" transform="rotate(-90 48 48)" style="transition:stroke-dashoffset 350ms cubic-bezier(.4,0,.2,1)"></circle>
+              </svg>
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1">
+                <span style="font-family:var(--font-mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums;color:{{ r.color }}">{{ r.value }}</span>
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:3px;font-variant-numeric:tabular-nums">/ {{ r.target }}</span>
+              </div>
+            </div>
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:{{ r.color }}">{{ r.label }}</span>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-2);font-variant-numeric:tabular-nums">{{ r.delta }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:18px">
+        <sc-for list="{{ rings }}" as="r" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:120px 1fr 150px;gap:14px;align-items:center;font-size:13px">
+            <span style="color:var(--ink-2);font-weight:500">{{ r.label }}</span>
+            <span style="height:6px;background:var(--line-2);border-radius:3px;overflow:hidden;display:block">
+              <span style="display:block;height:100%;border-radius:3px;width:{{ r.barWidth }};background:{{ r.color }};transition:width 250ms ease"></span>
+            </span>
+            <span style="text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--ink)">{{ r.value }} / {{ r.target }} · {{ r.delta }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:26px;display:flex;flex-direction:column;gap:18px">
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Day selector · completamento per giorno</span>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px 0">
+        <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+          <button type="button" onClick="{{ d.pick }}" style="{{ d.style }}">
+            <span>{{ d.short }}</span>
+            <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0;text-transform:none;opacity:0.75">{{ d.progress }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line-2)">
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-size:18px;font-weight:600">Pranzo</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums">target 780 kcal · fatto 774 kcal</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" style="min-height:44px;padding:10px 14px;font-size:13px;font-weight:600;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:4px;cursor:pointer" style-hover="background:var(--muted)">Modifica</button>
+            <button type="button" style="min-height:44px;padding:10px 14px;font-size:13px;font-weight:600;color:var(--ink-2);background:transparent;border:1px solid transparent;border-radius:4px;cursor:pointer" style-hover="color:var(--ink);background:var(--muted)">Copia alla settimana</button>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line-2)">
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-size:18px;font-weight:500;color:var(--ink-2)">Cena</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums">target 620 kcal · da costruire</span>
+          </div>
+          <button type="button" onClick="{{ openDrawer }}" style="min-height:44px;padding:10px 16px;font-size:13px;font-weight:600;color:var(--accent-ink);background:var(--accent);border:1px solid var(--accent);border-radius:4px;cursor:pointer" style-hover="background:var(--accent-2)">Costruisci</button>
+        </div>
+      </div>
+      <div style="border:1px dashed var(--line);border-radius:4px;padding:24px;text-align:center;color:var(--ink-3);font-size:14px">
+        Nessun pasto ancora costruito per giovedì. Parti dalla colazione: scegli gli alimenti, i grammi li calcola Vatia.
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">Drawer desktop / bottom-sheet mobile</span>
+        <button type="button" onClick="{{ toggleDrawer }}" style="min-height:44px;padding:11px 18px;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:4px;cursor:pointer" style-hover="background:var(--muted);border-color:var(--ink-3)">{{ drawerBtn }}</button>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
+        <div style="position:relative;width:720px;max-width:100%;height:520px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg)">
+          <div style="padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between">
+            <span style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></span>Piano · settimana</span>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">2 140 kcal · 4 pasti</span>
+          </div>
+          <div style="padding:20px 24px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
+              <span style="height:34px;border-radius:4px;background:var(--ink)"></span>
+              <span style="height:34px;border-radius:4px;background:var(--muted)"></span>
+              <span style="height:34px;border-radius:4px;background:var(--muted)"></span>
+              <span style="height:34px;border-radius:4px;background:var(--muted)"></span>
+              <span style="height:34px;border-radius:4px;background:var(--muted)"></span>
+              <span style="height:34px;border-radius:4px;background:var(--muted)"></span>
+              <span style="height:34px;border-radius:4px;background:var(--muted)"></span>
+            </div>
+            <span style="height:1px;background:var(--line);margin:8px 0"></span>
+            <span style="height:14px;width:46%;border-radius:2px;background:var(--muted)"></span>
+            <span style="height:14px;width:64%;border-radius:2px;background:var(--muted)"></span>
+            <span style="height:14px;width:38%;border-radius:2px;background:var(--muted)"></span>
+            <span style="height:14px;width:56%;border-radius:2px;background:var(--muted)"></span>
+            <p style="font-size:13px;color:var(--ink-3);margin-top:8px;max-width:34ch">La settimana resta dietro il pannello: il pasto si costruisce senza cambiare pagina.</p>
+          </div>
+          <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;background:color-mix(in srgb, var(--ink) 40%, transparent);animation:fadeIn 160ms ease"></div>
+          </sc-if>
+          <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ true }}">
+            <aside style="position:absolute;top:0;right:0;bottom:0;width:400px;background:var(--surface);border-left:1px solid var(--line);display:flex;flex-direction:column;animation:slideInRight 200ms cubic-bezier(.32,.72,0,1);box-shadow:-8px 0 40px color-mix(in srgb, var(--ink) 20%, transparent)">
+              <header style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 22px 16px;border-bottom:1px solid var(--line)">
+                <div>
+                  <span style="display:block;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px">Fase 1 · scegli</span>
+                  <span style="font-size:22px;font-weight:700;letter-spacing:-0.02em">Cena · giovedì</span>
+                </div>
+                <button type="button" onClick="{{ closeDrawer }}" aria-label="Chiudi" style="min-height:44px;min-width:44px;background:transparent;border:1px solid var(--line);color:var(--ink-2);border-radius:4px;font-size:15px;cursor:pointer" style-hover="background:var(--muted);color:var(--ink)">✕</button>
+              </header>
+              <div style="flex:1;overflow-y:auto;padding:18px 22px;display:flex;flex-direction:column;gap:14px">
+                <input type="text" value="zucch" style="width:100%;padding:12px 14px;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--accent);border-radius:4px;box-shadow:0 0 0 4px var(--focus-ring)">
+                <div style="flex:none;border:1px solid var(--line);border-radius:4px;background:var(--bg);overflow:hidden">
+                  <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line-2)">
+                    <div style="display:flex;flex-direction:column;gap:3px">
+                      <span style="font-size:14px;font-weight:500">Zucchine, crude</span>
+                      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">11 kcal · P 1,3 · C 1,4 · G 0,1</span>
+                    </div>
+                    <span style="display:inline-flex;padding:3px 9px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;background:var(--cat-verdura);color:var(--surface)">verdura</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 14px">
+                    <div style="display:flex;flex-direction:column;gap:3px">
+                      <span style="font-size:14px;font-weight:500">Zucca, cruda</span>
+                      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">18 kcal · P 1,1 · C 3,5 · G 0,1</span>
+                    </div>
+                    <span style="display:inline-flex;padding:3px 9px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;background:var(--cat-verdura);color:var(--surface)">verdura</span>
+                  </div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase">selezionati · 3</span>
+                <div style="flex:none;display:flex;flex-direction:column;border-top:1px solid var(--line)">
+                  <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line-2);font-size:14px"><span>Petto di pollo</span><span style="font-family:var(--font-mono);color:var(--ink-3)">carne</span></div>
+                  <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line-2);font-size:14px"><span>Riso basmati</span><span style="font-family:var(--font-mono);color:var(--ink-3)">cereali</span></div>
+                  <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;font-size:14px"><span>Olio di oliva</span><span style="font-family:var(--font-mono);color:var(--ink-3)">grassi</span></div>
+                </div>
+              </div>
+              <footer style="padding:14px 22px;border-top:1px solid var(--line);display:flex;gap:10px">
+                <button type="button" style="flex:1;min-height:44px;padding:13px 18px;font-size:15px;font-weight:600;color:var(--accent-ink);background:var(--accent);border:1px solid var(--accent);border-radius:4px;cursor:pointer" style-hover="background:var(--accent-2)">Calcola i grammi</button>
+              </footer>
+            </aside>
+          </sc-if>
+        </div>
+
+        <div style="position:relative;width:375px;height:520px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg);flex:none">
+          <div style="padding:16px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between">
+            <span style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></span>Giovedì</span>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">3 / 4</span>
+          </div>
+          <div style="padding:16px 18px;display:flex;flex-direction:column;gap:9px">
+            <span style="height:14px;width:60%;border-radius:2px;background:var(--muted)"></span>
+            <span style="height:14px;width:44%;border-radius:2px;background:var(--muted)"></span>
+            <span style="height:14px;width:52%;border-radius:2px;background:var(--muted)"></span>
+          </div>
+          <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;background:color-mix(in srgb, var(--ink) 40%, transparent);animation:fadeIn 160ms ease"></div>
+          </sc-if>
+          <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ true }}">
+            <aside style="position:absolute;left:0;right:0;bottom:0;height:88%;background:var(--surface);border-top:1px solid var(--line);border-top-left-radius:12px;border-top-right-radius:12px;display:flex;flex-direction:column;animation:slideInUp 220ms cubic-bezier(.32,.72,0,1)">
+              <span style="position:absolute;top:8px;left:50%;transform:translateX(-50%);width:40px;height:4px;border-radius:2px;background:var(--line)"></span>
+              <header style="padding:24px 18px 12px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+                <div>
+                  <span style="display:block;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px">Fase 2 · regola</span>
+                  <span style="font-size:20px;font-weight:700;letter-spacing:-0.02em">Cena</span>
+                </div>
+                <button type="button" onClick="{{ closeDrawer }}" aria-label="Chiudi" style="min-height:44px;min-width:44px;background:transparent;border:1px solid var(--line);color:var(--ink-2);border-radius:4px;font-size:15px;cursor:pointer">✕</button>
+              </header>
+              <div style="flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:16px">
+                <div style="flex:none;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+                  <sc-for list="{{ miniRings }}" as="r" hint-placeholder-count="4">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+                      <div style="position:relative;width:64px;height:64px">
+                        <svg width="64" height="64" viewBox="0 0 64 64" style="display:block">
+                          <circle cx="32" cy="32" r="28" fill="none" stroke="var(--line)" stroke-width="6"></circle>
+                          <circle cx="32" cy="32" r="28" fill="none" stroke="{{ r.color }}" stroke-width="6" stroke-linecap="round" stroke-dasharray="175.9" stroke-dashoffset="{{ r.offset }}" transform="rotate(-90 32 32)" style="transition:stroke-dashoffset 350ms ease"></circle>
+                        </svg>
+                        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+                          <span style="font-family:var(--font-mono);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:{{ r.color }}">{{ r.value }}</span>
+                        </div>
+                      </div>
+                      <span style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:{{ r.color }}">{{ r.label }}</span>
+                      <span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-2)">{{ r.delta }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="flex:none;display:flex;flex-direction:column;border-top:1px solid var(--line)">
+                  <div style="display:grid;grid-template-columns:1fr 84px;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line-2)">
+                    <div style="display:flex;flex-direction:column;gap:3px">
+                      <span style="font-size:15px;font-weight:500">Petto di pollo</span>
+                      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">288 kcal · P 54 · C 0 · G 6</span>
+                    </div>
+                    <input type="text" value="180" style="width:84px;padding:10px;font-family:var(--font-mono);font-size:15px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px">
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 84px;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line-2)">
+                    <div style="display:flex;flex-direction:column;gap:3px">
+                      <span style="font-size:15px;font-weight:500">Riso basmati</span>
+                      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">296 kcal · P 6 · C 65 · G 1</span>
+                    </div>
+                    <input type="text" value="85" style="width:84px;padding:10px;font-family:var(--font-mono);font-size:15px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px">
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 84px;gap:10px;align-items:center;padding:13px 0">
+                    <div style="display:flex;flex-direction:column;gap:3px">
+                      <span style="font-size:15px;font-weight:500">Olio di oliva</span>
+                      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3)">106 kcal · P 0 · C 0 · G 12</span>
+                    </div>
+                    <input type="text" value="12" style="width:84px;padding:10px;font-family:var(--font-mono);font-size:15px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px">
+                  </div>
+                </div>
+              </div>
+              <footer style="padding:12px 18px 18px;border-top:1px solid var(--line)">
+                <button type="button" style="width:100%;min-height:48px;padding:14px;font-size:16px;font-weight:600;color:var(--accent-ink);background:var(--accent);border:1px solid var(--accent);border-radius:4px;cursor:pointer">Salva il pasto</button>
+              </footer>
+            </aside>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:12px">
+      <h2 style="font-size:32px;font-weight:700;letter-spacing:-0.025em">Regole</h2>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase">04 — accessibilità e stati</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent)">Mai solo colore</span>
+        <p style="font-size:15px;color:var(--ink-2);line-height:1.5">Ogni scostamento porta il segno numerico accanto alla barra: <span style="font-family:var(--font-mono)">+12%</span>, <span style="font-family:var(--font-mono)">−4%</span>, <span style="font-family:var(--font-mono)">a target</span>.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent)">Target 44px</span>
+        <p style="font-size:15px;color:var(--ink-2);line-height:1.5">Bottoni, tab giorno, stepper e campi grammi hanno altezza minima 44px e almeno 8px di distanza.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent)">Focus visibile</span>
+        <p style="font-size:15px;color:var(--ink-2);line-height:1.5">Anello accento 2px con offset 3px su ogni elemento focalizzabile. Nessun <span style="font-family:var(--font-mono)">outline:none</span> senza sostituto.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent)">Caricamento esplicito</span>
+        <p style="font-size:15px;color:var(--ink-2);line-height:1.5">Ricerca alimenti e calcolo grammi mostrano stato in mono: <span style="font-family:var(--font-mono)">cerco…</span> / <span style="font-family:var(--font-mono)">calcolo…</span>.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    theme: 'light', kcal: 2140, act: 1, meals: 4, day: 3,
+    fill: 92, p: 30, c: 45, f: 25, drawer: true
+  };
+
+  componentDidMount() {
+    document.documentElement.dataset.theme = this.state.theme;
+  }
+
+  toggle = () => {
+    const t = this.state.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+    this.setState({ theme: t });
+  };
+
+  num(n) {
+    const neg = n < 0;
+    const s = String(Math.abs(Math.round(n))).replace(/\B(?=(\d{3})+(?!\d))/g, '\u2009');
+    return (neg ? '\u2212' : '') + s;
+  }
+
+  choiceStyle(sel) {
+    return 'display:flex;align-items:baseline;justify-content:space-between;gap:16px;min-height:44px;padding:16px 20px;width:100%;text-align:left;cursor:pointer;'
+      + 'border-radius:8px;font-family:var(--font-sans);font-size:17px;line-height:1.35;'
+      + (sel
+        ? 'border:1px solid var(--accent);background:var(--accent-tint);color:var(--ink);font-weight:600;'
+        : 'border:1px solid var(--line);background:var(--bg);color:var(--ink);font-weight:500;');
+  }
+
+  pillStyle(sel) {
+    return 'min-width:44px;min-height:44px;padding:10px 18px;border:none;border-radius:3px;cursor:pointer;font-family:var(--font-sans);font-size:15px;font-weight:600;'
+      + (sel ? 'background:var(--ink);color:var(--bg);' : 'background:transparent;color:var(--ink-2);');
+  }
+
+  dayStyle(active, done) {
+    return 'display:flex;flex-direction:column;align-items:center;gap:4px;min-height:48px;padding:10px 4px;border-radius:4px;cursor:pointer;'
+      + 'font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;'
+      + (active
+        ? 'background:var(--ink);color:var(--bg);border:1px solid var(--ink);'
+        : 'background:transparent;border:1px solid transparent;color:' + (done ? 'var(--accent)' : 'var(--ink-2)') + ';');
+  }
+
+  ring(label, target, unit, color) {
+    const value = Math.round(target * this.state.fill / 100);
+    const pct = Math.min(value / target, 1);
+    const over = value > target * 1.05;
+    const col = over ? 'var(--danger)' : color;
+    const d = Math.round((value / target - 1) * 100);
+    const delta = Math.abs(d) <= 2 ? 'a target' : (d > 0 ? '+' + d + '%' : d + '%');
+    return {
+      label, color: col, value: value + unit, target: target + unit, delta,
+      offset: 276.5 * (1 - pct), barWidth: Math.min(pct * 100, 100) + '%'
+    };
+  }
+
+  miniRing(label, target, unit, color) {
+    const r = this.ring(label, target, unit, color);
+    r.offset = 175.9 * (1 - Math.min(Math.round(target * this.state.fill / 100) / target, 1));
+    return r;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const TDEE = 2460, MIN = 1200, MAX = 3600;
+    const pos = v => ((v - MIN) / (MAX - MIN)) * 100;
+    const delta = s.kcal - TDEE;
+    const zone = delta < -80 ? 'deficit' : (delta > 80 ? 'surplus' : 'mantenimento');
+    const zoneColor = zone === 'deficit' ? 'var(--c-carbs)' : (zone === 'surplus' ? 'var(--accent)' : 'var(--ink-3)');
+    const kg = (delta * 7 / 7700 * 30).toFixed(1).replace('.', ',');
+    const sum = s.p + s.c + s.f;
+    const grams = (pct, kcalPerG) => Math.round(s.kcal * pct / 100 / kcalPerG);
+
+    const acts = [
+      ['Sedentario', 'ufficio, poco movimento'],
+      ['Leggero', '1-3 allenamenti a settimana'],
+      ['Moderato', '3-5 allenamenti a settimana'],
+      ['Intenso', '6-7 allenamenti a settimana']
+    ];
+    const dayNames = ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'];
+    const dayDone = [4, 4, 3, 3, 0, 0, 0];
+
+    return {
+      themeName: s.theme === 'light' ? 'Light' : 'Dark',
+      toggleTheme: this.toggle,
+
+      activities: acts.map((a, i) => ({
+        name: a[0], hint: a[1],
+        style: this.choiceStyle(i === s.act),
+        pick: () => this.setState({ act: i })
+      })),
+
+      mealCounts: [2, 3, 4, 5, 6].map(n => ({
+        n, style: this.pillStyle(n === s.meals),
+        pick: () => this.setState({ meals: n })
+      })),
+
+      kcal: this.num(s.kcal),
+      setKcal: e => this.setState({ kcal: Number(e.target.value) }),
+      kcalPos: pos(s.kcal) + '%',
+      tdeePos: pos(TDEE) + '%',
+      deficitWidth: pos(TDEE - 100) + '%',
+      surplusWidth: (100 - pos(TDEE + 100)) + '%',
+      zoneLabel: zone,
+      zoneColor,
+      deltaText: (delta > 0 ? '+' : '') + this.num(delta) + ' kcal',
+      kgMonth: (delta > 0 ? '+' : '') + kg,
+
+      pWidth: s.p / Math.max(sum, 1) * 100 + '%',
+      cWidth: s.c / Math.max(sum, 1) * 100 + '%',
+      fWidth: s.f / Math.max(sum, 1) * 100 + '%',
+      macroRows: [
+        { name: 'Proteine', color: 'var(--c-protein)', pct: s.p, grams: grams(s.p, 4), set: e => this.setState({ p: Number(e.target.value) || 0 }) },
+        { name: 'Carboidrati', color: 'var(--c-carbs)', pct: s.c, grams: grams(s.c, 4), set: e => this.setState({ c: Number(e.target.value) || 0 }) },
+        { name: 'Grassi', color: 'var(--c-fat)', pct: s.f, grams: grams(s.f, 9), set: e => this.setState({ f: Number(e.target.value) || 0 }) }
+      ],
+      sumWidth: Math.min(sum, 100) + '%',
+      sumColor: sum === 100 ? 'var(--accent)' : (sum < 100 ? 'var(--warn)' : 'var(--danger)'),
+      sumText: sum === 100 ? 'Somma 100% — a posto' : 'Somma ' + sum + '% — ' + (sum < 100 ? 'mancano ' + (100 - sum) : 'eccedono ' + (sum - 100)) + ' punti',
+
+      fillPct: s.fill,
+      setFill: e => this.setState({ fill: Number(e.target.value) }),
+      rings: [
+        this.ring('kcal', 620, '', 'var(--c-kcal)'),
+        this.ring('proteine', 46, 'g', 'var(--c-protein)'),
+        this.ring('carbo', 70, 'g', 'var(--c-carbs)'),
+        this.ring('grassi', 17, 'g', 'var(--c-fat)')
+      ],
+      miniRings: [
+        this.miniRing('kcal', 620, '', 'var(--c-kcal)'),
+        this.miniRing('prot', 46, 'g', 'var(--c-protein)'),
+        this.miniRing('carbo', 70, 'g', 'var(--c-carbs)'),
+        this.miniRing('grassi', 17, 'g', 'var(--c-fat)')
+      ],
+
+      days: dayNames.map((d, i) => ({
+        short: d, progress: dayDone[i] + '/' + s.meals,
+        style: this.dayStyle(i === s.day, dayDone[i] >= s.meals),
+        pick: () => this.setState({ day: i })
+      })),
+
+      drawerOpen: s.drawer,
+      drawerBtn: s.drawer ? 'Chiudi pannello' : 'Apri pannello',
+      toggleDrawer: () => this.setState({ drawer: !s.drawer }),
+      openDrawer: () => this.setState({ drawer: true }),
+      closeDrawer: () => this.setState({ drawer: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

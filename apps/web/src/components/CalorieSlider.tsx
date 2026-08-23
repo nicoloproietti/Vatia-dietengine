@@ -1,23 +1,27 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocale } from '../i18n/LocaleContext.tsx';
+import { formatNumber, formatSigned } from '../lib/format.ts';
 
 interface Props {
   value: number;
   tdee: number;
+  bmr: number;
   onChange: (kcal: number) => void;
-  min?: number;
-  max?: number;
 }
 
+const MIN = 1200;
+const MAX = 3600;
+const ZONE_GAP = 100;      // neutral half-width either side of TDEE (200 kcal total)
+const ZONE_THRESHOLD = 80; // ± around TDEE that still counts as maintenance
 const KCAL_PER_KG = 7700;
-const MAINTAIN_TOL = 50;   // ± around TDEE = maintenance
 
 /**
- * kcal slider ported concept from the gestionale's CalorieSlider.
- * TDEE is shown as an anchor on the track; deficit / surplus zones
- * are colored differently. Big editable number is the source of truth.
+ * kcal slider — Vatia design system spec. TDEE is anchored on the track
+ * with a 200 kcal neutral gap either side (deficit ends at TDEE−100,
+ * surplus starts at TDEE+100); the big editable number is the source of
+ * truth, the range input is the drag surface.
  */
-export function CalorieSlider({ value, tdee, onChange, min = 800, max = 5000 }: Props) {
+export function CalorieSlider({ value, tdee, bmr, onChange }: Props) {
   const { t } = useLocale();
   const focused = useRef(false);
   const [local, setLocal] = useState(String(value));
@@ -26,21 +30,25 @@ export function CalorieSlider({ value, tdee, onChange, min = 800, max = 5000 }: 
     if (!focused.current) setLocal(String(value));
   }, [value]);
 
-  const clamp = (n: number) => Math.max(min, Math.min(max, n));
-  const pct = (v: number) => Math.max(0, Math.min(100, ((v - min) / (max - min)) * 100));
+  const clamp = (n: number) => Math.max(MIN, Math.min(MAX, n));
+  const pos = (v: number) => Math.max(0, Math.min(100, ((v - MIN) / (MAX - MIN)) * 100));
 
   const diff = value - tdee;
-  const isDeficit = diff < -MAINTAIN_TOL;
-  const isSurplus = diff > MAINTAIN_TOL;
+  const isDeficit = diff < -ZONE_THRESHOLD;
+  const isSurplus = diff > ZONE_THRESHOLD;
   const zone = isDeficit ? 'deficit' : isSurplus ? 'surplus' : 'maintain';
-  const monthlyKg = ((Math.abs(diff) * 30) / KCAL_PER_KG).toFixed(1);
-  const thumbColor =
-    isDeficit ? 'var(--c-carbs)' :   // arancio (deficit)
-    isSurplus ? 'var(--accent)'  :   // verde (surplus)
-                'var(--ink-3)';      // maintain
+  const monthlyKg = ((diff * 7) / KCAL_PER_KG) * 30;
+  const zoneColor =
+    isDeficit ? 'var(--c-carbs)' :
+    isSurplus ? 'var(--accent)' :
+                'var(--ink-3)';
+
+  const deficitWidth = pos(tdee - ZONE_GAP);
+  const surplusWidth = 100 - pos(tdee + ZONE_GAP);
 
   return (
     <div className="cs">
+      <span className="cs-eyebrow mono">Slider kcal · TDEE come riferimento</span>
       <div className="cs-value">
         <input
           type="text"
@@ -55,50 +63,44 @@ export function CalorieSlider({ value, tdee, onChange, min = 800, max = 5000 }: 
           onFocus={(e) => { focused.current = true; e.target.select(); }}
           onBlur={() => {
             focused.current = false;
-            const n = clamp(Number(local) || min);
+            const n = clamp(Number(local) || MIN);
             setLocal(String(n));
             onChange(n);
           }}
-          aria-label="Daily kcal"
+          aria-label="Calorie al giorno"
         />
         <span className="cs-suffix">kcal / giorno</span>
       </div>
 
       <div className="cs-track">
-        <div className="cs-zone cs-zone-deficit" style={{ width: `${pct(tdee)}%` }} />
-        <div className="cs-zone cs-zone-surplus" style={{ width: `${100 - pct(tdee)}%` }} />
+        <div className="cs-zone cs-zone-deficit" style={{ width: `${deficitWidth}%` }} />
+        <div className="cs-zone cs-zone-surplus" style={{ width: `${surplusWidth}%` }} />
         <input
           type="range"
           className="cs-range"
-          min={min}
-          max={max}
+          min={MIN}
+          max={MAX}
           step={10}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          aria-label="Daily kcal slider"
+          aria-label="Calorie al giorno"
         />
-        <div className="cs-tick" style={{ left: `${pct(tdee)}%` }} title={`TDEE ${tdee}`} />
-        <div className="cs-thumb-shadow" style={{ left: `${pct(value)}%`, background: thumbColor }} />
-      </div>
-
-      <div className="cs-legend">
-        <span className="cs-anchor" style={{ left: `${pct(tdee)}%` }}>
-          <span className="cs-anchor-label">TDEE</span>
-          <span className="cs-anchor-val mono">{tdee}</span>
-        </span>
+        <div className="cs-tick" style={{ left: `${pos(tdee)}%` }} title={`TDEE ${tdee}`} />
+        <div className="cs-thumb-shadow" style={{ left: `${pos(value)}%`, background: zoneColor }} />
       </div>
 
       <div className="cs-status">
-        <span className={`cs-zone-badge is-${zone}`}>
+        <span className={`cs-zone-badge is-${zone}`} style={{ color: zoneColor }}>
           {zone === 'deficit' && t('setup.dailyKcal.deficit')}
           {zone === 'surplus' && t('setup.dailyKcal.surplus')}
           {zone === 'maintain' && t('setup.dailyKcal.maintain')}
         </span>
-        {zone !== 'maintain' && (
-          <span className="small mono">
-            {diff > 0 ? '+' : ''}{Math.round(diff)} kcal · ≈{diff > 0 ? '+' : '−'}{monthlyKg} {t('setup.dailyKcal.perMonth')}
-          </span>
-        )}
+        <span className="small mono">
+          {formatSigned(diff)} kcal vs TDEE · stima {formatSigned(monthlyKg, 1)} kg / mese
+        </span>
+        <span className="small mono cs-anchor-right">
+          TDEE {formatNumber(tdee)} · BMR {formatNumber(bmr)}
+        </span>
       </div>
     </div>
   );
