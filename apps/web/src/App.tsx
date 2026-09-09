@@ -55,7 +55,7 @@ export function App() {
 
 /** Nav bar traslucida: indietro a sinistra, titolo al centro, azioni a destra. */
 function NavBar() {
-  const { t, locale, setLocale } = useLocale();
+  const { t } = useLocale();
   const { theme, toggle } = useTheme();
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -87,18 +87,9 @@ function NavBar() {
           type="button"
           className="icon-btn"
           onClick={toggle}
-          aria-label="Toggle theme"
-          title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          aria-label={theme === 'dark' ? 'Tema chiaro' : 'Tema scuro'}
         >
           {theme === 'dark' ? '☀' : '☾'}
-        </button>
-        <button
-          type="button"
-          className="icon-btn"
-          onClick={() => setLocale(locale === 'it' ? 'en' : 'it')}
-          aria-label="Switch language"
-        >
-          {locale === 'it' ? 'EN' : 'IT'}
         </button>
       </div>
     </header>

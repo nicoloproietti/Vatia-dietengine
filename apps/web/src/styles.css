@@ -1,53 +1,52 @@
-/* Vatia — iOS
+/* Vatia — iOS, bianco e verde / nero e verde
  *
- * Stessa palette (frutta e verdura, inchiostro caldo su carta panna),
- * stesso contenuto: cambia solo il linguaggio visivo, che ora è quello
- * di un'app iPhone nativa — nav bar traslucida, liste raggruppate,
- * controlli segmentati, bottoni pieni ad angoli morbidi, tab bar. */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+ * Due temi, un solo colore: bianco + verde di giorno, nero + verde di
+ * notte. Tutto il resto è neutro; le sfumature di verde distinguono i
+ * macro, sempre accompagnate da un'etichetta (mai colore da solo).
+ * Tipografia di sistema: SF Pro e SF Mono su iPhone, senza font
+ * remoti da scaricare. */
 
 :root {
   color-scheme: light;
 
-  /* — Fondo carta panna, inchiostro caldo — */
-  --bg:        #FBF7EC;      /* latte di mandorla */
-  --surface:   #FFFDF6;
-  --ink:       #221D14;      /* fondo di caffè */
-  --ink-2:     #5A503F;
-  --ink-3:     #94886F;
-  --line:      #E5DBC6;
-  --line-2:    #F0E9D6;
-  --muted:     #F4EDDA;
+  /* — Bianco — */
+  --bg:        #FFFFFF;
+  --surface:   #FFFFFF;
+  --ink:       #000000;
+  --ink-2:     #4B4B50;
+  --ink-3:     #8A8A8F;
+  --line:      #E2E2E6;
+  --line-2:    #EFEFF2;
+  --muted:     #F4F4F6;
 
-  /* — Accento primario: verde basilico — */
-  --accent:    #4E7A3B;
-  --accent-2:  #3A5E2C;
-  --accent-ink:#FBF7EC;
-  --accent-tint: #EAF2E3;
-  --focus-ring: rgba(78, 122, 59, 0.30);
+  /* — Verde — */
+  --accent:    #0F8A43;
+  --accent-2:  #0A6B33;
+  --accent-ink:#FFFFFF;
+  --accent-tint: #E8F5EC;
+  --focus-ring: rgba(15, 138, 67, 0.28);
 
-  /* — Macro colors: pomodoro / carota / limone / basilico — */
-  --c-kcal:    #4E7A3B;      /* verde basilico */
-  --c-protein: #C1362A;      /* rosso pomodoro */
-  --c-carbs:   #E17400;      /* arancio zucca */
-  --c-fat:     #B58900;      /* giallo olio */
+  /* — Macro: quattro gradazioni di verde, dalla più scura alla più chiara — */
+  --c-kcal:    #0F8A43;      /* verde brand */
+  --c-protein: #0A5C2E;      /* verde bosco */
+  --c-carbs:   #35801E;      /* verde erba */
+  --c-fat:     #6F7D08;      /* verde oliva */
 
-  /* — Category chips — */
-  --cat-verdura:   #4E7A3B;
-  --cat-frutta:    #E17400;
-  --cat-cereali:   #C68F00;
-  --cat-legumi:    #7A5C2E;
-  --cat-carne:     #C1362A;
-  --cat-pesce:     #4A80A0;
-  --cat-latticini: #A88F5A;
-  --cat-uova:      #E5AA1D;
-  --cat-grassi:    #8B6914;
-  --cat-altro:     #94886F;
+  /* — Chip categoria: verde per l'orto, neutri per il resto — */
+  --cat-verdura:   #0F8A43;
+  --cat-frutta:    #35801E;
+  --cat-cereali:   #6F7D08;
+  --cat-legumi:    #0A5C2E;
+  --cat-carne:     #4B4B50;
+  --cat-pesce:     #6E6E73;
+  --cat-latticini: #6E6E73;
+  --cat-uova:      #7A7A80;
+  --cat-grassi:    #5F5F63;
+  --cat-altro:     #8A8A8F;
 
-  --ok:        #4E7A3B;
-  --warn:      #B7791F;
-  --danger:    #C1362A;
+  --ok:        #0F8A43;
+  --warn:      #6F7D08;
+  --danger:    #C0392B;
 
   /* — Forma: raggi iOS — */
   --radius-xs:  6px;
@@ -78,48 +77,49 @@
   --ease-ios: cubic-bezier(0.32, 0.72, 0, 1);
 
   --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
-               'Inter', 'Segoe UI', system-ui, sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo,
-               'JetBrains Mono', monospace;
+               system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
 
-  --bg:        #171310;
-  --surface:   #1E1913;
-  --ink:       #F1E7CE;
-  --ink-2:     #C3B69A;
-  --ink-3:     #7B7059;
-  --line:      #3A322A;
-  --line-2:    #2A241E;
-  --muted:     #26201A;
+  /* — Nero — */
+  --bg:        #000000;
+  --surface:   #0E0E10;
+  --ink:       #FFFFFF;
+  --ink-2:     #C7C7CC;
+  --ink-3:     #8A8A8F;
+  --line:      #2C2C2E;
+  --line-2:    #1C1C1E;
+  --muted:     #161618;
 
-  --accent:    #7EB05F;
-  --accent-2:  #9ECC80;
-  --accent-ink:#171310;
-  --accent-tint: #2A3A1F;
-  --focus-ring: rgba(126, 176, 95, 0.34);
+  /* — Verde — */
+  --accent:    #32D74B;
+  --accent-2:  #5FE374;
+  --accent-ink:#00160A;
+  --accent-tint: #102A18;
+  --focus-ring: rgba(50, 215, 75, 0.32);
 
-  --c-kcal:    #7EB05F;
-  --c-protein: #E76C60;
-  --c-carbs:   #F09340;
-  --c-fat:     #D9B558;
+  --c-kcal:    #32D74B;
+  --c-protein: #4BD9A0;
+  --c-carbs:   #86D93C;
+  --c-fat:     #C4CE4A;
 
-  --cat-verdura:   #7EB05F;
-  --cat-frutta:    #F09340;
-  --cat-cereali:   #E5B460;
-  --cat-legumi:    #C09566;
-  --cat-carne:     #E76C60;
-  --cat-pesce:     #7BB0D0;
-  --cat-latticini: #D0B686;
-  --cat-uova:      #F0C55D;
-  --cat-grassi:    #C09E60;
-  --cat-altro:     #94886F;
+  --cat-verdura:   #32D74B;
+  --cat-frutta:    #86D93C;
+  --cat-cereali:   #C4CE4A;
+  --cat-legumi:    #4BD9A0;
+  --cat-carne:     #C7C7CC;
+  --cat-pesce:     #AEAEB2;
+  --cat-latticini: #AEAEB2;
+  --cat-uova:      #C7C7CC;
+  --cat-grassi:    #9A9AA0;
+  --cat-altro:     #8A8A8F;
 
-  --ok:        #7EB05F;
-  --warn:      #E5B460;
-  --danger:    #E76C60;
+  --ok:        #32D74B;
+  --warn:      #C4CE4A;
+  --danger:    #FF6B5E;
 
   --fill-2: color-mix(in srgb, var(--ink) 12%, transparent);
   --fill-press: color-mix(in srgb, var(--ink) 10%, transparent);
@@ -557,9 +557,23 @@ button.ios-row:hover:not(:disabled) { background: var(--fill-press); color: var(
 button.ios-row:active:not(:disabled) { background: var(--fill-2); transform: none; opacity: 1; }
 
 .ios-row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.ios-row-title { font-size: 17px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+.ios-row-title {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-right: auto;   /* spinge il valore a destra nelle righe etichetta/valore */
+  min-width: 0;
+}
 .ios-row-sub { font-size: 13px; color: var(--ink-3); }
-.ios-row-value { font-size: 15px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ios-row-value {
+  font-size: 15px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.ios-row-value.is-strong { font-size: 17px; font-weight: 600; color: var(--ink); }
 
 .ios-chevron { flex: none; color: var(--ink-3); opacity: 0.6; line-height: 0; }
 
@@ -1346,8 +1360,11 @@ select {
 .mb-ring.is-mobile .mb-ring-val { font-size: 13px; }
 .mb-ring.is-mobile .mb-ring-label { font-size: 11px; }
 
-/* Chip categoria */
+/* Chip categoria — capsula tinted: testo nel colore, fondo lo stesso
+ * colore molto diluito. Tiene il contrasto in entrambi i temi senza
+ * eccezioni per i colori chiari. */
 .cat-chip {
+  --chip: var(--cat-altro);
   display: inline-flex;
   align-items: center;
   padding: 2px 9px;
@@ -1357,18 +1374,18 @@ select {
   letter-spacing: 0;
   text-transform: none;
   border-radius: var(--radius-pill);
-  color: #FFFDF6;
-  background: var(--cat-altro);
+  color: var(--chip);
+  background: color-mix(in srgb, var(--chip) 14%, transparent);
 }
-.cat-chip.cat-verdura   { background: var(--cat-verdura); }
-.cat-chip.cat-frutta    { background: var(--cat-frutta); }
-.cat-chip.cat-cereali   { background: var(--cat-cereali); color: #221D14; }
-.cat-chip.cat-legumi    { background: var(--cat-legumi); }
-.cat-chip.cat-carne     { background: var(--cat-carne); }
-.cat-chip.cat-pesce     { background: var(--cat-pesce); }
-.cat-chip.cat-latticini { background: var(--cat-latticini); color: #221D14; }
-.cat-chip.cat-uova      { background: var(--cat-uova); color: #221D14; }
-.cat-chip.cat-grassi    { background: var(--cat-grassi); }
+.cat-chip.cat-verdura   { --chip: var(--cat-verdura); }
+.cat-chip.cat-frutta    { --chip: var(--cat-frutta); }
+.cat-chip.cat-cereali   { --chip: var(--cat-cereali); }
+.cat-chip.cat-legumi    { --chip: var(--cat-legumi); }
+.cat-chip.cat-carne     { --chip: var(--cat-carne); }
+.cat-chip.cat-pesce     { --chip: var(--cat-pesce); }
+.cat-chip.cat-latticini { --chip: var(--cat-latticini); }
+.cat-chip.cat-uova      { --chip: var(--cat-uova); }
+.cat-chip.cat-grassi    { --chip: var(--cat-grassi); }
 
 /* Fase 1 — scegli */
 .mb-compose { display: flex; flex-direction: column; gap: 14px; }
@@ -1926,62 +1943,15 @@ select {
 
 /* ══ Piano workspace ═══════════════════════════════════════════════════ */
 
-.piano-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-bottom: 22px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-.piano-strip-cell {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-  padding: 12px 14px;
-}
-.piano-strip-cell + .piano-strip-cell { border-left: 1px solid var(--line-2); }
-.piano-strip-label {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ink-3);
-  text-transform: none;
-  letter-spacing: 0;
-}
-.piano-strip-val {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--ink);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-}
-.piano-strip-actions {
-  grid-column: 1 / -1;
-  display: flex;
-  border-top: 1px solid var(--line-2);
-}
-.piano-strip-actions button {
-  flex: 1;
-  min-height: 46px;
-  padding: 12px 14px;
-  font-size: 16px;
-  font-weight: 400;
-  border-radius: 0;
-  background: transparent;
+.piano-summary { margin-bottom: 8px; }
+/* Riga d'azione a chiusura del gruppo, in accento e centrata */
+.ios-row.is-action {
+  justify-content: center;
   color: var(--accent);
+  font-size: 16px;
+  cursor: pointer;
 }
-.piano-strip-actions button:hover:not(:disabled) { background: var(--fill-press); color: var(--accent); }
-
-@media (max-width: 560px) {
-  .piano-strip { grid-template-columns: 1fr 1fr; }
-  .piano-strip-cell:nth-child(odd) { border-left: none; }
-  .piano-strip-cell:nth-child(n+3) { border-top: 1px solid var(--line-2); }
-}
+.ios-row.is-action:hover:not(:disabled) { background: var(--fill-press); color: var(--accent); }
 
 .piano-header {
   display: flex;

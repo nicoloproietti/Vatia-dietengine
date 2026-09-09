@@ -72,35 +72,39 @@ export function PianoPage() {
         </div>
       </div>
 
-      {/* ── Settings summary card ── */}
-      <section className="piano-strip">
-        <div className="piano-strip-cell">
-          <span className="piano-strip-label">Profilo</span>
-          <span className="piano-strip-val mono">
-            {profile.age}a · {profile.weight_kg}kg · {profile.height_cm}cm
+      {/* ── I tuoi numeri: lista raggruppata, etichetta a sinistra, valore a destra ── */}
+      <span className="ios-caption">I tuoi numeri</span>
+      <section className="ios-group piano-summary">
+        <div className="ios-row">
+          <span className="ios-row-title">Calorie al giorno</span>
+          <span className="ios-row-value mono is-strong">{formatNumber(daily.kcal)} kcal</span>
+        </div>
+        <div className="ios-row">
+          <span className="ios-row-main">
+            <span className="ios-row-title">Macro</span>
+            <span className="ios-row-sub">prot. · carb. · grassi</span>
           </span>
-        </div>
-        <div className="piano-strip-cell">
-          <span className="piano-strip-label">kcal / giorno</span>
-          <span className="piano-strip-val mono">{formatNumber(daily.kcal)}</span>
-        </div>
-        <div className="piano-strip-cell">
-          <span className="piano-strip-label">P · C · F</span>
-          <span className="piano-strip-val mono">
-            <span style={{ color: 'var(--c-protein)' }}>{formatNumber(daily.protein_g)}</span> ·{' '}
-            <span style={{ color: 'var(--c-carbs)' }}>{formatNumber(daily.carbs_g)}</span> ·{' '}
+          <span className="ios-row-value mono">
+            <span style={{ color: 'var(--c-protein)' }}>{formatNumber(daily.protein_g)}</span>
+            {' · '}
+            <span style={{ color: 'var(--c-carbs)' }}>{formatNumber(daily.carbs_g)}</span>
+            {' · '}
             <span style={{ color: 'var(--c-fat)' }}>{formatNumber(daily.fat_g)}</span> g
           </span>
         </div>
-        <div className="piano-strip-cell">
-          <span className="piano-strip-label">Pasti</span>
-          <span className="piano-strip-val mono">{mealCount}</span>
+        <div className="ios-row">
+          <span className="ios-row-title">Pasti al giorno</span>
+          <span className="ios-row-value mono">{mealCount}</span>
         </div>
-        <div className="piano-strip-actions">
-          <button type="button" className="secondary" onClick={() => navigate('/setup')}>
-            Modifica
-          </button>
+        <div className="ios-row">
+          <span className="ios-row-title">Profilo</span>
+          <span className="ios-row-value mono">
+            {profile.age} anni · {profile.weight_kg} kg · {profile.height_cm} cm
+          </span>
         </div>
+        <button type="button" className="ios-row is-action" onClick={() => navigate('/setup')}>
+          Modifica i numeri
+        </button>
       </section>
 
       {/* ── Day selector ── */}
