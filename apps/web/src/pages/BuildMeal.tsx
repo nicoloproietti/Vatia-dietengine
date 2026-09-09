@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { DAYS_IT, DEFAULT_MEAL_NAMES } from '@vatia/diet-engine';
 import { usePlan } from '../state/PlanContext.tsx';
 import { BuildMealPanel, type BuilderPhase } from '../components/BuildMealPanel.tsx';
@@ -23,7 +23,7 @@ export function BuildMealPage() {
   const names = DEFAULT_MEAL_NAMES[mealCount] ?? DEFAULT_MEAL_NAMES[3]!;
   const mealName = useMemo(() => names[mealIdx] ?? '', [names, mealIdx]);
 
-  if (!valid) { navigate('/piano', { replace: true }); return null; }
+  if (!valid) return <Navigate to="/piano" replace />;
 
   function backToPiano() { navigate('/piano'); }
 
@@ -31,15 +31,11 @@ export function BuildMealPage() {
 
   return (
     <div className="stack">
-      <button type="button" className="link" onClick={backToPiano} style={{ alignSelf: 'flex-start' }}>
-        ← {DAYS_IT[dayIdx]}
-      </button>
-      <span className="eyebrow">{eyebrow}</span>
-      <h1 style={{ fontSize: 'clamp(26px, 4vw, 36px)', margin: 0 }}>
-        {DAYS_IT[dayIdx]} · {mealName}
-      </h1>
+      <span className="eyebrow" style={{ color: 'var(--accent)' }}>{eyebrow}</span>
+      <h1 style={{ margin: 0 }}>{mealName}</h1>
+      <p className="small" style={{ marginTop: 4 }}>{DAYS_IT[dayIdx]}</p>
 
-      <div style={{ marginTop: 16 }}>
+      <div style={{ marginTop: 14 }}>
         <BuildMealPanel
           dayIdx={dayIdx}
           mealIdx={mealIdx}

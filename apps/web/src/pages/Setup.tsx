@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import {
   ACTIVITY_MULTIPLIER,
   DEFAULT_MEAL_NAMES,
@@ -33,7 +33,7 @@ export function SetupPage() {
   } = usePlan();
   const navigate = useNavigate();
 
-  if (!profile) { navigate('/profile'); return null; }
+  if (!profile) return <Navigate to="/profile" replace />;
 
   const bmr = useMemo(() => Math.round(bmrMifflinStJeor(profile)), [profile]);
   const tdee = useMemo(() => Math.round(bmr * ACTIVITY_MULTIPLIER[profile.activity]), [bmr, profile.activity]);
@@ -85,49 +85,45 @@ export function SetupPage() {
 
   return (
     <div className="stack">
-      <span className="eyebrow">{t('nav.setup')}</span>
       <h1>{t('setup.title')}</h1>
       <p className="lede">{t('setup.subtitle')}</p>
 
       {/* ── Daily kcal slider ── */}
-      <section style={{ marginTop: 16 }}>
-        <div className="wizard-step-meta">
-          <span>{t('setup.dailyKcal')}</span>
-          <span className="mono">BMR {formatNumber(bmr)} · TDEE {formatNumber(tdee)}</span>
+      <section>
+        {/* BMR e TDEE li mostra già lo slider nella sua riga di stato. */}
+        <div className="section-head">
+          <span className="ios-caption">{t('setup.dailyKcal')}</span>
         </div>
         <CalorieSlider value={kcal} tdee={tdee} bmr={bmr} onChange={setTargetKcal} />
         <p className="small" style={{ marginTop: 6 }}>{t('setup.dailyKcal.help')}</p>
       </section>
 
-      <hr />
-
       {/* ── Daily macro split ── */}
       <section>
-        <div className="wizard-step-meta">
-          <span>{t('setup.macroPct.title')}</span>
-          <span className="mono">{daily.protein_g} · {daily.carbs_g} · {daily.fat_g} g</span>
+        <div className="section-head">
+          <span className="ios-caption">{t('setup.macroPct.title')}</span>
+          <span className="ios-caption mono">
+            {formatNumber(daily.protein_g)} · {formatNumber(daily.carbs_g)} · {formatNumber(daily.fat_g)} g
+          </span>
         </div>
-        <p className="small" style={{ marginBottom: 8 }}>{t('setup.macroPct.body')}</p>
         <MacroSplit value={dailyMacroPct} kcal={kcal} onChange={setDailyMacroPct} />
+        <p className="small" style={{ marginTop: 8 }}>{t('setup.macroPct.body')}</p>
       </section>
-
-      <hr />
 
       {/* ── Meal count selector ── */}
       <section>
-        <div className="wizard-step-meta">
-          <span>{t('setup.mealCount')}</span>
-          <span className="mono">P {formatNumber(daily.protein_g)} · C {formatNumber(daily.carbs_g)} · F {formatNumber(daily.fat_g)} g/g</span>
+        <div className="section-head">
+          <span className="ios-caption">{t('setup.mealCount')}</span>
         </div>
         <MealStepper value={mealCount} options={MEAL_OPTIONS} onChange={setMealCount} />
         <p className="small" style={{ marginTop: 8 }}>{t('setup.mealCount.hint')}</p>
       </section>
 
       {/* ── Per-meal config ── */}
-      <section style={{ marginTop: 32 }}>
-        <div className="wizard-step-meta">
-          <span>{t('setup.kcalPct')}</span>
-          <span className="mono">{kcalSum}% / 100%</span>
+      <section>
+        <div className="section-head">
+          <span className="ios-caption">{t('setup.kcalPct')}</span>
+          <span className="ios-caption mono">{kcalSum}% / 100%</span>
         </div>
 
         <div className="meal-config">
@@ -203,7 +199,7 @@ export function SetupPage() {
           >
             {t('profile.export')}
           </button>
-          <button type="button" onClick={goWeek}>{t('setup.continue')} →</button>
+          <button type="button" onClick={goWeek}>{t('setup.continue')}</button>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ interface MacroRingProps {
  */
 export function MacroRing({ label, value, target, color, unit = '', size, mobile = false }: MacroRingProps) {
   const boxSize = size ?? (mobile ? 64 : 96);
-  const stroke = mobile ? 6 : 8;
+  const stroke = mobile ? 7 : 10;
   const r = (boxSize - stroke) / 2;
   const circ = 2 * Math.PI * r;
   const pct = target > 0 ? Math.min(value / target, 1) : 0;
@@ -25,16 +25,20 @@ export function MacroRing({ label, value, target, color, unit = '', size, mobile
   const fillColor = over ? 'var(--danger)' : color;
 
   const deltaPct = target > 0 ? Math.round((value / target - 1) * 100) : 0;
-  const deltaText = Math.abs(deltaPct) <= 2 ? 'a target' : (deltaPct > 0 ? `+${deltaPct}%` : `${deltaPct}%`);
+  const deltaText = value === 0
+    ? '—'                                  // niente ancora: nessuno scarto da leggere
+    : Math.abs(deltaPct) <= 2 ? 'a target'
+    : deltaPct > 0 ? `+${deltaPct}%` : `${deltaPct}%`;
 
   return (
     <div className={`mb-ring ${mobile ? 'is-mobile' : ''}`}>
       <div className="mb-ring-svg" style={{ width: boxSize, height: boxSize }}>
         <svg width={boxSize} height={boxSize} viewBox={`0 0 ${boxSize} ${boxSize}`}>
+          {/* Traccia: lo stesso colore molto attenuato, come le Activity rings */}
           <circle
             cx={boxSize / 2} cy={boxSize / 2} r={r}
             fill="none"
-            stroke="var(--line)"
+            stroke={`color-mix(in srgb, ${fillColor} 18%, transparent)`}
             strokeWidth={stroke}
           />
           <circle

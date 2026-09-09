@@ -5,6 +5,7 @@ import { computeDailyTargets } from '@vatia/diet-engine';
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile, type StoredProfile } from '../state/ProfileContext.tsx';
 import { ChoiceList, WizardShell } from '../components/Wizard.tsx';
+import { formatNumber } from '../lib/format.ts';
 
 const ACTIVITIES: Activity[] = ['sedentary', 'light', 'moderate', 'active', 'very_active'];
 const TOTAL_STEPS = 4;
@@ -148,15 +149,12 @@ export function ProfilePage() {
       />
 
       {targets && (
-        <div style={{ marginTop: 32 }}>
-          <div className="wizard-step-meta"><span>{t('targets.title')}</span><span /></div>
+        <div style={{ marginTop: 28 }}>
+          <div className="section-head"><span className="ios-caption">{t('targets.title')}</span></div>
           <div className="macro-row" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-            <div><small>{t('targets.bmr')}</small><strong>{targets.bmr.toFixed(0)}</strong></div>
-            <div><small>{t('targets.tdee')}</small><strong>{targets.tdee.toFixed(0)}</strong></div>
-            <div>
-              <small>{t('targets.kcal')} <span style={{ textTransform: 'none' }}>(mant.)</span></small>
-              <strong>{targets.kcal.toFixed(0)}</strong>
-            </div>
+            <div><small>{t('targets.bmr')}</small><strong>{formatNumber(targets.bmr)}</strong></div>
+            <div><small>{t('targets.tdee')}</small><strong>{formatNumber(targets.tdee)}</strong></div>
+            <div><small>{t('targets.kcal')} (mant.)</small><strong>{formatNumber(targets.kcal)}</strong></div>
           </div>
         </div>
       )}

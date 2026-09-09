@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import {
   DAYS_IT, DAYS_SHORT_IT,
   DEFAULT_MEAL_NAMES,
@@ -14,6 +14,7 @@ import { usePlan } from '../state/PlanContext.tsx';
 import { DaySelector } from '../components/DaySelector.tsx';
 import { TargetBar } from '../components/TargetBar.tsx';
 import { EmptyState } from '../components/EmptyState.tsx';
+import { IconChevronRight } from '../components/Icons.tsx';
 import { formatNumber } from '../lib/format.ts';
 
 /**
@@ -32,7 +33,7 @@ export function PianoPage() {
   } = usePlan();
   const navigate = useNavigate();
 
-  if (!profile) { navigate('/import'); return null; }
+  if (!profile) return <Navigate to="/import" replace />;
 
   const daily = useMemo(() => {
     const base = computeDailyTargets(profile, targetKcal ?? undefined);
@@ -61,7 +62,17 @@ export function PianoPage() {
 
   return (
     <>
-      {/* ── Settings summary strip ── */}
+      {/* ── Large title ── */}
+      <div className="piano-header">
+        <div>
+          <h1 style={{ margin: 0 }}>{t('week.title')}</h1>
+          <p className="small mono" style={{ marginTop: 6 }}>
+            {totalDone}/7 giorni completi · {mealsCompleted}/{mealCount * 7} pasti
+          </p>
+        </div>
+      </div>
+
+      {/* ── Settings summary card ── */}
       <section className="piano-strip">
         <div className="piano-strip-cell">
           <span className="piano-strip-label">Profilo</span>
@@ -92,17 +103,6 @@ export function PianoPage() {
         </div>
       </section>
 
-      {/* ── Header ── */}
-      <div className="piano-header">
-        <div>
-          <span className="eyebrow">{t('nav.week')}</span>
-          <h1 style={{ fontSize: 'clamp(28px, 4vw, 40px)', margin: 0 }}>{t('week.title')}</h1>
-          <p className="small mono" style={{ marginTop: 8 }}>
-            {totalDone}/7 giorni completi · {mealsCompleted}/{mealCount * 7} pasti
-          </p>
-        </div>
-      </div>
-
       {/* ── Day selector ── */}
       <DaySelector
         days={DAYS_SHORT_IT}
@@ -112,17 +112,20 @@ export function PianoPage() {
         mealsPerDay={mealCount}
       />
 
-      <div className="wizard-step-meta" style={{ marginTop: 20 }}>
-        <span>{DAYS_IT[activeDay]}</span>
-        <span className="mono">{formatNumber(dayTotal.kcal)} / {formatNumber(daily.kcal)} kcal</span>
+      {/* ── Meal list ── */}
+      <div className="section-head">
+        <span className="ios-caption">{DAYS_IT[activeDay]}</span>
+        <span className="ios-caption mono">
+          {formatNumber(dayTotal.kcal)} / {formatNumber(daily.kcal)} kcal
+        </span>
       </div>
 
-      {/* ── Meal list ── */}
       {dayDoneCount === 0 ? (
         <EmptyState>
           {`Nessun pasto ancora costruito per ${DAYS_IT[activeDay]!.toLowerCase()}. Parti da ${(names[0] ?? '').toLowerCase()}: scegli gli alimenti, i grammi li calcola Vatia.`}
         </EmptyState>
       ) : null}
+
       <div className="meal-list">
         {Array.from({ length: mealCount }, (_, mi) => {
           const target = targets[mi]!;
@@ -130,45 +133,41 @@ export function PianoPage() {
           const done = !!saved;
           return (
             <div key={mi} className={`meal-row ${done ? 'is-done' : ''}`}>
-              <div className="meal-row-header">
-                <div>
-                  <h3 style={{ margin: 0 }}>{names[mi]}</h3>
-                  <span className="small mono">
+              <button
+                type="button"
+                className="meal-row-header"
+                onClick={() => openBuilder(activeDay, mi)}
+              >
+                <span className="ios-row-main">
+                  <span className="ios-row-title">{names[mi]}</span>
+                  <span className="ios-row-sub mono">
                     {done
                       ? `target ${formatNumber(target.kcal)} kcal · fatto ${formatNumber(saved!.totals.kcal)} kcal`
                       : `target ${formatNumber(target.kcal)} kcal · da costruire`}
                   </span>
-                </div>
-                <div className="meal-row-actions">
-                  {done && (
-                    <>
-                      <button type="button" className="secondary" onClick={() => openBuilder(activeDay, mi)}>
-                        {t('week.editMeal')}
-                      </button>
-                      <button type="button" className="ghost" onClick={() => copyMealToWeek(activeDay, mi)}>
-                        {t('week.copyToWeek')}
-                      </button>
-                      <button type="button" className="ghost" onClick={() => clearMeal(activeDay, mi)}>
-                        {t('week.clearMeal')}
-                      </button>
-                    </>
-                  )}
-                  {!done && (
-                    <button type="button" onClick={() => openBuilder(activeDay, mi)}>
-                      {t('week.buildMeal')} →
-                    </button>
-                  )}
-                </div>
-              </div>
+                </span>
+                <span className="ios-chevron"><IconChevronRight /></span>
+              </button>
+
               {done && (
-                <ul className="meal-items">
-                  {saved!.items.map((it, i) => (
-                    <li key={`${it.food.id}-${i}`}>
-                      <span>{it.food.name}</span>
-                      <span className="mono">{formatNumber(it.grams)} g</span>
-                    </li>
-                  ))}
-                </ul>
+                <>
+                  <ul className="meal-items">
+                    {saved!.items.map((it, i) => (
+                      <li key={`${it.food.id}-${i}`}>
+                        <span>{it.food.name}</span>
+                        <span className="mono">{formatNumber(it.grams)} g</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="meal-row-actions">
+                    <button type="button" className="ghost" onClick={() => copyMealToWeek(activeDay, mi)}>
+                      {t('week.copyToWeek')}
+                    </button>
+                    <button type="button" className="ghost danger" onClick={() => clearMeal(activeDay, mi)}>
+                      {t('week.clearMeal')}
+                    </button>
+                  </div>
+                </>
               )}
             </div>
           );
@@ -176,13 +175,8 @@ export function PianoPage() {
       </div>
 
       {/* ── Day totals bars ── */}
-      <div className="wizard-step-meta" style={{ marginTop: 32 }}>
-        <span>{t('week.dayTotals')}</span>
-        <span className="mono">
-          P {formatNumber(dayTotal.protein_g)}/{formatNumber(daily.protein_g)} ·{' '}
-          C {formatNumber(dayTotal.carbs_g)}/{formatNumber(daily.carbs_g)} ·{' '}
-          F {formatNumber(dayTotal.fat_g)}/{formatNumber(daily.fat_g)}
-        </span>
+      <div className="section-head" style={{ marginTop: 26 }}>
+        <span className="ios-caption">{t('week.dayTotals')}</span>
       </div>
       <div className="bar-stack">
         <TargetBar label="kcal"        value={dayTotal.kcal}      target={daily.kcal}      color="var(--c-kcal)" />
@@ -191,16 +185,15 @@ export function PianoPage() {
         <TargetBar label="Grassi"      value={dayTotal.fat_g}     target={daily.fat_g}     color="var(--c-fat)"     unit="g" />
       </div>
 
-      <div className="btn-row">
-        <button type="button" className="link" onClick={() => navigate('/setup')}>← Impostazioni</button>
-        <div className="right">
-          <button type="button" className="ghost" onClick={() => navigate('/shopping')}>{t('week.shopping')}</button>
-          <button type="button" className="ghost" onClick={() => {
-            if (confirm('Sicuro? Svuota tutti i pasti della settimana.')) clearWeek();
-          }}>
-            {t('week.clearWeek')}
-          </button>
-        </div>
+      {/* Le altre sezioni stanno nella tab bar: qui resta solo l'azione distruttiva. */}
+      <div className="btn-row-center">
+        <button
+          type="button"
+          className="ghost danger"
+          onClick={() => { if (confirm('Sicuro? Svuota tutti i pasti della settimana.')) clearWeek(); }}
+        >
+          {t('week.clearWeek')}
+        </button>
       </div>
     </>
   );

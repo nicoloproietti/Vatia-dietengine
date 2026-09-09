@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { weekAggregatedByFood } from '@vatia/diet-engine';
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
+import { EmptyState } from '../components/EmptyState.tsx';
 import { downloadText } from '../lib/csv.ts';
+import { formatNumber } from '../lib/format.ts';
 
 export function ShoppingPage() {
   const { t } = useLocale();
@@ -22,25 +24,29 @@ export function ShoppingPage() {
 
   return (
     <div className="stack">
-      <span className="eyebrow">{t('nav.week')}</span>
       <h1>{t('shopping.title')}</h1>
       <p className="lede">{t('shopping.subtitle')}</p>
 
       {rows.length === 0 ? (
-        <p className="small">{t('shopping.empty')}</p>
+        <EmptyState>{t('shopping.empty')}</EmptyState>
       ) : (
-        <ul className="meal-items">
-          {rows.map((r) => (
-            <li key={r.food.id}>
-              <span>{r.food.name}</span>
-              <span className="mono">{Math.round(r.grams)} g</span>
-            </li>
-          ))}
-        </ul>
+        <>
+          <span className="ios-caption">{formatNumber(rows.length)} alimenti</span>
+          <div className="ios-group">
+            <ul className="meal-items shopping-list">
+              {rows.map((r) => (
+                <li key={r.food.id}>
+                  <span>{r.food.name}</span>
+                  <span className="mono">{formatNumber(r.grams)} g</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
       )}
 
       <div className="btn-row">
-        <button type="button" className="link" onClick={() => navigate('/piano')}>← {t('nav.week')}</button>
+        <button type="button" className="link" onClick={() => navigate('/piano')}>{t('nav.week')}</button>
         <div className="right">
           <button type="button" onClick={exportCsv} disabled={rows.length === 0}>{t('shopping.export')}</button>
         </div>

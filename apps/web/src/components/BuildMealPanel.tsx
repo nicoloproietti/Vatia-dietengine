@@ -21,6 +21,7 @@ import { formatNumber } from '../lib/format.ts';
 import { MacroRing } from './MacroRing.tsx';
 import { CategoryChip } from './CategoryChip.tsx';
 import { EmptyState } from './EmptyState.tsx';
+import { IconSearch } from './Icons.tsx';
 
 export type BuilderPhase = 'compose' | 'adjust';
 
@@ -161,13 +162,13 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
         <section className="mb-compose">
           <h2>Scegli gli alimenti</h2>
           <div className="mb-search">
+            <span className="mb-search-icon"><IconSearch /></span>
             <input
               ref={searchInput}
               type="text"
               placeholder="Cerca alimento…"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              autoFocus
             />
             {q && <button type="button" className="mb-search-clear" onClick={() => { setQ(''); setResults([]); }}>✕</button>}
           </div>
@@ -195,10 +196,10 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
           )}
 
           <div className="btn-row">
-            <button type="button" className="link" onClick={onDone}>← {t('builder.cancel')}</button>
+            <button type="button" className="link" onClick={onDone}>{t('builder.cancel')}</button>
             <div className="right">
               <button type="button" onClick={calculate} disabled={selected.length === 0 || calculating}>
-                {calculating ? 'calcolo…' : 'Calcola i grammi →'}
+                {calculating ? 'calcolo…' : 'Calcola i grammi'}
               </button>
             </div>
           </div>
@@ -207,39 +208,39 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
 
       {phase === 'adjust' && (
         <section>
-          <h2 style={{ fontSize: 16, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            Regola le quantità
-          </h2>
+          <h2 className="mb-section-title">Regola le quantità</h2>
           <div className="mb-adjust">
             {items.map((it, i) => {
               const veg = isVerdura(it.food);
               return (
                 <div key={it.food.id} className="mb-adjust-row">
-                  <CategoryChip cat={it.food.category} />
-                  <div>
+                  <div className="mb-adjust-main">
                     <div className="mb-adjust-name">{it.food.name}</div>
                     <div className="mb-adjust-nutri">
+                      <CategoryChip cat={it.food.category} />
                       {!veg && <span className="c-k">{formatNumber(it.nutrition.kcal)} kcal</span>}
                       <span className="c-p">{formatNumber(it.nutrition.protein_g, 1)}g P</span>
                       <span className="c-c">{formatNumber(it.nutrition.carbs_g, 1)}g C</span>
                       <span className="c-f">{formatNumber(it.nutrition.fat_g, 1)}g F</span>
                     </div>
                   </div>
-                  <input
-                    className="mb-grams"
-                    type="number" min={5} max={1000}
-                    value={it.grams}
-                    onChange={(e) => updateGrams(i, Number(e.target.value))}
-                    aria-label={`Grammi di ${it.food.name}`}
-                  />
-                  <button type="button" className="mb-remove" onClick={() => removeItem(i)} aria-label={t('builder.remove')}>✕</button>
+                  <div className="mb-adjust-controls">
+                    <input
+                      className="mb-grams"
+                      type="number" min={5} max={1000}
+                      value={it.grams}
+                      onChange={(e) => updateGrams(i, Number(e.target.value))}
+                      aria-label={`Grammi di ${it.food.name}`}
+                    />
+                    <button type="button" className="mb-remove" onClick={() => removeItem(i)} aria-label={t('builder.remove')}>✕</button>
+                  </div>
                 </div>
               );
             })}
           </div>
 
           <div className="btn-row">
-            <button type="button" className="link" onClick={backToCompose}>← Aggiungi altri alimenti</button>
+            <button type="button" className="link" onClick={backToCompose}>Aggiungi altri alimenti</button>
             <div className="right">
               <button type="button" className="secondary" onClick={onDone}>{t('builder.cancel')}</button>
               <button type="button" onClick={save}>{t('builder.save')}</button>

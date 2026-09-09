@@ -25,7 +25,12 @@ export function TargetBar({ label, value, target, color, unit = '' }: Props) {
         />
       </span>
       <span className="bar-value mono">
-        {formatNumber(value)}{unit} <span style={{ color: 'var(--ink-3)' }}>/ {formatNumber(target)}{unit} · {formatSigned(delta)}{unit}</span>
+        {formatNumber(value)}{unit}{' '}
+        <span style={{ color: 'var(--ink-3)' }}>
+          / {formatNumber(target)}{unit}
+          {/* A zero lo scarto è solo il target col segno meno: rumore. */}
+          {value > 0 && ` · ${formatSigned(delta)}${unit}`}
+        </span>
       </span>
     </div>
   );

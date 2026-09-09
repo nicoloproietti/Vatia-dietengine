@@ -11,12 +11,10 @@ export function LandingPage() {
         <p className="lede">{t('landing.lede')}</p>
         <div className="cta-row">
           <Link to="/import">
-            <button type="button">{t('landing.cta')} →</button>
+            <button type="button">{t('landing.cta')}</button>
           </Link>
         </div>
       </section>
-
-      <hr />
 
       <section className="pitch-grid">
         <div className="pitch-item">

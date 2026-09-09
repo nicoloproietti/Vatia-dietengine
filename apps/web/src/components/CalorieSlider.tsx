@@ -86,7 +86,9 @@ export function CalorieSlider({ value, tdee, bmr, onChange }: Props) {
           aria-label="Calorie al giorno"
         />
         <div className="cs-tick" style={{ left: `${pos(tdee)}%` }} title={`TDEE ${tdee}`} />
-        <div className="cs-thumb-shadow" style={{ left: `${pos(value)}%`, background: zoneColor }} />
+        <div className="cs-thumb-shadow" style={{ left: `${pos(value)}%` }}>
+          <span className="cs-thumb-dot" style={{ background: zoneColor }} />
+        </div>
       </div>
 
       <div className="cs-status">

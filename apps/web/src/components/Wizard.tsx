@@ -48,12 +48,12 @@ export function WizardShell({
       <div className="btn-row">
         {onBack ? (
           <button type="button" className="link" onClick={onBack}>
-            ← {t('wizard.back')}
+            {t('wizard.back')}
           </button>
         ) : <span />}
         <div className="right">
           <button type="button" onClick={onNext} disabled={!canNext}>
-            {nextLabel ?? t('wizard.next')} →
+            {nextLabel ?? t('wizard.next')}
           </button>
         </div>
       </div>

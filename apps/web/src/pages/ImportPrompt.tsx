@@ -33,7 +33,6 @@ export function ImportPromptPage() {
 
   return (
     <div className="stack">
-      <span className="eyebrow">{t('import.eyebrow')}</span>
       <h1>{t('import.question')}</h1>
       <p className="lede">{t('import.help')}</p>
 
