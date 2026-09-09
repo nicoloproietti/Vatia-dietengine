@@ -9,6 +9,13 @@ import { ProfileProvider } from './state/ProfileContext.tsx';
 import { ThemeProvider } from './state/ThemeContext.tsx';
 import './styles.css';
 
+// Profilo e piano vivono in localStorage, che il sistema può ripulire
+// per fare spazio. Questa chiamata chiede di considerarli permanenti;
+// se il browser dice di no, pazienza — resta il backup CSV.
+if (navigator.storage?.persist) {
+  navigator.storage.persist().catch(() => { /* niente da fare */ });
+}
+
 // Il service worker tiene i file in cache: dopo la prima apertura Vatia
 // funziona anche senza connessione. In dev darebbe solo fastidio.
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {

@@ -17,6 +17,7 @@ import { usePlan } from '../state/PlanContext.tsx';
 import { CalorieSlider } from '../components/CalorieSlider.tsx';
 import { MacroSplit } from '../components/MacroSplit.tsx';
 import { MealStepper } from '../components/MealStepper.tsx';
+import { RestoreBackup } from '../components/RestoreBackup.tsx';
 import { formatNumber } from '../lib/format.ts';
 import { downloadText, profileToCsv } from '../lib/csv.ts';
 
@@ -188,17 +189,37 @@ export function SetupPage() {
         {macroWarnings.length > 0 && <p className="small" style={{ color: 'var(--warn)' }}>{t('setup.warn.mealMacros')}</p>}
       </section>
 
+      {/* ── Backup ── */}
+      <section>
+        <div className="section-head">
+          <span className="ios-caption">Backup</span>
+        </div>
+        <div className="ios-group">
+          <div className="ios-row">
+            <span className="ios-row-main">
+              <span className="ios-row-title">Il profilo è su questo telefono</span>
+              <span className="ios-row-sub">
+                Vatia lo ricorda da sola: non serve fare niente. Il file CSV serve solo
+                se cambi telefono o svuoti i dati di Safari.
+              </span>
+            </span>
+          </div>
+          <button
+            type="button"
+            className="ios-row is-action"
+            onClick={() => downloadText('vatia-profilo.csv', profileToCsv(profile))}
+          >
+            Salva un backup
+          </button>
+          <RestoreBackup label="Ripristina da un backup" className="ios-row is-action" />
+        </div>
+      </section>
+
       <div className="btn-row">
         <button type="button" className="link" onClick={() => { setDistribution(defaultDistribution(mealCount)); setTargetKcal(tdee); }}>
           {t('setup.reset')}
         </button>
         <div className="right">
-          <button
-            type="button" className="ghost"
-            onClick={() => downloadText('vatia-profile.csv', profileToCsv(profile))}
-          >
-            {t('profile.export')}
-          </button>
           <button type="button" onClick={goWeek}>{t('setup.continue')}</button>
         </div>
       </div>

@@ -1,8 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useLocale } from '../i18n/LocaleContext.tsx';
+import { useProfile } from '../state/ProfileContext.tsx';
+import { RestoreBackup } from '../components/RestoreBackup.tsx';
 
 export function LandingPage() {
   const { t } = useLocale();
+  const { profile } = useProfile();
+  const navigate = useNavigate();
+
+  // Chi ha già il profilo sul telefono non deve ripassare dalla
+  // presentazione: l'app si apre sul piano.
+  if (profile) return <Navigate to="/piano" replace />;
+
   return (
     <div>
       <section className="hero">
@@ -10,10 +19,11 @@ export function LandingPage() {
         <h1>{t('landing.title')}</h1>
         <p className="lede">{t('landing.lede')}</p>
         <div className="cta-row">
-          <Link to="/import">
-            <button type="button">{t('landing.cta')}</button>
-          </Link>
+          <button type="button" onClick={() => navigate('/profile')}>{t('landing.cta')}</button>
         </div>
+        <p className="small" style={{ marginTop: 14 }}>
+          <RestoreBackup label="Ho un backup, ripristinalo" onRestored={() => navigate('/setup')} />
+        </p>
       </section>
 
       <section className="pitch-grid">

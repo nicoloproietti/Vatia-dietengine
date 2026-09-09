@@ -139,7 +139,7 @@ export const messages: Record<string, string> = {
   'setup.kcalPct': 'kcal per pasto',
   'setup.macroPct': 'Ripartizione macro per pasto',
   'setup.macroPct.hint': 'Somma sempre a 100%. La proteina in grammi rimane costante nell’arco della giornata.',
-  'setup.reset': 'Ripristina default',
+  'setup.reset': 'Azzera la distribuzione',
   'setup.continue': 'Vai alla settimana',
   'setup.warn.notHundred': 'I kcal% non arrivano a 100 — normalizzo al continue.',
   'setup.warn.mealMacros': 'Un pasto ha macro che non sommano a 100.',

@@ -33,7 +33,7 @@ export function PianoPage() {
   } = usePlan();
   const navigate = useNavigate();
 
-  if (!profile) return <Navigate to="/import" replace />;
+  if (!profile) return <Navigate to="/" replace />;
 
   const daily = useMemo(() => {
     const base = computeDailyTargets(profile, targetKcal ?? undefined);

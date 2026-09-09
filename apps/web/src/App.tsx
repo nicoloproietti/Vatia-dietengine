@@ -3,7 +3,6 @@ import { useLocale } from './i18n/LocaleContext.tsx';
 import { useTheme } from './state/ThemeContext.tsx';
 import { useProfile } from './state/ProfileContext.tsx';
 import { LandingPage } from './pages/Landing.tsx';
-import { ImportPromptPage } from './pages/ImportPrompt.tsx';
 import { ProfilePage } from './pages/Profile.tsx';
 import { SetupPage } from './pages/Setup.tsx';
 import { PianoPage } from './pages/Piano.tsx';
@@ -27,7 +26,6 @@ export function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/import" element={<ImportPromptPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/setup" element={<SetupPage />} />
           <Route path="/piano" element={<PianoPage />} />
@@ -35,6 +33,7 @@ export function App() {
           <Route path="/shopping" element={<ShoppingPage />} />
           {/* Legacy redirects — bookmarks and older links keep working. */}
           <Route path="/week" element={<Navigate to="/piano" replace />} />
+          <Route path="/import" element={<Navigate to="/" replace />} />
           <Route path="/meal" element={<Navigate to="/setup" replace />} />
           <Route path="/plan" element={<Navigate to="/piano" replace />} />
         </Routes>
@@ -129,7 +128,6 @@ type Translate = (key: string) => string;
 
 function titleFor(pathname: string, t: Translate): string {
   if (pathname.startsWith('/build/')) return t('builder.title');
-  if (pathname === '/import') return t('import.eyebrow');
   if (pathname === '/profile') return t('nav.profile');
   if (pathname === '/setup') return t('nav.tab.setup');
   if (pathname === '/piano') return t('nav.tab.plan');
@@ -139,6 +137,5 @@ function titleFor(pathname: string, t: Translate): string {
 
 function backLabelFor(pathname: string, t: Translate): string {
   if (pathname.startsWith('/build/')) return t('nav.tab.plan');
-  if (pathname === '/import') return t('brand');
   return t('nav.back');
 }
