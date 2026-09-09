@@ -1139,6 +1139,56 @@ select {
 }
 .meal-row-actions button { min-height: 44px; font-size: 15px; }
 
+/* ══ Aggiunta di un alimento ══════════════════════════════════════════ */
+
+.add-food { margin-top: 4px; }
+
+/* Riga di form dentro una lista raggruppata: etichetta a sinistra,
+ * campo a destra, senza il riquadro pieno dei campi normali. */
+.ios-row.af-field { margin-bottom: 0; cursor: text; }
+.ios-row.af-field input,
+.ios-row.af-field select {
+  flex: none;
+  width: 52%;
+  min-height: 32px;
+  padding: 4px 0;
+  background: transparent;
+  border: none;
+  text-align: right;
+  font-size: 17px;
+  color: var(--ink);
+}
+.ios-row.af-field select { padding-right: 18px; background-position: right 4px center; }
+.ios-row.af-field input:focus,
+.ios-row.af-field select:focus {
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--accent);
+}
+.af-num { display: inline-flex; align-items: baseline; gap: 5px; justify-content: flex-end; }
+.af-num input {
+  width: 84px;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.af-unit { font-size: 14px; color: var(--ink-3); }
+
+/* Nessun risultato: la via d'uscita è aggiungerlo */
+.mb-noresult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 18px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.mb-noresult p { margin: 0; }
+
 /* Riga con una sola azione, centrata (pattern iOS) */
 .btn-row-center {
   display: flex;

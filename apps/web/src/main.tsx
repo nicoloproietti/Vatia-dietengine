@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 // without a server-side rewrite: navigation stays in the URL fragment.
 import { HashRouter } from 'react-router-dom';
 import { App } from './App.tsx';
+import { FoodsProvider } from './state/FoodsContext.tsx';
 import { PlanProvider } from './state/PlanContext.tsx';
 import { ProfileProvider } from './state/ProfileContext.tsx';
 import { ThemeProvider } from './state/ThemeContext.tsx';
@@ -30,11 +31,13 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <ProfileProvider>
-        <PlanProvider>
-          <HashRouter>
-            <App />
-          </HashRouter>
-        </PlanProvider>
+        <FoodsProvider>
+          <PlanProvider>
+            <HashRouter>
+              <App />
+            </HashRouter>
+          </PlanProvider>
+        </FoodsProvider>
       </ProfileProvider>
     </ThemeProvider>
   </StrictMode>,

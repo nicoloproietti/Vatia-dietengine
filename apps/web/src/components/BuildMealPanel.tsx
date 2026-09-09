@@ -15,7 +15,8 @@ import {
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
-import { searchFoods } from '../lib/foodsDb.ts';
+import { useFoods } from '../state/FoodsContext.tsx';
+import { AddFoodForm } from './AddFoodForm.tsx';
 import { formatNumber } from '../lib/format.ts';
 import { MacroRing } from './MacroRing.tsx';
 import { CategoryChip } from './CategoryChip.tsx';
@@ -42,6 +43,7 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
   const { t } = useLocale();
   const { profile } = useProfile();
   const { targetKcal, dailyMacroPct, distribution, weekPlan, saveMeal } = usePlan();
+  const { search } = useFoods();
 
   if (!profile) return null;
 
@@ -66,13 +68,14 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
   const [q, setQ] = useState('');
   const [results, setResults] = useState<Food[]>([]);
   const [calculating, setCalculating] = useState(false);
+  const [addingFood, setAddingFood] = useState(false);
   const searchInput = useRef<HTMLInputElement>(null);
 
   // Ricerca nel database locale: nessuna rete, nessuna attesa
   useEffect(() => {
     if (phase !== 'compose') { setResults([]); return; }
-    setResults(searchFoods(q));
-  }, [q, phase]);
+    setResults(search(q));
+  }, [q, phase, search]);
 
   function pickFood(food: Food) {
     if (selected.some((f) => f.id === food.id)) return;
@@ -153,8 +156,21 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
             />
             {q && <button type="button" className="mb-search-clear" onClick={() => { setQ(''); setResults([]); }}>✕</button>}
           </div>
-          {q.trim().length >= 2 && results.length === 0 && (
-            <p className="small">Nessun alimento trovato per «{q.trim()}».</p>
+          {q.trim().length >= 2 && results.length === 0 && !addingFood && (
+            <div className="mb-noresult">
+              <p className="small">Nessun alimento trovato per «{q.trim()}».</p>
+              <button type="button" className="secondary" onClick={() => setAddingFood(true)}>
+                Aggiungilo tu
+              </button>
+            </div>
+          )}
+
+          {addingFood && (
+            <AddFoodForm
+              initialName={q.trim()}
+              onAdded={(food) => { setAddingFood(false); pickFood(food); }}
+              onCancel={() => setAddingFood(false)}
+            />
           )}
           {results.length > 0 && (
             <div className="mb-results" role="listbox">

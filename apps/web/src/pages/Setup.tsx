@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import {
   ACTIVITY_MULTIPLIER,
@@ -18,8 +18,10 @@ import { CalorieSlider } from '../components/CalorieSlider.tsx';
 import { MacroSplit } from '../components/MacroSplit.tsx';
 import { MealStepper } from '../components/MealStepper.tsx';
 import { RestoreBackup } from '../components/RestoreBackup.tsx';
+import { AddFoodForm } from '../components/AddFoodForm.tsx';
+import { useFoods } from '../state/FoodsContext.tsx';
+import { backupFilename, buildBackup, shareBackup } from '../lib/backup.ts';
 import { formatNumber } from '../lib/format.ts';
-import { downloadText, profileToCsv } from '../lib/csv.ts';
 
 const MEAL_OPTIONS = [2, 3, 4, 5, 6];
 
@@ -31,7 +33,10 @@ export function SetupPage() {
     dailyMacroPct, setDailyMacroPct,
     mealCount, setMealCount,
     distribution, setDistribution,
+    snapshot,
   } = usePlan();
+  const { customFoods, removeFood } = useFoods();
+  const [addingFood, setAddingFood] = useState(false);
   const navigate = useNavigate();
 
   if (!profile) return <Navigate to="/profile" replace />;
@@ -189,6 +194,52 @@ export function SetupPage() {
         {macroWarnings.length > 0 && <p className="small" style={{ color: 'var(--warn)' }}>{t('setup.warn.mealMacros')}</p>}
       </section>
 
+      {/* ── I tuoi alimenti ── */}
+      <section>
+        <div className="section-head">
+          <span className="ios-caption">I tuoi alimenti</span>
+          <span className="ios-caption mono">{formatNumber(customFoods.length)}</span>
+        </div>
+        <div className="ios-group">
+          {customFoods.length === 0 ? (
+            <div className="ios-row">
+              <span className="ios-row-main">
+                <span className="ios-row-title">Nessuno, per ora</span>
+                <span className="ios-row-sub">
+                  I 900 alimenti CREA sono già dentro l'app. Qui finiscono quelli che
+                  aggiungi tu, copiando i valori dall'etichetta.
+                </span>
+              </span>
+            </div>
+          ) : (
+            customFoods.map((f) => (
+              <div key={f.id} className="ios-row">
+                <span className="ios-row-main">
+                  <span className="ios-row-title">{f.name}</span>
+                  <span className="ios-row-sub mono">
+                    {formatNumber(f.kcal)} kcal · {formatNumber(f.protein, 1)}P ·{' '}
+                    {formatNumber(f.carbs, 1)}C · {formatNumber(f.fat, 1)}G
+                  </span>
+                </span>
+                <button
+                  type="button" className="mb-remove"
+                  onClick={() => removeFood(f.id)}
+                  aria-label={`Elimina ${f.name}`}
+                >✕</button>
+              </div>
+            ))
+          )}
+          {!addingFood && (
+            <button type="button" className="ios-row is-action" onClick={() => setAddingFood(true)}>
+              Aggiungi un alimento
+            </button>
+          )}
+        </div>
+        {addingFood && (
+          <AddFoodForm onAdded={() => setAddingFood(false)} onCancel={() => setAddingFood(false)} />
+        )}
+      </section>
+
       {/* ── Backup ── */}
       <section>
         <div className="section-head">
@@ -197,17 +248,21 @@ export function SetupPage() {
         <div className="ios-group">
           <div className="ios-row">
             <span className="ios-row-main">
-              <span className="ios-row-title">Il profilo è su questo telefono</span>
+              <span className="ios-row-title">I dati sono su questo telefono</span>
               <span className="ios-row-sub">
-                Vatia lo ricorda da sola: non serve fare niente. Il file CSV serve solo
-                se cambi telefono o svuoti i dati di Safari.
+                Vatia li ricorda da sola. Il backup salva profilo, settimana e i tuoi
+                alimenti in un file: su iPhone scegli iCloud Drive e lo ritrovi su
+                qualsiasi dispositivo.
               </span>
             </span>
           </div>
           <button
             type="button"
             className="ios-row is-action"
-            onClick={() => downloadText('vatia-profilo.csv', profileToCsv(profile))}
+            onClick={() => {
+              const data = buildBackup(profile, snapshot(), customFoods);
+              void shareBackup(backupFilename(), JSON.stringify(data, null, 2));
+            }}
           >
             Salva un backup
           </button>

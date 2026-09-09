@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import { useProfile } from '../state/ProfileContext.tsx';
-import { csvToProfile } from '../lib/csv.ts';
+import { usePlan } from '../state/PlanContext.tsx';
+import { useFoods } from '../state/FoodsContext.tsx';
+import { parseBackup } from '../lib/backup.ts';
 
 interface Props {
   label: string;
@@ -10,14 +12,14 @@ interface Props {
 }
 
 /**
- * Ripristino del profilo da un backup CSV.
- *
- * Non serve nell'uso normale — il profilo vive nel telefono — ma è
- * l'unica via di ritorno se si cambia dispositivo o si svuotano i dati
- * di Safari.
+ * Ripristino da un file di backup: profilo, settimana e alimenti
+ * aggiunti a mano. Non serve nell'uso normale — i dati vivono nel
+ * telefono — ma è l'unica via di ritorno se si cambia dispositivo.
  */
 export function RestoreBackup({ label, className = 'link', onRestored }: Props) {
   const { setProfile } = useProfile();
+  const { restore } = usePlan();
+  const { replaceAll } = useFoods();
   const fileRef = useRef<HTMLInputElement>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,7 +28,10 @@ export function RestoreBackup({ label, className = 'link', onRestored }: Props) 
     if (!file) return;
     setError(null);
     try {
-      setProfile(csvToProfile(await file.text()));
+      const backup = parseBackup(await file.text());
+      if (backup.profile) setProfile(backup.profile);
+      if (backup.plan) restore(backup.plan);
+      replaceAll(backup.customFoods);
       onRestored?.();
     } catch {
       setError('Questo file non è un backup di Vatia.');
@@ -40,7 +45,13 @@ export function RestoreBackup({ label, className = 'link', onRestored }: Props) 
       <button type="button" className={className} onClick={() => fileRef.current?.click()}>
         {label}
       </button>
-      <input ref={fileRef} type="file" accept=".csv,text/csv" hidden onChange={onFile} />
+      <input
+        ref={fileRef}
+        type="file"
+        accept="application/json,.json,.csv,text/csv"
+        hidden
+        onChange={onFile}
+      />
       {error && (
         <p className="small" style={{ color: 'var(--danger)', padding: '0 16px 12px' }}>{error}</p>
       )}

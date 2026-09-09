@@ -28,6 +28,10 @@ interface PlanValue {
   clearMeal: (dayIdx: number, mealIdx: number) => void;
   copyMealToWeek: (fromDay: number, mealIdx: number) => void;
   clearWeek: () => void;
+  /** Fotografia dello stato, per il backup. */
+  snapshot: () => Persisted;
+  /** Rimpiazza tutto con quanto letto da un backup. */
+  restore: (data: unknown) => void;
 }
 
 const PlanCtx = createContext<PlanValue | null>(null);
@@ -116,13 +120,30 @@ export function PlanProvider({ children }: { children: ReactNode }) {
 
   const clearWeek = useCallback(() => setWeekPlan(emptyWeekPlan()), []);
 
+  const snapshot = useCallback(
+    (): Persisted => ({ targetKcal, dailyMacroPct, mealCount, distribution, weekPlan }),
+    [targetKcal, dailyMacroPct, mealCount, distribution, weekPlan],
+  );
+
+  const restore = useCallback((data: unknown) => {
+    if (!data || typeof data !== 'object') return;
+    const p = data as Partial<Persisted>;
+    const meals = p.mealCount ?? 4;
+    setTargetKcal(p.targetKcal ?? null);
+    setDailyMacroPct(p.dailyMacroPct ?? { ...DEFAULT_DAILY_MACRO_PCT });
+    setMealCountState(meals);
+    setDistribution(p.distribution ?? defaultDistribution(meals));
+    setWeekPlan(p.weekPlan ?? emptyWeekPlan());
+  }, []);
+
   const value = useMemo<PlanValue>(() => ({
     targetKcal, setTargetKcal,
     dailyMacroPct, setDailyMacroPct,
     mealCount, setMealCount,
     distribution, setDistribution,
     weekPlan, saveMeal, clearMeal, copyMealToWeek, clearWeek,
-  }), [targetKcal, dailyMacroPct, mealCount, setMealCount, distribution, weekPlan, saveMeal, clearMeal, copyMealToWeek, clearWeek]);
+    snapshot, restore,
+  }), [targetKcal, dailyMacroPct, mealCount, setMealCount, distribution, weekPlan, saveMeal, clearMeal, copyMealToWeek, clearWeek, snapshot, restore]);
 
   return <PlanCtx.Provider value={value}>{children}</PlanCtx.Provider>;
 }
