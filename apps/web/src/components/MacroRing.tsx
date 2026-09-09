@@ -22,7 +22,9 @@ export function MacroRing({ label, value, target, color, unit = '', size, mobile
   const circ = 2 * Math.PI * r;
   const pct = target > 0 ? Math.min(value / target, 1) : 0;
   const over = value > target * 1.05;
-  const fillColor = over ? 'var(--danger)' : color;
+  // Fuori target va in inchiostro, non in rosso: la palette resta
+  // bianco/nero + verde e lo scarto è comunque scritto sotto.
+  const fillColor = over ? 'var(--ink)' : color;
 
   const deltaPct = target > 0 ? Math.round((value / target - 1) * 100) : 0;
   const deltaText = value === 0

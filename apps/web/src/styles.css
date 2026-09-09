@@ -1260,7 +1260,7 @@ select {
   border-radius: var(--radius-pill);
   transition: width 300ms var(--ease-ios), background var(--transition);
 }
-.bar-fill.is-over { background: var(--danger); }
+.bar-fill.is-over { background: var(--ink); }
 .bar-value {
   text-align: right;
   color: var(--ink);

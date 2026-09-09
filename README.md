@@ -58,14 +58,16 @@ vatia/
 │  ├─ src/allocation.ts      # solver sequenziale grammi per ruolo
 │  └─ src/validation.ts      # report tolleranze macro
 ├─ apps/web/                 # React 19 + Vite + TS
-│  ├─ src/pages/             # Landing, Profile, MealBuilder, PlanResult
-│  ├─ src/lib/foods.ts       # PostgREST → tipi engine
+│  ├─ src/pages/             # Landing, Import, Profile, Setup, Piano, BuildMeal, Shopping
+│  ├─ src/data/foods.json    # i 900 alimenti, dentro il bundle (generato)
+│  ├─ src/lib/foodsDb.ts     # ricerca locale per parole, senza rete
 │  ├─ src/lib/csv.ts         # profile ↔ CSV (nessun account = file è il "salvataggio")
-│  └─ src/lib/pdf.ts         # print-to-PDF nativo del browser (nessun jsPDF)
-├─ supabase/
-│  ├─ migrations/            # 5 migration versionate
-│  └─ functions/substitute-food/   # Deno edge fn con rate-limit + fallback
-└─ packages/diet-engine/data/foods_full.csv   # 900 alimenti CREA (seed)
+│  ├─ src/lib/pdf.ts         # print-to-PDF nativo del browser (nessun jsPDF)
+│  ├─ scripts/build-foods.mjs  # CSV CREA → foods.json
+│  ├─ scripts/build-icons.mjs  # icone PNG dell'app
+│  └─ public/                # manifest, service worker, icone
+├─ supabase/                 # storia del backend, non più usato dall'app
+└─ packages/diet-engine/data/foods_full.csv   # 900 alimenti CREA (sorgente)
 ```
 
 ### Decisioni tecniche
@@ -74,52 +76,48 @@ vatia/
   React. Test unitari senza mock. Se domani il frontend cambia stack
   (Svelte, Solid, CLI) il motore non tocca. 18 test in
   `packages/diet-engine/tests/`.
-- **Dati alimentari via Postgres, non JSON statico.** Il DB CREA ha
-  ~900 alimenti; imbullettati come JSON nel bundle sarebbero 200KB in
-  più a carico dell'utente su ogni caricamento. Postgres + PostgREST
-  serve solo le righe usate.
-- **RLS attivata anche sui dati pubblici.** `foods` è pubblicamente
-  leggibile ma la policy è esplicita; le scritture restano bloccate.
-  `ai_substitution_cache` / `ai_rate_limit` hanno RLS on senza policy:
-  solo `service_role` (le Edge Function) ci parla — così `anon` non può
-  falsare il contatore rate-limit dal client.
-- **AI dietro Edge Function, mai chiamata dal client.** La chiave Groq
-  vive solo in un env var di Supabase. Il client vede un endpoint
-  `substitute-food` che parla JSON. Rate limit a 10 richieste/giorno
-  globali; oltre soglia serve un fallback SQL (alimento più simile per
-  distanza euclidea sui macro, stessa `macro_category`).
+- **Dati alimentari nel bundle, non su Postgres.** Scelta ribaltata
+  rispetto alla prima versione: Vatia deve stare sull'iPhone e
+  funzionare senza campo, quindi il database viaggia con l'app.
+  `build-foods.mjs` tiene del CSV CREA solo gli otto campi che servono
+  al motore: 900 alimenti in 134KB, ~30KB gzip. Togliere il client
+  Supabase ne ha risparmiati molti di più, quindi il bundle è
+  comunque *sceso*: 144KB → 106KB gzip, database incluso.
+- **Il backend è rimasto in `supabase/`, spento.** Migration con RLS
+  esplicita anche sui dati pubblici, e una Edge Function
+  `substitute-food` che teneva la chiave Groq fuori dal client con
+  rate-limit e fallback SQL. Sono in git come storia del progetto:
+  l'app non li chiama, e senza rete non potrebbe.
 - **Nessun jsPDF nel bundle.** Il "PDF" è una pagina HTML print-ready:
   il browser fa il resto con "Save as PDF". Risparmio ~100KB gzipped.
-- **Nessun i18n framework.** `i18n/messages.ts` è due dizionari IT/EN
-  con hook `useLocale()`. Bundle finale: **134KB gzip** (React + router
-  + Supabase JS + tutto il resto).
+- **Nessun i18n framework, e nessun i18n.** Vatia è un'app personale e
+  parla solo italiano: `i18n/messages.ts` è un dizionario unico dietro
+  un `t()`, così le stringhe stanno in un posto solo invece che sparse
+  nel JSX. Bundle finale: **106KB gzip**, database alimenti compreso.
+- **Zero rete a runtime.** Niente Supabase, niente Google Fonts (SF di
+  sistema), niente CDN. Un service worker mette in cache i file al
+  primo avvio: da lì in poi l'app parte anche in aereo.
 
 ### Diagramma
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Browser                                                     │
-│  ┌────────────────────┐    ┌──────────────────┐             │
-│  │ apps/web (React)   │───►│ @vatia/diet-     │  (in-proc)  │
-│  │ Profile • Meal •   │    │  engine          │             │
-│  │ Plan               │    │ (kcal, allocate) │             │
-│  └────────┬───────────┘    └──────────────────┘             │
-│           │                                                  │
-│           │ PostgREST                                        │
-│           │ + RPC food_seasonality                           │
-│           ▼                                                  │
-│  ┌──────────────────────────────────────────────┐           │
-│  │  Supabase (lwkkmgjaeidjzfnmkiib, eu-west-3)  │           │
-│  │  foods · seasonal_families · ai_* (RLS on)   │           │
-│  │  RPCs: food_seasonality · ai_rate_limit_bump │           │
-│  └───────────┬──────────────────────────────────┘           │
-│              │ service_role (bypasses RLS)                   │
-│              ▼                                               │
-│  ┌────────────────────────────────────┐                     │
-│  │  Edge Function `substitute-food`   │────► Groq API       │
-│  │  (Deno) — cache · rate-limit · fb  │      (LLM)          │
-│  └────────────────────────────────────┘                     │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│  iPhone (o browser) — tutto qui dentro, niente rete          │
+│                                                               │
+│  ┌────────────────────┐    ┌──────────────────┐              │
+│  │ apps/web (React)   │───►│ @vatia/diet-     │  (in-proc)   │
+│  │ Piano • Builder •  │    │  engine          │              │
+│  │ Spesa              │    │ (kcal, solver)   │              │
+│  └───┬────────────┬───┘    └──────────────────┘              │
+│      │            │                                           │
+│      │            └────────────► src/data/foods.json          │
+│      │                           900 alimenti CREA nel bundle │
+│      ▼                                                        │
+│  localStorage                                                 │
+│  profilo · piano settimanale  (export/import CSV)             │
+│                                                               │
+│  service worker → cache dei file, avvio offline               │
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ## Il patto (manifesto)
@@ -188,19 +186,20 @@ return query select v_count, v_count <= p_limit;
 Marcata `SECURITY DEFINER` per non dover concedere grant diretti
 sulla tabella al ruolo delle Edge Function.
 
-## Setup DB (Supabase)
+## Il database alimenti
 
-Le migration sono in `supabase/migrations/*.sql` (schema in git, non
-generate da CLI). Applicabili col Supabase CLI:
+Gli alimenti stanno nel bundle, non su un server. La sorgente è
+`packages/diet-engine/data/foods_full.csv` (900 righe CREA); da lì si
+rigenera il JSON che l'app importa:
 
 ```bash
-supabase link --project-ref lwkkmgjaeidjzfnmkiib
-supabase db push
+npm run build:foods -w @vatia/web    # → apps/web/src/data/foods.json
+npm run build:icons -w @vatia/web    # → icone PNG in public/
 ```
 
-Il seed dei 900 alimenti è in `packages/diet-engine/data/foods_full.csv`
-— importalo dal **Table Editor → foods → Insert → Import CSV** (usa
-`service_role`, bypassa RLS).
+La cartella `supabase/` resta nel repo come storia del backend
+(migration e Edge Function di sostituzione alimenti), ma l'app non la
+chiama più: non ci sono chiavi da configurare né `.env` da creare.
 
 ## Test
 

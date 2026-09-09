@@ -9,6 +9,16 @@ import { ProfileProvider } from './state/ProfileContext.tsx';
 import { ThemeProvider } from './state/ThemeContext.tsx';
 import './styles.css';
 
+// Il service worker tiene i file in cache: dopo la prima apertura Vatia
+// funziona anche senza connessione. In dev darebbe solo fastidio.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {
+      // niente offline: l'app resta comunque usabile
+    });
+  });
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>

@@ -21,7 +21,7 @@ export function TargetBar({ label, value, target, color, unit = '' }: Props) {
       <span className="bar-track">
         <span
           className={`bar-fill ${over ? 'is-over' : ''}`}
-          style={{ width: `${clamped}%`, background: over ? 'var(--danger)' : color }}
+          style={{ width: `${clamped}%`, background: over ? 'var(--ink)' : color }}
         />
       </span>
       <span className="bar-value mono">

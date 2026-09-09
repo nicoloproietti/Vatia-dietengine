@@ -15,8 +15,7 @@ import {
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
-import { supabase, type FoodRow } from '../lib/supabaseClient.ts';
-import { toEngineFood } from '../lib/foods.ts';
+import { searchFoods } from '../lib/foodsDb.ts';
 import { formatNumber } from '../lib/format.ts';
 import { MacroRing } from './MacroRing.tsx';
 import { CategoryChip } from './CategoryChip.tsx';
@@ -66,31 +65,13 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
   const [items, setItems] = useState<MealItem[]>(existing?.items ?? []);
   const [q, setQ] = useState('');
   const [results, setResults] = useState<Food[]>([]);
-  const [loading, setLoading] = useState(false);
   const [calculating, setCalculating] = useState(false);
   const searchInput = useRef<HTMLInputElement>(null);
 
-  // Debounced Supabase search
+  // Ricerca nel database locale: nessuna rete, nessuna attesa
   useEffect(() => {
-    if (phase !== 'compose') return;
-    const term = q.trim();
-    if (term.length < 2) { setResults([]); return; }
-    let cancelled = false;
-    setLoading(true);
-    const timer = setTimeout(async () => {
-      const { data, error } = await supabase
-        .from('foods')
-        .select('id,name,category,macro_category,kcal,protein,carbs,fat,usable_for_meal_generator')
-        .eq('usable_for_meal_generator', true)
-        .ilike('name', `%${term}%`)
-        .order('name')
-        .limit(30);
-      if (cancelled) return;
-      setLoading(false);
-      if (error) { setResults([]); return; }
-      setResults(((data ?? []) as FoodRow[]).map(toEngineFood));
-    }, 200);
-    return () => { cancelled = true; clearTimeout(timer); };
+    if (phase !== 'compose') { setResults([]); return; }
+    setResults(searchFoods(q));
   }, [q, phase]);
 
   function pickFood(food: Food) {
@@ -172,7 +153,9 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
             />
             {q && <button type="button" className="mb-search-clear" onClick={() => { setQ(''); setResults([]); }}>✕</button>}
           </div>
-          {loading && <p className="small mono">cerco…</p>}
+          {q.trim().length >= 2 && results.length === 0 && (
+            <p className="small">Nessun alimento trovato per «{q.trim()}».</p>
+          )}
           {results.length > 0 && (
             <div className="mb-results" role="listbox">
               {results.map((f) => (
