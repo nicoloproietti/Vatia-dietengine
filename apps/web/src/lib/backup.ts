@@ -24,6 +24,41 @@ export function buildBackup(
   return { app: 'vatia', version: 1, exportedAt: new Date().toISOString(), profile, plan, customFoods };
 }
 
+const LAST_BACKUP_KEY = 'vatia:last-backup:v1';
+
+/** Quando è stato salvato l'ultimo backup, o null se mai. */
+export function lastBackupAt(): Date | null {
+  try {
+    const raw = localStorage.getItem(LAST_BACKUP_KEY);
+    if (!raw) return null;
+    const d = new Date(raw);
+    return Number.isNaN(d.getTime()) ? null : d;
+  } catch {
+    return null;
+  }
+}
+
+export function markBackedUp(): void {
+  try {
+    localStorage.setItem(LAST_BACKUP_KEY, new Date().toISOString());
+  } catch { /* ignore */ }
+}
+
+/** Giorni interi dall'ultimo backup; null se non ne è mai stato fatto uno. */
+export function daysSinceBackup(): number | null {
+  const at = lastBackupAt();
+  if (!at) return null;
+  return Math.floor((Date.now() - at.getTime()) / 86_400_000);
+}
+
+export function describeLastBackup(): string {
+  const days = daysSinceBackup();
+  if (days == null) return 'Non ne hai ancora fatto uno.';
+  if (days === 0) return 'Ultimo backup: oggi.';
+  if (days === 1) return 'Ultimo backup: ieri.';
+  return `Ultimo backup: ${days} giorni fa.`;
+}
+
 export function backupFilename(): string {
   const d = new Date();
   const pad = (n: number) => String(n).padStart(2, '0');

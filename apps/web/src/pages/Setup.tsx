@@ -20,7 +20,7 @@ import { MealStepper } from '../components/MealStepper.tsx';
 import { RestoreBackup } from '../components/RestoreBackup.tsx';
 import { AddFoodForm } from '../components/AddFoodForm.tsx';
 import { useFoods } from '../state/FoodsContext.tsx';
-import { backupFilename, buildBackup, shareBackup } from '../lib/backup.ts';
+import { backupFilename, buildBackup, describeLastBackup, markBackedUp, shareBackup } from '../lib/backup.ts';
 import { formatNumber } from '../lib/format.ts';
 
 const MEAL_OPTIONS = [2, 3, 4, 5, 6];
@@ -37,6 +37,7 @@ export function SetupPage() {
   } = usePlan();
   const { customFoods, removeFood } = useFoods();
   const [addingFood, setAddingFood] = useState(false);
+  const [backupInfo, setBackupInfo] = useState(describeLastBackup);
   const navigate = useNavigate();
 
   if (!profile) return <Navigate to="/profile" replace />;
@@ -252,16 +253,18 @@ export function SetupPage() {
               <span className="ios-row-sub">
                 Vatia li ricorda da sola. Il backup salva profilo, settimana e i tuoi
                 alimenti in un file: su iPhone scegli iCloud Drive e lo ritrovi su
-                qualsiasi dispositivo.
+                qualsiasi dispositivo. {backupInfo}
               </span>
             </span>
           </div>
           <button
             type="button"
             className="ios-row is-action"
-            onClick={() => {
+            onClick={async () => {
               const data = buildBackup(profile, snapshot(), customFoods);
-              void shareBackup(backupFilename(), JSON.stringify(data, null, 2));
+              await shareBackup(backupFilename(), JSON.stringify(data, null, 2));
+              markBackedUp();
+              setBackupInfo(describeLastBackup());
             }}
           >
             Salva un backup
