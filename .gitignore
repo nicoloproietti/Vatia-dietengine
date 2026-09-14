@@ -13,3 +13,6 @@ apps/web/node_modules
 # python bytecode
 __pycache__/
 *.pyc
+
+# Progetto Xcode generato da Capacitor (cap add ios)
+apps/web/ios/

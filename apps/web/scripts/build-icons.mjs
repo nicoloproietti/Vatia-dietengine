@@ -95,7 +95,8 @@ function png(size) {
 }
 
 mkdirSync(OUT_DIR, { recursive: true });
-for (const [name, size] of [['apple-touch-icon.png', 180], ['icon-192.png', 192], ['icon-512.png', 512]]) {
+// 1024 serve a Xcode per l'icona dell'app nativa.
+for (const [name, size] of [['apple-touch-icon.png', 180], ['icon-192.png', 192], ['icon-512.png', 512], ['icon-1024.png', 1024]]) {
   const buf = png(size);
   writeFileSync(resolve(OUT_DIR, name), buf);
   console.log(`${name} — ${size}×${size}, ${(buf.length / 1024).toFixed(1)} kB`);

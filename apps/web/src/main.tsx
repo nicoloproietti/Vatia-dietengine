@@ -17,9 +17,13 @@ if (navigator.storage?.persist) {
   navigator.storage.persist().catch(() => { /* niente da fare */ });
 }
 
-// Il service worker tiene i file in cache: dopo la prima apertura Vatia
-// funziona anche senza connessione. In dev darebbe solo fastidio.
-if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+// Il service worker serve solo al web: dopo la prima apertura Vatia
+// funziona anche senza connessione. In dev darebbe fastidio, e dentro
+// l'app nativa non ha senso — i file sono già nel bundle.
+const isNative = Boolean((window as { Capacitor?: { isNativePlatform?: () => boolean } })
+  .Capacitor?.isNativePlatform?.());
+
+if (import.meta.env.PROD && !isNative && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {
       // niente offline: l'app resta comunque usabile

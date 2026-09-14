@@ -201,6 +201,54 @@ La cartella `supabase/` resta nel repo come storia del backend
 (migration e Edge Function di sostituzione alimenti), ma l'app non la
 chiama più: non ci sono chiavi da configurare né `.env` da creare.
 
+## Sull'iPhone
+
+Due strade, a seconda di quanto si vuole spendere.
+
+### Web app (gratis, nessun Mac)
+
+Apri https://nicoloproietti.github.io/Vatia-dietengine/ in Safari →
+Condividi → **Aggiungi a schermata Home**. Da lì è un'app: icona
+propria, schermo intero, funziona offline. Il service worker mette in
+cache i file al primo avvio.
+
+Limite: niente sincronizzazione iCloud automatica. Il backup è manuale
+(Impostazioni → Backup → Salva un backup → iCloud Drive), e la schermata
+ricorda da quanti giorni non ne fai uno.
+
+### App nativa (serve un Mac, e Apple gatekeep-a il resto)
+
+Il guscio è Capacitor: prende `dist` e la mette dentro un progetto
+Xcode. Nessun plugin, nessuna rete — il database è già nel bundle.
+
+```bash
+npm install
+npm run build:native -w @vatia/web   # build con base "/" invece del sottopercorso Pages
+npx cap add ios -w @vatia/web        # solo la prima volta (richiede CocoaPods, quindi macOS)
+npm run ios:sync -w @vatia/web       # build + copia dentro il progetto iOS
+npm run ios:open -w @vatia/web       # apre Xcode
+```
+
+In Xcode: seleziona il target, imposta il tuo Team in Signing &
+Capabilities, collega l'iPhone e premi Run.
+
+Cosa cambia col tipo di account Apple:
+
+| | Apple ID gratuito | Developer Program (99 $/anno) |
+|---|---|---|
+| Installazione sul proprio iPhone | sì | sì |
+| Durata della firma | **7 giorni** | 1 anno |
+| App contemporanee | 3 | illimitate |
+| iCloud / CloudKit | **no** | sì |
+| TestFlight, App Store | no | sì |
+
+La firma gratuita scade ogni settimana e non dà iCloud, che è l'unico
+motivo serio per passare al nativo: di fatto le opzioni vere sono la web
+app gratuita o i 99 $ l'anno.
+
+`ios/` non è versionato: è generato da `cap add ios` e si rigenera
+quando serve.
+
 ## Test
 
 ```bash
