@@ -2,6 +2,7 @@ import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-r
 import { useLocale } from './i18n/LocaleContext.tsx';
 import { useTheme } from './state/ThemeContext.tsx';
 import { useProfile } from './state/ProfileContext.tsx';
+import { NavActionProvider, useNavAction } from './state/NavActionContext.tsx';
 import { LandingPage } from './pages/Landing.tsx';
 import { ProfilePage } from './pages/Profile.tsx';
 import { SetupPage } from './pages/Setup.tsx';
@@ -18,9 +19,16 @@ import { IconChevronLeft } from './components/Icons.tsx';
 const HOME = '/oggi';
 
 export function App() {
+  return (
+    <NavActionProvider>
+      <AppShell />
+    </NavActionProvider>
+  );
+}
+
+function AppShell() {
   const { t } = useLocale();
   const { profile } = useProfile();
-  const { pathname } = useLocation();
 
   return (
     <div className="app-shell">
@@ -62,6 +70,7 @@ function NavBar() {
   const { theme, toggle } = useTheme();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { action } = useNavAction();
 
   const isLanding = pathname === '/';
   const isHome = pathname === HOME;
@@ -86,6 +95,16 @@ function NavBar() {
       <span className="topbar-title">{title}</span>
 
       <div className="topbar-actions">
+        {action && (
+          <button
+            type="button"
+            className="nav-text-action"
+            onClick={action.onClick}
+            disabled={action.disabled}
+          >
+            {action.label}
+          </button>
+        )}
         <button
           type="button"
           className="icon-btn"
@@ -109,7 +128,7 @@ function titleFor(pathname: string, t: Translate): string {
   if (pathname === '/setup/avanzate') return 'Avanzate';
   if (pathname === '/setup/alimenti') return 'I tuoi alimenti';
   if (pathname === '/piano') return 'La settimana';
-  if (pathname === '/shopping') return t('nav.tab.shopping');
+  if (pathname === '/shopping') return 'Lista della spesa';
   if (pathname === HOME) return 'Oggi';
   return '';
 }

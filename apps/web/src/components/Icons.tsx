@@ -86,3 +86,13 @@ export function IconCheckCircle({ size = 22 }: IconProps) {
     </svg>
   );
 }
+
+/** Spunta piena in accento — un alimento già preso in mano nella spesa */
+export function IconCheckCircleFilled({ size = 22 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 22 22" fill="none" aria-hidden>
+      <rect x="1" y="1" width="20" height="20" rx="9" fill="var(--accent)" />
+      <path d="M6.5 11.3l3 3 6-6.6" stroke="var(--accent-ink)" strokeWidth={1.8} strokeLinecap="round" />
+    </svg>
+  );
+}

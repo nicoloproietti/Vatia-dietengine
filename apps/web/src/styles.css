@@ -214,6 +214,16 @@ button, .tabbar-item, .topbar, .segmented { user-select: none; }
   gap: 2px;
   justify-self: end;
 }
+.nav-text-action {
+  background: transparent;
+  border: none;
+  padding: 0 4px;
+  min-height: auto;
+  font-size: 17px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.nav-text-action:disabled { color: var(--ink-3); opacity: 0.6; }
 
 .brand {
   display: inline-flex; align-items: center; gap: 7px;
@@ -2306,6 +2316,28 @@ button.oggi-row:active:not(:disabled) { background: var(--fill-2); }
   color: var(--accent-ink);
   white-space: nowrap;
 }
+
+/* ══ Lista della spesa ═════════════════════════════════════════════════ */
+
+.shop-group-label { font-size: 13px; color: var(--ink-3); padding: 22px 4px 7px; }
+.shop-group-label:first-child { padding-top: 14px; }
+
+.shop-row.is-checked { color: var(--ink-3); }
+.shop-row.is-checked .shop-row-name,
+.shop-row.is-checked .shop-row-grams { color: var(--ink-3); }
+.shop-row-check {
+  flex: none;
+  width: 22px; height: 22px;
+  border-radius: 9px;
+  border: 1.5px solid var(--ink-3);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shop-row.is-checked .shop-row-check { border: none; }
+.shop-row-name { flex: 1; min-width: 0; }
+.shop-row-grams { font-size: 17px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
 /* ══ Piano workspace ═══════════════════════════════════════════════════ */
 
