@@ -5,6 +5,9 @@ import { useProfile } from './state/ProfileContext.tsx';
 import { LandingPage } from './pages/Landing.tsx';
 import { ProfilePage } from './pages/Profile.tsx';
 import { SetupPage } from './pages/Setup.tsx';
+import { SetupProfilePage } from './pages/SetupProfile.tsx';
+import { SetupAdvancedPage } from './pages/SetupAdvanced.tsx';
+import { SetupFoodsPage } from './pages/SetupFoods.tsx';
 import { OggiPage } from './pages/Oggi.tsx';
 import { PianoPage } from './pages/Piano.tsx';
 import { BuildMealPage } from './pages/BuildMeal.tsx';
@@ -27,6 +30,9 @@ export function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/setup" element={<SetupPage />} />
+          <Route path="/setup/profilo" element={<SetupProfilePage />} />
+          <Route path="/setup/avanzate" element={<SetupAdvancedPage />} />
+          <Route path="/setup/alimenti" element={<SetupFoodsPage />} />
           <Route path="/oggi" element={<OggiPage />} />
           <Route path="/piano" element={<PianoPage />} />
           <Route path="/build/:day/:meal" element={<BuildMealPage />} />
@@ -99,14 +105,18 @@ function titleFor(pathname: string, t: Translate): string {
   if (pathname.startsWith('/build/')) return t('builder.title');
   if (pathname === '/profile') return t('nav.profile');
   if (pathname === '/setup') return 'I tuoi numeri';
+  if (pathname === '/setup/profilo') return 'Profilo e attività';
+  if (pathname === '/setup/avanzate') return 'Avanzate';
+  if (pathname === '/setup/alimenti') return 'I tuoi alimenti';
   if (pathname === '/piano') return 'La settimana';
   if (pathname === '/shopping') return t('nav.tab.shopping');
   if (pathname === HOME) return 'Oggi';
   return '';
 }
 
-/** Si torna sempre a Oggi: è l'unico posto da cui si parte. */
+/** Si torna a Oggi, tranne dalle sotto-pagine di "I tuoi numeri". */
 function backLabelFor(pathname: string, t: Translate): string {
   if (pathname === '/profile') return t('nav.back');
+  if (pathname.startsWith('/setup/')) return 'I tuoi numeri';
   return 'Oggi';
 }

@@ -517,6 +517,28 @@ button.ghost.danger, button.link.danger { background: transparent; color: var(--
 }
 .ios-group + .ios-caption { margin-top: 26px; }
 
+/* Card di sola lettura — righe etichetta/valore + una nota, senza il
+ * tocco delle liste raggruppate: BMR/TDEE, non c'è niente da navigare. */
+.setup-card { padding: 16px; }
+.setup-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.setup-card-row + .setup-card-row { margin-top: 8px; }
+.setup-card-row .is-strong { color: var(--ink); font-weight: 600; }
+.setup-card-note {
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-2);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+.setup-check { flex: none; color: var(--accent); font-size: 18px; font-weight: 600; }
+
 .ios-caption {
   display: block;
   font-size: 12px;

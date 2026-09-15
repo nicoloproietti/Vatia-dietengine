@@ -113,7 +113,7 @@ export const messages: Record<string, string> = {
   'nav.tab.shopping': 'Spesa',
   'nav.back': 'Indietro',
   'nav.profile': 'Profilo',
-  'setup.title': 'Distribuisci la settimana',
+  'setup.title': 'I tuoi numeri',
   'setup.subtitle': 'Quanti pasti fai al giorno, e come suddividere kcal e macro. I default sono ragionevoli — modifica solo se hai preferenze.',
   'import.eyebrow': 'Prima cosa',
   'import.question': 'Hai già un CSV del tuo piano alimentare?',
