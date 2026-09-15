@@ -82,4 +82,27 @@ export function foodsForRole(role: FoodRole): Food[] {
   return RECORDS.filter(match).map(toFood);
 }
 
+/**
+ * Candidati alla sostituzione: stessa categoria, ordinati per
+ * vicinanza sul profilo intero (kcal, proteine, carbo, grassi), non
+ * solo sulle calorie — altrimenti "petto di pollo" si ritrova la
+ * mortadella come primo suggerimento perché ha le stesse kcal/100g,
+ * ignorando che una è magra e l'altra no.
+ */
+export function similarFoods(food: Food, limit = 8): Food[] {
+  if (!food.category) return [];
+  const dist = (r: FoodRecord) => {
+    const dk = (r.kcal - food.kcal_per_100g) / 4;         // normalizzato: 4 kcal ≈ 1 g
+    const dp = r.protein - food.protein_per_100g;
+    const dc = r.carbs - food.carbs_per_100g;
+    const df = (r.fat - food.fat_per_100g) * 2.25;        // 9 kcal/g contro 4: stesso peso in kcal
+    return dk * dk + dp * dp + dc * dc + df * df;
+  };
+  return RECORDS
+    .filter((r) => r.category === food.category && r.id !== food.id)
+    .sort((a, b) => dist(a) - dist(b))
+    .slice(0, limit)
+    .map(toFood);
+}
+
 export const FOOD_COUNT = RECORDS.length;

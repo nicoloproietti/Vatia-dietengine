@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { Food } from '@vatia/diet-engine';
-import { searchFoods } from '../lib/foodsDb.ts';
+import { searchFoods, similarFoods } from '../lib/foodsDb.ts';
 
 /** Un alimento aggiunto a mano: stessi campi di quelli CREA, per 100 g. */
 export interface CustomFood {
@@ -23,6 +23,8 @@ interface FoodsValue {
   replaceAll: (foods: CustomFood[]) => void;
   /** Cerca fra i tuoi alimenti e i 900 del database, i tuoi per primi. */
   search: (term: string) => Food[];
+  /** Candidati per sostituire un alimento: stessa categoria, i tuoi per primi. */
+  similarTo: (food: Food, limit?: number) => Food[];
 }
 
 const FoodsCtx = createContext<FoodsValue | null>(null);
@@ -89,9 +91,16 @@ export function FoodsProvider({ children }: { children: ReactNode }) {
     return [...mine, ...searchFoods(term)];
   }, [customFoods]);
 
+  const similarTo = useCallback((food: Food, limit = 8): Food[] => {
+    const mie = customFoods
+      .filter((f) => f.category === food.category && f.id !== food.id)
+      .map(toEngineFood);
+    return [...mie, ...similarFoods(food, limit)].slice(0, limit);
+  }, [customFoods]);
+
   const value = useMemo<FoodsValue>(
-    () => ({ customFoods, addFood, removeFood, replaceAll, search }),
-    [customFoods, addFood, removeFood, replaceAll, search],
+    () => ({ customFoods, addFood, removeFood, replaceAll, search, similarTo }),
+    [customFoods, addFood, removeFood, replaceAll, search, similarTo],
   );
   return <FoodsCtx.Provider value={value}>{children}</FoodsCtx.Provider>;
 }

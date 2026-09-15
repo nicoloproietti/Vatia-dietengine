@@ -1,4 +1,4 @@
-const CAT_LABEL: Record<string, string> = {
+export const CAT_LABEL: Record<string, string> = {
   cereali: 'Cereali', legumi: 'Legumi', carne: 'Carne', pesce: 'Pesce',
   latticini: 'Latticini', uova: 'Uova', grassi_condimenti: 'Grassi',
   verdura: 'Verdura', frutta: 'Frutta', piatti_pronti: 'Piatti pronti',

@@ -1498,6 +1498,33 @@ select {
 }
 .mb-search-clear:active { transform: translateY(-50%) scale(0.94); }
 
+/* Chip di categoria — filtrano i risultati, mai una lista fissa */
+.mb-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 0 4px;
+  -webkit-overflow-scrolling: touch;
+}
+.mb-chip {
+  flex: none;
+  min-height: 36px;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 400;
+  border-radius: var(--radius-sm);
+  background: var(--fill-1);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.mb-chip:hover:not(:disabled) { background: var(--fill-press); color: var(--ink-2); }
+.mb-chip.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
 .mb-results {
   margin-top: 2px;
   background: var(--surface);
@@ -1540,6 +1567,27 @@ select {
 .mb-result-meta .c-p { color: var(--c-protein); }
 .mb-result-meta .c-c { color: var(--c-carbs); }
 .mb-result-meta .c-f { color: var(--c-fat); }
+.mb-result-cat { font-family: var(--font-sans); font-size: 12px; color: var(--ink-3); }
+
+/* Cerchio +/× a destra della riga: verde piena = già nel pasto (tocca
+ * per togliere), grigia = non ancora scelta (tocca per aggiungere). */
+.mb-toggle {
+  flex: none;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--fill-2);
+  position: relative;
+}
+.mb-toggle.is-on { background: var(--accent); }
+.mb-toggle-bar {
+  position: absolute;
+  left: 6px; top: 12px;
+  width: 14px; height: 2px;
+  border-radius: 1px;
+  background: var(--ink-3);
+}
+.mb-toggle.is-on .mb-toggle-bar { background: var(--accent-ink); }
+.mb-toggle-bar.is-vertical { transform: rotate(90deg); }
 
 /* Alimenti scelti */
 .mb-selected {
@@ -1592,8 +1640,68 @@ select {
   min-height: 60px;
 }
 .mb-adjust-row + .mb-adjust-row { border-top: 1px solid var(--line-2); }
-.mb-adjust-main { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.mb-adjust-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  text-align: left;
+}
+.mb-adjust-main:hover:not(:disabled) { background: transparent; opacity: 0.7; }
 .mb-adjust-controls { display: flex; align-items: center; gap: 2px; }
+
+/* Stepper dei grammi: − [valore] + in un'unica pillola */
+.mb-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.mb-stepper-btn {
+  width: 34px; height: 38px;
+  min-height: 38px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1;
+}
+.mb-stepper-btn:hover:not(:disabled) { background: var(--fill-press); color: var(--accent); }
+.mb-stepper-val {
+  width: 48px;
+  min-height: 38px;
+  padding: 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.sub-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px 4px 0;
+}
 .mb-adjust-name {
   font-family: var(--font-sans);
   font-weight: 400;
@@ -1646,6 +1754,22 @@ select {
   .mb-adjust-nutri { font-size: 11px; gap: 6px; }
   .mb-grams { width: 72px; }
 }
+
+/* ══ Sostituzione al volo ══════════════════════════════════════════════ */
+
+.sub-candidates { margin-top: 8px; }
+.sub-row-grams { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.sub-row.is-picked { background: var(--accent-tint); }
+.ios-row-title.is-strong { font-weight: 600; }
+
+.sub-confirm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.sub-confirm-label { display: block; font-size: 12px; color: var(--ink-3); }
+.sub-confirm-value { display: block; font-size: 17px; font-weight: 600; }
 
 /* ══ CalorieSlider ═════════════════════════════════════════════════════ */
 

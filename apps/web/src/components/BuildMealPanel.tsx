@@ -17,9 +17,10 @@ import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
 import { useFoods } from '../state/FoodsContext.tsx';
 import { AddFoodForm } from './AddFoodForm.tsx';
+import { SubstituteSheet } from './SubstituteSheet.tsx';
 import { formatNumber } from '../lib/format.ts';
 import { MacroRing } from './MacroRing.tsx';
-import { CategoryChip } from './CategoryChip.tsx';
+import { CAT_LABEL, CategoryChip } from './CategoryChip.tsx';
 import { EmptyState } from './EmptyState.tsx';
 import { IconSearch } from './Icons.tsx';
 
@@ -69,6 +70,8 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
   const [results, setResults] = useState<Food[]>([]);
   const [calculating, setCalculating] = useState(false);
   const [addingFood, setAddingFood] = useState(false);
+  const [catFilter, setCatFilter] = useState<string | null>(null);
+  const [substituteIdx, setSubstituteIdx] = useState<number | null>(null);
   const searchInput = useRef<HTMLInputElement>(null);
 
   // Ricerca nel database locale: nessuna rete, nessuna attesa
@@ -77,8 +80,21 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
     setResults(search(q));
   }, [q, phase, search]);
 
+  // I chip di categoria si costruiscono da quello che la ricerca ha
+  // davvero trovato — mai una lista fissa che potrebbe filtrare a vuoto.
+  const categorieTrovate = useMemo(() => {
+    const seen = new Map<string, number>();
+    for (const f of results) {
+      if (!f.category) continue;
+      seen.set(f.category, (seen.get(f.category) ?? 0) + 1);
+    }
+    return [...seen.keys()].sort((a, b) => (seen.get(b) ?? 0) - (seen.get(a) ?? 0));
+  }, [results]);
+  useEffect(() => { setCatFilter(null); }, [q]);
+  const resultsFiltrati = catFilter ? results.filter((f) => f.category === catFilter) : results;
+
   function pickFood(food: Food) {
-    if (selected.some((f) => f.id === food.id)) return;
+    if (selected.some((f) => f.id === food.id)) { unpick(food.id); return; }
     setSelected([...selected, food]);
     setQ(''); setResults([]);
     setTimeout(() => searchInput.current?.focus(), 30);
@@ -105,6 +121,12 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
     ));
   }
   function removeItem(idx: number) { setItems((prev) => prev.filter((_, i) => i !== idx)); }
+
+  function ricalcola() {
+    const foods = items.map((it) => it.food);
+    const grammi = solveOptimalGrams(foods, target);
+    setItems(foods.map((food, i) => ({ food, grams: grammi[i]!, nutrition: calcNutrition(food, grammi[i]!) })));
+  }
 
   function backToCompose() {
     setSelected(items.map((it) => it.food));
@@ -172,10 +194,31 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
               onCancel={() => setAddingFood(false)}
             />
           )}
+          {categorieTrovate.length > 0 && (
+            <div className="mb-chips">
+              <button
+                type="button"
+                className={`mb-chip ${catFilter === null ? 'is-active' : ''}`}
+                onClick={() => setCatFilter(null)}
+              >
+                Tutti
+              </button>
+              {categorieTrovate.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  className={`mb-chip ${catFilter === cat ? 'is-active' : ''}`}
+                  onClick={() => setCatFilter(cat)}
+                >
+                  {CAT_LABEL[cat] ?? cat}
+                </button>
+              ))}
+            </div>
+          )}
           {results.length > 0 && (
             <div className="mb-results" role="listbox">
-              {results.map((f) => (
-                <SearchRow key={f.id} food={f} onPick={pickFood} disabled={selected.some((s) => s.id === f.id)} />
+              {resultsFiltrati.map((f) => (
+                <SearchRow key={f.id} food={f} onPick={pickFood} selected={selected.some((s) => s.id === f.id)} />
               ))}
             </div>
           )}
@@ -213,7 +256,12 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
               const veg = isVerdura(it.food);
               return (
                 <div key={it.food.id} className="mb-adjust-row">
-                  <div className="mb-adjust-main">
+                  <button
+                    type="button"
+                    className="mb-adjust-main"
+                    onClick={() => setSubstituteIdx(i)}
+                    aria-label={`Sostituisci ${it.food.name}`}
+                  >
                     <div className="mb-adjust-name">{it.food.name}</div>
                     <div className="mb-adjust-nutri">
                       <CategoryChip cat={it.food.category} />
@@ -222,20 +270,37 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
                       <span className="c-c">{formatNumber(it.nutrition.carbs_g, 1)}g C</span>
                       <span className="c-f">{formatNumber(it.nutrition.fat_g, 1)}g F</span>
                     </div>
-                  </div>
+                  </button>
                   <div className="mb-adjust-controls">
-                    <input
-                      className="mb-grams"
-                      type="number" min={5} max={1000}
-                      value={it.grams}
-                      onChange={(e) => updateGrams(i, Number(e.target.value))}
-                      aria-label={`Grammi di ${it.food.name}`}
-                    />
+                    <span className="mb-stepper">
+                      <button
+                        type="button" className="mb-stepper-btn"
+                        onClick={() => updateGrams(i, Math.max(0, it.grams - 5))}
+                        aria-label={`Togli 5 g di ${it.food.name}`}
+                      >−</button>
+                      <input
+                        className="mb-stepper-val"
+                        type="number" min={0} max={1000}
+                        value={it.grams}
+                        onChange={(e) => updateGrams(i, Number(e.target.value))}
+                        aria-label={`Grammi di ${it.food.name}`}
+                      />
+                      <button
+                        type="button" className="mb-stepper-btn"
+                        onClick={() => updateGrams(i, it.grams + 5)}
+                        aria-label={`Aggiungi 5 g di ${it.food.name}`}
+                      >+</button>
+                    </span>
                     <button type="button" className="mb-remove" onClick={() => removeItem(i)} aria-label={t('builder.remove')}>✕</button>
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          <div className="sub-links">
+            <button type="button" className="link" onClick={ricalcola}>Ricalcola con il solver</button>
+            <span className="small">Tocca il nome di un alimento per sostituirlo</span>
           </div>
 
           <div className="btn-row">
@@ -247,24 +312,29 @@ export function BuildMealPanel({ dayIdx, mealIdx, onDone, onPhaseChange }: Props
           </div>
         </section>
       )}
+
+      <SubstituteSheet
+        open={substituteIdx != null}
+        oldFood={substituteIdx != null ? items[substituteIdx]?.food ?? null : null}
+        oldGrams={substituteIdx != null ? items[substituteIdx]?.grams ?? 0 : 0}
+        itemIdx={substituteIdx ?? 0}
+        allFoods={items.map((it) => it.food)}
+        target={target}
+        onClose={() => setSubstituteIdx(null)}
+        onConfirm={(newItems) => setItems(newItems)}
+      />
     </div>
   );
 }
 
-function SearchRow({ food, onPick, disabled }: { food: Food; onPick: (f: Food) => void; disabled: boolean }) {
+function SearchRow({ food, onPick, selected }: { food: Food; onPick: (f: Food) => void; selected: boolean }) {
   const veg = isVerdura(food);
   return (
-    <div
-      className="mb-result-row"
-      role="option"
-      aria-selected={disabled}
-      style={disabled ? { opacity: 0.4, cursor: 'not-allowed' } : undefined}
-      onClick={() => !disabled && onPick(food)}
-    >
+    <div className="mb-result-row" role="option" aria-selected={selected} onClick={() => onPick(food)}>
       <div className="mb-result-left">
         <span className="mb-result-name">{food.name}</span>
         <span className="mb-result-meta">
-          <CategoryChip cat={food.category} />
+          <span className="mb-result-cat">{CAT_LABEL[food.category ?? ''] ?? 'Altro'} · per 100 g</span>
           {!veg && (
             <>
               <span>{formatNumber(food.kcal_per_100g)} kcal</span>
@@ -275,6 +345,10 @@ function SearchRow({ food, onPick, disabled }: { food: Food; onPick: (f: Food) =
           )}
         </span>
       </div>
+      <span className={`mb-toggle ${selected ? 'is-on' : ''}`} aria-hidden="true">
+        <span className="mb-toggle-bar" />
+        {!selected && <span className="mb-toggle-bar is-vertical" />}
+      </span>
     </div>
   );
 }
