@@ -10,7 +10,7 @@ export function LandingPage() {
 
   // Chi ha già il profilo sul telefono non deve ripassare dalla
   // presentazione: l'app si apre sul piano.
-  if (profile) return <Navigate to="/piano" replace />;
+  if (profile) return <Navigate to="/oggi" replace />;
 
   return (
     <div>

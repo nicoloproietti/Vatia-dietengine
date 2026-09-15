@@ -25,7 +25,8 @@ export function BuildMealPage() {
 
   if (!valid) return <Navigate to="/piano" replace />;
 
-  function backToPiano() { navigate('/piano'); }
+  // Torna da dove sei arrivato: Oggi o la settimana.
+  function backToPiano() { navigate(-1); }
 
   const eyebrow = phase === 'compose' ? 'Fase 1 · scegli' : 'Fase 2 · regola';
 
