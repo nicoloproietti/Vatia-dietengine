@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import {
   DAYS_IT,
@@ -6,11 +6,13 @@ import {
   computeDailyTargets,
   dailyMacrosFromPct,
   dailyMealTargets,
+  sumTotals,
 } from '@vatia/diet-engine';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
 import { dateKey, useEaten, weekdayIndex } from '../state/EatenContext.tsx';
 import { IconCheckCircle, IconChevronRight } from '../components/Icons.tsx';
+import { SubstituteSheet } from '../components/SubstituteSheet.tsx';
 import { formatNumber, formatSigned } from '../lib/format.ts';
 
 const MESI = [
@@ -26,9 +28,10 @@ const MESI = [
  */
 export function OggiPage() {
   const { profile } = useProfile();
-  const { targetKcal, dailyMacroPct, mealCount, distribution, weekPlan } = usePlan();
+  const { targetKcal, dailyMacroPct, mealCount, distribution, weekPlan, saveMeal } = usePlan();
   const { eatenOn, toggle } = useEaten();
   const navigate = useNavigate();
+  const [sub, setSub] = useState<{ mealIdx: number; itemIdx: number } | null>(null);
 
   if (!profile) return <Navigate to="/" replace />;
 
@@ -176,15 +179,14 @@ export function OggiPage() {
           // solo sul prossimo pasto in ordine, azione piena nella riga.
           // Due bottoni distinti — non uno dentro l'altro — perché il
           // tocco sul testo apre il pasto e il tocco sulla pillola spunta.
-          const ingredienti = pasto.items.map((it) => it.food.name).join(', ');
           return (
             <div key={i} className="oggi-row is-ready">
-              <button
-                type="button"
-                className="oggi-row-main-btn"
-                onClick={() => navigate(`/build/${giorno}/${i}`)}
-              >
-                <span className="oggi-row-main">
+              <div className="oggi-row-main">
+                <button
+                  type="button"
+                  className="oggi-row-main-btn"
+                  onClick={() => navigate(`/build/${giorno}/${i}`)}
+                >
                   <span className="oggi-row-name-line">
                     <span className="oggi-row-name is-strong">{names[i]}</span>
                     {isProssimo && <span className="oggi-adesso">ADESSO</span>}
@@ -195,9 +197,22 @@ export function OggiPage() {
                     {formatNumber(pasto.totals.carbs_g)} C ·{' '}
                     {formatNumber(pasto.totals.fat_g)} G
                   </span>
-                  <span className="oggi-row-ingredienti">{ingredienti}</span>
+                </button>
+                <span className="oggi-row-ingredienti">
+                  {pasto.items.map((it, itemIdx) => (
+                    <span key={it.food.id}>
+                      {itemIdx > 0 && ', '}
+                      <button
+                        type="button"
+                        className="oggi-ingrediente-btn"
+                        onClick={() => setSub({ mealIdx: i, itemIdx })}
+                      >
+                        {it.food.name}
+                      </button>
+                    </span>
+                  ))}
                 </span>
-              </button>
+              </div>
               <button type="button" className="oggi-row-cta" onClick={() => toggle(key, i)}>
                 L&rsquo;ho mangiato
               </button>
@@ -228,6 +243,20 @@ export function OggiPage() {
           <span className="ios-chevron"><IconChevronRight /></span>
         </button>
       </div>
+
+      <SubstituteSheet
+        open={sub != null}
+        oldFood={sub ? dayPlan[sub.mealIdx]?.items[sub.itemIdx]?.food ?? null : null}
+        oldGrams={sub ? dayPlan[sub.mealIdx]?.items[sub.itemIdx]?.grams ?? 0 : 0}
+        itemIdx={sub?.itemIdx ?? 0}
+        allFoods={sub ? dayPlan[sub.mealIdx]?.items.map((it) => it.food) ?? [] : []}
+        target={sub ? targets[sub.mealIdx]! : { kcal: 0, protein_g: 0, carbs_g: 0, fat_g: 0 }}
+        onClose={() => setSub(null)}
+        onConfirm={(items) => {
+          if (sub) saveMeal(giorno, sub.mealIdx, { items, totals: sumTotals(items) });
+          setSub(null);
+        }}
+      />
     </div>
   );
 }
