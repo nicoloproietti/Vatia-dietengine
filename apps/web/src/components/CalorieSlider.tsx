@@ -37,7 +37,7 @@ export function CalorieSlider({ value, tdee, bmr, onChange }: Props) {
   const isDeficit = diff < -ZONE_THRESHOLD;
   const isSurplus = diff > ZONE_THRESHOLD;
   const zone = isDeficit ? 'deficit' : isSurplus ? 'surplus' : 'maintain';
-  const monthlyKg = ((diff * 7) / KCAL_PER_KG) * 30;
+  const monthlyKg = (diff * 30) / KCAL_PER_KG;
   const zoneColor =
     isDeficit ? 'var(--c-carbs)' :
     isSurplus ? 'var(--accent)' :
