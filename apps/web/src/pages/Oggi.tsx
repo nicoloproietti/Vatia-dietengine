@@ -10,8 +10,8 @@ import {
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
 import { dateKey, useEaten, weekdayIndex } from '../state/EatenContext.tsx';
-import { IconChevronRight } from '../components/Icons.tsx';
-import { formatNumber } from '../lib/format.ts';
+import { IconCheckCircle, IconChevronRight } from '../components/Icons.tsx';
+import { formatNumber, formatSigned } from '../lib/format.ts';
 
 const MESI = [
   'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
@@ -59,10 +59,34 @@ export function OggiPage() {
   const pct = daily.kcal > 0 ? Math.min(100, (mangiato / daily.kcal) * 100) : 0;
   const oltre = mangiato > daily.kcal;
 
-  const prossimo = Array.from({ length: mealCount }, (_, i) => i).find((i) => !eaten[i]);
-  const tuttoFatto = prossimo == null;
+  const indici = Array.from({ length: mealCount }, (_, i) => i);
+  const tuttoFatto = indici.every((i) => eaten[i]);
+  // ADESSO va sul primo pasto già pronto e non mangiato — non sul primo
+  // in assoluto: se hai costruito la cena prima dello spuntino, è la
+  // cena quella da mangiare adesso, non uno spuntino che non esiste.
+  const prossimoPronto = indici.find((i) => !eaten[i] && dayPlan[i]);
 
   const data = `${DAYS_IT[giorno]} ${oggi.getDate()} ${MESI[oggi.getMonth()]}`;
+
+  // Contesto settimanale: quanto sei sopra/sotto il piano dal lunedì a
+  // oggi, contando solo i giorni in cui hai davvero spuntato qualcosa —
+  // altrimenti un giorno mai apparso sembrerebbe un digiuno totale.
+  const contestoSettimanale = useMemo(() => {
+    let delta = mangiato - daily.kcal;
+    for (let offset = 0; offset < giorno; offset++) {
+      const d = new Date(oggi);
+      d.setDate(oggi.getDate() - (giorno - offset));
+      const eatenQuelGiorno = eatenOn(dateKey(d));
+      const idxMangiati = Object.keys(eatenQuelGiorno).filter((k) => eatenQuelGiorno[Number(k)]);
+      if (idxMangiati.length === 0) continue;
+      const pianoQuelGiorno = weekPlan[offset] ?? {};
+      const kcalQuelGiorno = idxMangiati.reduce(
+        (s, k) => s + (pianoQuelGiorno[Number(k)]?.totals.kcal ?? 0), 0,
+      );
+      delta += kcalQuelGiorno - daily.kcal;
+    }
+    return Math.round(delta);
+  }, [mangiato, daily.kcal, giorno, oggi, eatenOn, weekPlan]);
 
   return (
     <div className="stack">
@@ -89,6 +113,12 @@ export function OggiPage() {
         <span className="oggi-hero-sub mono">
           {formatNumber(mangiato)} / {formatNumber(daily.kcal)} kcal mangiate
         </span>
+        {oltre && (
+          <p className="oggi-hero-context">
+            Sulla settimana sei a {formatSigned(contestoSettimanale)} kcal rispetto al piano.
+            Un giorno non cambia il conto.
+          </p>
+        )}
       </section>
 
       {/* I pasti */}
@@ -96,50 +126,81 @@ export function OggiPage() {
         <span className="ios-caption">I pasti di oggi</span>
       </div>
 
-      <div className="meal-list">
+      <div className="ios-group oggi-meals">
         {Array.from({ length: mealCount }, (_, i) => {
           const pasto = dayPlan[i];
           const fatto = Boolean(eaten[i]);
           const daPreparare = !pasto;
-          const isProssimo = i === prossimo;
+          const isProssimo = i === prossimoPronto;
 
-          return (
-            <div key={i} className={`oggi-meal ${fatto ? 'is-eaten' : ''} ${isProssimo ? 'is-next' : ''}`}>
+          // Mangiato: riga sola, si fa da parte — tocca per annullare.
+          if (fatto && pasto) {
+            return (
               <button
+                key={i}
                 type="button"
-                className="oggi-meal-main"
+                className="oggi-row is-eaten"
+                onClick={() => toggle(key, i)}
+              >
+                <span className="oggi-row-check"><IconCheckCircle /></span>
+                <span className="oggi-row-main">
+                  <span className="oggi-row-name">{names[i]}</span>
+                  <span className="oggi-row-kcal mono">{formatNumber(pasto.totals.kcal)} kcal</span>
+                </span>
+                <span className="oggi-row-tag">mangiato</span>
+              </button>
+            );
+          }
+
+          // Da preparare: solo testo in accento e chevron, tutta la riga naviga.
+          if (daPreparare) {
+            return (
+              <button
+                key={i}
+                type="button"
+                className="oggi-row"
                 onClick={() => navigate(`/build/${giorno}/${i}`)}
               >
-                <span className="ios-row-main">
-                  <span className="ios-row-title">{names[i]}</span>
-                  <span className="ios-row-sub">
-                    {daPreparare
-                      ? 'Non l’hai ancora preparato'
-                      : fatto
-                        ? `Mangiato · ${formatNumber(pasto.totals.kcal)} kcal`
-                        : `${formatNumber(pasto.totals.kcal)} kcal · ${pasto.items.length} alimenti`}
+                <span className="oggi-row-main">
+                  <span className="oggi-row-name">{names[i]}</span>
+                  <span className="oggi-row-prepare">
+                    Preparalo · target {formatNumber(targets[i]!.kcal)} kcal
                   </span>
                 </span>
                 <span className="ios-chevron"><IconChevronRight /></span>
               </button>
+            );
+          }
 
-              {daPreparare ? (
-                <button
-                  type="button"
-                  className="oggi-meal-action is-prepare"
-                  onClick={() => navigate(`/build/${giorno}/${i}`)}
-                >
-                  Preparalo · target {formatNumber(targets[i]!.kcal)} kcal
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className={`oggi-meal-action ${fatto ? 'is-done' : ''}`}
-                  onClick={() => toggle(key, i)}
-                >
-                  {fatto ? 'Mangiato' : 'L’ho mangiato'}
-                </button>
-              )}
+          // Pronto da mangiare: superficie di rilievo, etichetta ADESSO
+          // solo sul prossimo pasto in ordine, azione piena nella riga.
+          // Due bottoni distinti — non uno dentro l'altro — perché il
+          // tocco sul testo apre il pasto e il tocco sulla pillola spunta.
+          const ingredienti = pasto.items.map((it) => it.food.name).join(', ');
+          return (
+            <div key={i} className="oggi-row is-ready">
+              <button
+                type="button"
+                className="oggi-row-main-btn"
+                onClick={() => navigate(`/build/${giorno}/${i}`)}
+              >
+                <span className="oggi-row-main">
+                  <span className="oggi-row-name-line">
+                    <span className="oggi-row-name is-strong">{names[i]}</span>
+                    {isProssimo && <span className="oggi-adesso">ADESSO</span>}
+                  </span>
+                  <span className="oggi-row-kcal mono">
+                    {formatNumber(pasto.totals.kcal)} kcal ·{' '}
+                    {formatNumber(pasto.totals.protein_g)} P ·{' '}
+                    {formatNumber(pasto.totals.carbs_g)} C ·{' '}
+                    {formatNumber(pasto.totals.fat_g)} G
+                  </span>
+                  <span className="oggi-row-ingredienti">{ingredienti}</span>
+                </span>
+              </button>
+              <button type="button" className="oggi-row-cta" onClick={() => toggle(key, i)}>
+                L&rsquo;ho mangiato
+              </button>
             </div>
           );
         })}

@@ -76,3 +76,13 @@ export function IconSearch({ size = 18 }: IconProps) {
     </svg>
   );
 }
+
+/** Spunta cerchiata — un pasto già mangiato, sempre in inchiostro terziario */
+export function IconCheckCircle({ size = 22 }: IconProps) {
+  return (
+    <svg {...base(size)} strokeWidth={1.7}>
+      <circle cx="11" cy="11" r="9.2" />
+      <path d="M6.5 11.3l3 3 6-6.6" strokeWidth={1.9} />
+    </svg>
+  );
+}
