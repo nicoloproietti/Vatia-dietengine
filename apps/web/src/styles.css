@@ -742,8 +742,8 @@ select {
   border-radius: var(--radius-pill);
   transition: background var(--transition);
 }
-.wizard-progress > span.is-done { background: var(--accent); }
-.wizard-progress > span.is-current { background: var(--accent); opacity: 0.5; }
+.wizard-progress > span.is-done,
+.wizard-progress > span.is-current { background: var(--accent); }
 
 .wizard-step-meta {
   display: flex;

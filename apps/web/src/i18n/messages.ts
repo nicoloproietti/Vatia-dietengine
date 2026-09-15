@@ -97,7 +97,7 @@ export const messages: Record<string, string> = {
   'wizard.q.fat.help': 'Olio, frutta secca, semi. Facoltativo.',
   'wizard.fat.skip': 'No, salta',
   'wizard.compute': 'Calcola grammi',
-  'wizard.review': 'Rivedi profilo',
+  'wizard.review': 'Ecco i tuoi numeri',
   'landing.pitch.formula.title': 'Formula esposta',
   'landing.pitch.formula.body': 'Mifflin-St Jeor. La leggi nel codice, non in una scatola nera.',
   'landing.pitch.privacy.title': 'Zero server',

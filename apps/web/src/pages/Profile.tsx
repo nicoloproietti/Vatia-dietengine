@@ -4,15 +4,19 @@ import type { Activity, Sex } from '@vatia/diet-engine';
 import { computeDailyTargets } from '@vatia/diet-engine';
 import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile, type StoredProfile } from '../state/ProfileContext.tsx';
+import { usePlan } from '../state/PlanContext.tsx';
 import { ChoiceList, WizardShell } from '../components/Wizard.tsx';
 import { formatNumber } from '../lib/format.ts';
 
 const ACTIVITIES: Activity[] = ['sedentary', 'light', 'moderate', 'active', 'very_active'];
-const TOTAL_STEPS = 4;
+const TOTAL_STEPS = 5;
+/** Vatia parte da un deficit moderato, non dal mantenimento — si perde peso solo mangiando meno. */
+const STARTING_DEFICIT_RATIO = 0.84;
 
 export function ProfilePage() {
   const { t } = useLocale();
   const { profile, setProfile } = useProfile();
+  const { setTargetKcal } = usePlan();
   const navigate = useNavigate();
 
   const [step, setStep] = useState(0);
@@ -35,9 +39,10 @@ export function ProfilePage() {
   );
 
   function finish() {
-    if (!complete) return;
+    if (!complete || !targets) return;
     setProfile(complete);
-    navigate('/setup');
+    setTargetKcal(Math.round((targets.tdee * STARTING_DEFICIT_RATIO) / 10) * 10);
+    navigate('/oggi');
   }
 
   const back = step > 0 ? () => setStep(step - 1) : undefined;
@@ -125,38 +130,74 @@ export function ProfilePage() {
     );
   }
 
-  // Step 3 (last): activity + inline review (BMR/TDEE/kcal only, no macros)
+  if (step === 3) {
+    return (
+      <WizardShell
+        step={3} total={TOTAL_STEPS}
+        sectionLabel={t('wizard.section.profile')}
+        question={t('wizard.q.activity')}
+        canNext={activity != null}
+        onBack={back}
+        onNext={next}
+      >
+        <ChoiceList<Activity>
+          value={activity}
+          onChange={setActivity}
+          options={ACTIVITIES.map((a) => ({
+            value: a,
+            label: t(`profile.activity.${a}`).split(' (')[0]!,
+            hint: t(`profile.activity.${a}`).includes('(')
+              ? t(`profile.activity.${a}`).split(' (')[1]?.replace(')', '')
+              : undefined,
+          }))}
+        />
+      </WizardShell>
+    );
+  }
+
+  // Step 4 (last): "Ecco i tuoi numeri" — la revisione, non un'altra domanda.
+  const startingKcal = targets ? Math.round((targets.tdee * STARTING_DEFICIT_RATIO) / 10) * 10 : 0;
   return (
     <WizardShell
-      step={3} total={TOTAL_STEPS}
+      step={4} total={TOTAL_STEPS}
       sectionLabel={t('wizard.section.profile')}
-      question={t('wizard.q.activity')}
+      question={t('wizard.review')}
+      help="Calcolati con Mifflin-St Jeor. Sono una stima: nelle prime settimane il peso reale dirà se è giusta."
       canNext={complete != null}
-      nextLabel={t('wizard.compute')}
+      nextLabel="Comincia"
       onBack={back}
       onNext={finish}
     >
-      <ChoiceList<Activity>
-        value={activity}
-        onChange={setActivity}
-        options={ACTIVITIES.map((a) => ({
-          value: a,
-          label: t(`profile.activity.${a}`).split(' (')[0]!,
-          hint: t(`profile.activity.${a}`).includes('(')
-            ? t(`profile.activity.${a}`).split(' (')[1]?.replace(')', '')
-            : undefined,
-        }))}
-      />
-
       {targets && (
-        <div style={{ marginTop: 28 }}>
-          <div className="section-head"><span className="ios-caption">{t('targets.title')}</span></div>
-          <div className="macro-row" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-            <div><small>{t('targets.bmr')}</small><strong>{formatNumber(targets.bmr)}</strong></div>
-            <div><small>{t('targets.tdee')}</small><strong>{formatNumber(targets.tdee)}</strong></div>
-            <div><small>{t('targets.kcal')} (mant.)</small><strong>{formatNumber(targets.kcal)}</strong></div>
+        <>
+          <div className="ios-group setup-card">
+            <div className="setup-card-row">
+              <span>Metabolismo basale</span>
+              <span className="mono is-strong">{formatNumber(targets.bmr)}</span>
+            </div>
+            <p className="setup-card-note">Quel che consumi restando a letto tutto il giorno</p>
           </div>
-        </div>
+          <div className="ios-group setup-card" style={{ marginTop: 12 }}>
+            <div className="setup-card-row">
+              <span>Consumo giornaliero</span>
+              <span className="mono is-strong" style={{ color: 'var(--accent)' }}>{formatNumber(targets.tdee)}</span>
+            </div>
+            <p className="setup-card-note">
+              {formatNumber(targets.bmr)} × {formatNumber(targets.tdee / targets.bmr, 2)} per l'attività dichiarata
+            </p>
+          </div>
+          <div className="ios-group setup-card" style={{ marginTop: 12 }}>
+            <div className="setup-card-row">
+              <span>Per restare uguale</span>
+              <span className="mono is-strong">{formatNumber(targets.tdee)}</span>
+            </div>
+            <p className="setup-card-note">Mangiare meno fa scendere il peso, mangiare più lo fa salire. Quanto meno lo decidi tu.</p>
+          </div>
+          <p className="wizard-help" style={{ marginTop: 20 }}>
+            Vatia parte da <span className="mono" style={{ color: 'var(--ink)' }}>{formatNumber(startingKcal)} kcal</span>, un deficit moderato.
+            Lo cambi quando vuoi da &ldquo;I tuoi numeri&rdquo;.
+          </p>
+        </>
       )}
     </WizardShell>
   );
