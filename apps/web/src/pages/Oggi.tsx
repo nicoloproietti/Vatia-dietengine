@@ -219,6 +219,10 @@ export function OggiPage() {
           <span className="ios-row-title">Lista della spesa</span>
           <span className="ios-chevron"><IconChevronRight /></span>
         </button>
+        <button type="button" className="ios-row" onClick={() => navigate('/peso')}>
+          <span className="ios-row-title">Peso e verifica</span>
+          <span className="ios-chevron"><IconChevronRight /></span>
+        </button>
         <button type="button" className="ios-row" onClick={() => navigate('/setup')}>
           <span className="ios-row-title">I tuoi numeri</span>
           <span className="ios-chevron"><IconChevronRight /></span>

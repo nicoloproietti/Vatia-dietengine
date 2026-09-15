@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
 import { useFoods } from '../state/FoodsContext.tsx';
+import { useWeight } from '../state/WeightContext.tsx';
 import { parseBackup } from '../lib/backup.ts';
 
 interface Props {
@@ -20,6 +21,7 @@ export function RestoreBackup({ label, className = 'link', onRestored }: Props) 
   const { setProfile } = useProfile();
   const { restore } = usePlan();
   const { replaceAll } = useFoods();
+  const { restore: restoreWeight } = useWeight();
   const fileRef = useRef<HTMLInputElement>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -31,6 +33,7 @@ export function RestoreBackup({ label, className = 'link', onRestored }: Props) 
       const backup = parseBackup(await file.text());
       if (backup.profile) setProfile(backup.profile);
       if (backup.plan) restore(backup.plan);
+      if (backup.weight) restoreWeight(backup.weight);
       replaceAll(backup.customFoods);
       onRestored?.();
     } catch {

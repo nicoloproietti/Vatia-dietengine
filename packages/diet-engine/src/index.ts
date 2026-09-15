@@ -4,3 +4,4 @@ export * from './allocation.js';
 export * from './validation.js';
 export * from './weekly.js';
 export * from './optimizer.js';
+export * from './weight.js';

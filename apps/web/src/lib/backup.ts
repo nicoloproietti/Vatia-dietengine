@@ -14,14 +14,16 @@ export interface Backup {
   profile: StoredProfile | null;
   plan: unknown;
   customFoods: CustomFood[];
+  weight: unknown;
 }
 
 export function buildBackup(
   profile: StoredProfile | null,
   plan: unknown,
   customFoods: CustomFood[],
+  weight: unknown,
 ): Backup {
-  return { app: 'vatia', version: 1, exportedAt: new Date().toISOString(), profile, plan, customFoods };
+  return { app: 'vatia', version: 1, exportedAt: new Date().toISOString(), profile, plan, customFoods, weight };
 }
 
 const LAST_BACKUP_KEY = 'vatia:last-backup:v1';
@@ -81,6 +83,7 @@ export function parseBackup(text: string): Backup {
       profile: parsed.profile ?? null,
       plan: parsed.plan ?? null,
       customFoods: Array.isArray(parsed.customFoods) ? parsed.customFoods : [],
+      weight: parsed.weight ?? null,
     };
   }
   return {
@@ -90,6 +93,7 @@ export function parseBackup(text: string): Backup {
     profile: csvToProfile(trimmed),
     plan: null,
     customFoods: [],
+    weight: null,
   };
 }
 

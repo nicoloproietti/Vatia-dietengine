@@ -28,3 +28,18 @@ export function formatSigned(value: number, decimals = 0): string {
 function groupThousands(digits: string): string {
   return digits.replace(/\B(?=(\d{3})+(?!\d))/g, THIN_SPACE);
 }
+
+const MESI_IT = [
+  'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
+  'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
+];
+
+/**
+ * `2026-08-18` → `18 agosto`. Niente anno: Vatia non ne ha bisogno per
+ * date recenti. Parsing manuale, non `new Date(iso)`: quello legge la
+ * stringa come UTC e può sbagliare giorno vicino alla mezzanotte.
+ */
+export function formatDayMonth(dateIso: string): string {
+  const [, month, day] = dateIso.split('-').map(Number);
+  return `${day} ${MESI_IT[(month ?? 1) - 1]}`;
+}

@@ -9,6 +9,7 @@ import { FoodsProvider } from './state/FoodsContext.tsx';
 import { PlanProvider } from './state/PlanContext.tsx';
 import { ProfileProvider } from './state/ProfileContext.tsx';
 import { ThemeProvider } from './state/ThemeContext.tsx';
+import { WeightProvider } from './state/WeightContext.tsx';
 import './styles.css';
 
 // Profilo e piano vivono in localStorage, che il sistema può ripulire
@@ -39,9 +40,11 @@ createRoot(document.getElementById('root')!).render(
         <FoodsProvider>
           <PlanProvider>
             <EatenProvider>
-              <HashRouter>
-                <App />
-              </HashRouter>
+              <WeightProvider>
+                <HashRouter>
+                  <App />
+                </HashRouter>
+              </WeightProvider>
             </EatenProvider>
           </PlanProvider>
         </FoodsProvider>

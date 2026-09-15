@@ -13,6 +13,7 @@ import { OggiPage } from './pages/Oggi.tsx';
 import { PianoPage } from './pages/Piano.tsx';
 import { BuildMealPage } from './pages/BuildMeal.tsx';
 import { ShoppingPage } from './pages/Shopping.tsx';
+import { WeightPage } from './pages/Weight.tsx';
 import { IconChevronLeft } from './components/Icons.tsx';
 
 /** La casa dell'app: nessun tasto indietro, si torna sempre qui. */
@@ -45,6 +46,7 @@ function AppShell() {
           <Route path="/piano" element={<PianoPage />} />
           <Route path="/build/:day/:meal" element={<BuildMealPage />} />
           <Route path="/shopping" element={<ShoppingPage />} />
+          <Route path="/peso" element={<WeightPage />} />
           {/* Legacy redirects — bookmarks and older links keep working. */}
           <Route path="/week" element={<Navigate to="/piano" replace />} />
           <Route path="/import" element={<Navigate to="/" replace />} />
@@ -129,6 +131,7 @@ function titleFor(pathname: string, t: Translate): string {
   if (pathname === '/setup/alimenti') return 'I tuoi alimenti';
   if (pathname === '/piano') return 'La settimana';
   if (pathname === '/shopping') return 'Lista della spesa';
+  if (pathname === '/peso') return 'Peso e verifica';
   if (pathname === HOME) return 'Oggi';
   return '';
 }

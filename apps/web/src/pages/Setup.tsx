@@ -10,6 +10,7 @@ import { useLocale } from '../i18n/LocaleContext.tsx';
 import { useProfile } from '../state/ProfileContext.tsx';
 import { usePlan } from '../state/PlanContext.tsx';
 import { useFoods } from '../state/FoodsContext.tsx';
+import { useWeight } from '../state/WeightContext.tsx';
 import { CalorieSlider } from '../components/CalorieSlider.tsx';
 import { MacroSplit } from '../components/MacroSplit.tsx';
 import { MealStepper } from '../components/MealStepper.tsx';
@@ -32,6 +33,7 @@ export function SetupPage() {
   const { profile } = useProfile();
   const { targetKcal, setTargetKcal, dailyMacroPct, setDailyMacroPct, mealCount, setMealCount, snapshot } = usePlan();
   const { customFoods } = useFoods();
+  const { adoptedTdee, snapshot: snapshotWeight } = useWeight();
   const [backupInfo, setBackupInfo] = useState(describeLastBackup);
   const [mealCountOpen, setMealCountOpen] = useState(false);
   const navigate = useNavigate();
@@ -40,13 +42,16 @@ export function SetupPage() {
 
   const bmr = useMemo(() => Math.round(bmrMifflinStJeor(profile)), [profile]);
   const tdee = useMemo(() => Math.round(bmr * ACTIVITY_MULTIPLIER[profile.activity]), [bmr, profile.activity]);
+  // Se il peso reale ha corretto il TDEE (vedi "Peso e verifica"), il
+  // riferimento per lo slider e il default diventa quello, non la formula.
+  const tdeeEffettivo = adoptedTdee ?? tdee;
 
   // La prima volta che si arriva qui, si parte dal TDEE.
   useEffect(() => {
-    if (targetKcal == null) setTargetKcal(tdee);
-  }, [targetKcal, tdee, setTargetKcal]);
+    if (targetKcal == null) setTargetKcal(tdeeEffettivo);
+  }, [targetKcal, tdeeEffettivo, setTargetKcal]);
 
-  const kcal = targetKcal ?? tdee;
+  const kcal = targetKcal ?? tdeeEffettivo;
   const daily = useMemo(() => {
     const base = computeDailyTargets(profile, kcal);
     return { ...base, ...dailyMacrosFromPct(kcal, dailyMacroPct) };
@@ -73,13 +78,18 @@ export function SetupPage() {
           <span className="mono is-strong">{formatNumber(tdee)} kcal</span>
         </div>
         <p className="setup-card-note">{formula}</p>
+        {adoptedTdee != null && (
+          <p className="setup-card-note">
+            Regolato dal tuo peso reale: <span className="mono">{formatNumber(adoptedTdee)} kcal</span>. Lo trovi in Peso e verifica.
+          </p>
+        )}
       </section>
 
       {/* ── Quanto mangi al giorno ── */}
       <div className="section-head" style={{ marginTop: 22 }}>
         <span className="ios-caption">{t('setup.dailyKcal')}</span>
       </div>
-      <CalorieSlider value={kcal} tdee={tdee} bmr={bmr} onChange={setTargetKcal} />
+      <CalorieSlider value={kcal} tdee={tdeeEffettivo} bmr={bmr} onChange={setTargetKcal} />
 
       {/* ── Come dividi i macro ── */}
       <div className="section-head" style={{ marginTop: 22 }}>
@@ -137,7 +147,7 @@ export function SetupPage() {
           type="button"
           className="ios-row is-action"
           onClick={async () => {
-            const data = buildBackup(profile, snapshot(), customFoods);
+            const data = buildBackup(profile, snapshot(), customFoods, snapshotWeight());
             await shareBackup(backupFilename(), JSON.stringify(data, null, 2));
             markBackedUp();
             setBackupInfo(describeLastBackup());
