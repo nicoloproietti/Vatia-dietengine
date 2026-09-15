@@ -1,33 +1,29 @@
 interface Props {
-  days: string[];        // short labels, e.g. DAYS_SHORT_IT
+  /** Iniziali dei sette giorni, es. ['L','M','M','G','V','S','D']. */
+  letters: string[];
   value: number;
   onChange: (idx: number) => void;
-  /** completed meals per day index, used for the progress line + complete state */
-  doneByDay: number[];
-  mealsPerDay: number;
+  /** Giorni con almeno un pasto costruito — un punto sotto la lettera. */
+  doneByDay?: boolean[] | undefined;
 }
 
-/** 7-day tab row with per-day completion (e.g. "3/4"). */
-export function DaySelector({ days, value, onChange, doneByDay, mealsPerDay }: Props) {
+/** Selettore giorni a lettera singola — un controllo segmentato, non sette pillole. */
+export function DaySelector({ letters, value, onChange, doneByDay }: Props) {
   return (
-    <div className="day-tabs" role="tablist">
-      {days.map((label, idx) => {
-        const done = doneByDay[idx] ?? 0;
-        const complete = done === mealsPerDay;
-        return (
-          <button
-            key={idx}
-            type="button"
-            role="tab"
-            aria-selected={value === idx}
-            className={`day-tab ${value === idx ? 'is-active' : ''} ${complete ? 'is-complete' : ''}`}
-            onClick={() => onChange(idx)}
-          >
-            <span className="day-tab-label">{label}</span>
-            <span className="day-tab-progress mono">{done}/{mealsPerDay}</span>
-          </button>
-        );
-      })}
+    <div className="week-days" role="tablist">
+      {letters.map((letter, idx) => (
+        <button
+          key={idx}
+          type="button"
+          role="tab"
+          aria-selected={value === idx}
+          className={`week-day ${value === idx ? 'is-active' : ''}`}
+          onClick={() => onChange(idx)}
+        >
+          {letter}
+          {doneByDay?.[idx] && <span className="week-day-dot" />}
+        </button>
+      ))}
     </div>
   );
 }

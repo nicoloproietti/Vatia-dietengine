@@ -795,55 +795,84 @@ select {
   box-shadow: var(--shadow-seg);
 }
 
-/* ══ Selettore giorni (segmented a 7) ══════════════════════════════════ */
+/* ══ Selettore giorni — un controllo segmentato, lettera singola ═══════ */
 
-.day-tabs {
+.week-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 2px;
-  border: none;
   border-radius: var(--radius);
   padding: 2px;
   background: var(--fill-1);
 }
-.day-tab {
+.week-day {
+  position: relative;
   background: transparent;
   border: none;
-  padding: 7px 2px;
+  padding: 8px 2px;
   color: var(--ink-2);
   font-family: var(--font-sans);
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  text-transform: none;
+  font-weight: 400;
   cursor: pointer;
-  border-radius: 9px;
-  min-height: 46px;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  align-items: center;
-  justify-content: center;
+  border-radius: 11px;
+  min-height: 40px;
   transition: background 140ms var(--ease-ios), color var(--transition);
 }
-.day-tab:hover:not(.is-active) { background: var(--fill-press); color: var(--ink); }
-.day-tab:active { transform: scale(0.97); opacity: 1; }
-.day-tab.is-active {
+.week-day:hover:not(.is-active) { background: var(--fill-press); color: var(--ink); }
+.week-day:active { transform: scale(0.97); opacity: 1; }
+.week-day.is-active {
   background: var(--surface);
   color: var(--ink);
   font-weight: 600;
   box-shadow: var(--shadow-seg);
 }
-.day-tab.is-complete:not(.is-active) { color: var(--accent); }
-.day-tab-progress {
-  font-size: 10px;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--ink-3);
-  font-variant-numeric: tabular-nums;
+.week-day-dot {
+  position: absolute;
+  bottom: 4px; left: 50%;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateX(-50%);
 }
-.day-tab.is-complete .day-tab-progress { color: var(--accent); }
-.day-tab.is-active .day-tab-progress { color: var(--ink-3); }
+
+/* ══ Totali del giorno — una card, quattro barre ═══════════════════════ */
+
+.week-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.week-totals-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-bottom: 4px;
+}
+.week-bar-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-bottom: 4px;
+}
+.week-bar-track {
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--fill-2);
+  overflow: hidden;
+}
+.week-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 300ms var(--ease-ios);
+}
 
 /* ══ Card di riepilogo / statistiche ═══════════════════════════════════ */
 

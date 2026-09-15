@@ -26,7 +26,7 @@ interface PlanValue {
   weekPlan: WeekPlan;
   saveMeal: (dayIdx: number, mealIdx: number, meal: SavedMeal) => void;
   clearMeal: (dayIdx: number, mealIdx: number) => void;
-  copyMealToWeek: (fromDay: number, mealIdx: number) => void;
+  copyDayToWeek: (fromDay: number) => void;
   clearWeek: () => void;
   /** Fotografia dello stato, per il backup. */
   snapshot: () => Persisted;
@@ -105,14 +105,15 @@ export function PlanProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const copyMealToWeek = useCallback((fromDay: number, mealIdx: number) => {
+  /** Copia tutti i pasti già costruiti di un giorno sugli altri sei. */
+  const copyDayToWeek = useCallback((fromDay: number) => {
     setWeekPlan((prev) => {
-      const source = prev[fromDay]?.[mealIdx];
-      if (!source) return prev;
+      const source = prev[fromDay] ?? {};
+      if (Object.keys(source).length === 0) return prev;
       const next: WeekPlan = { ...prev };
       for (let d = 0; d < 7; d++) {
         if (d === fromDay) continue;
-        next[d] = { ...(prev[d] ?? {}), [mealIdx]: source };
+        next[d] = { ...source };
       }
       return next;
     });
@@ -141,9 +142,9 @@ export function PlanProvider({ children }: { children: ReactNode }) {
     dailyMacroPct, setDailyMacroPct,
     mealCount, setMealCount,
     distribution, setDistribution,
-    weekPlan, saveMeal, clearMeal, copyMealToWeek, clearWeek,
+    weekPlan, saveMeal, clearMeal, copyDayToWeek, clearWeek,
     snapshot, restore,
-  }), [targetKcal, dailyMacroPct, mealCount, setMealCount, distribution, weekPlan, saveMeal, clearMeal, copyMealToWeek, clearWeek, snapshot, restore]);
+  }), [targetKcal, dailyMacroPct, mealCount, setMealCount, distribution, weekPlan, saveMeal, clearMeal, copyDayToWeek, clearWeek, snapshot, restore]);
 
   return <PlanCtx.Provider value={value}>{children}</PlanCtx.Provider>;
 }
